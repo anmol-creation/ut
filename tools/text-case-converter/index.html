@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Text Case Converter - UT.ac</title>
+  <meta name="description" content="Free online text case converter tool. Convert text to Uppercase, Lowercase, Title Case, Sentence Case, and more. Clean, fast, and privacy-focused.">
+  <link rel="stylesheet" href="styles/base.css">
+  <link rel="stylesheet" href="styles/tool.css">
+  <link rel="stylesheet" href="styles/buttons.css">
+  <link rel="stylesheet" href="styles/responsive.css">
+</head>
+<body>
+
+  <div class="container">
+    <!-- Header Component (Loaded via JS or static included for better SEO/No-JS, but following strict component separation, we might want to load it.
+         However, the user asked for index.html to show specific things first.
+         I will include the initial landing content directly here for performance and SEO,
+         while still respecting the structure by having the files available as sources or for future dynamic loading patterns.)
+    -->
+    <!-- Step 1: Tool Landing Page -->
+    <header class="tool-header">
+      <h1>Text Case Converter</h1>
+      <button id="use-tool-btn" class="btn btn-primary">[ Use Tool ]</button>
+    </header>
+
+    <div class="explanation-section">
+      <h3>About This Tool</h3>
+      <p>
+        Text Case Converter ek simple aur powerful tool hai jo aapke text ko kisi bhi format me badalne me madad karta hai.
+        Chahe aapko UPPERCASE chahiye, lowercase, ya phir Title Case, ye tool sab kuch seconds me kar deta hai.
+      </p>
+      <p>
+        Humara focus speed aur privacy par hai. Aapka data aapke browser me hi process hota hai, kisi server par nahi jata.
+        UT.ac ke sabhi tools free hain aur hamesha rahenge.
+      </p>
+
+      <h3>Features</h3>
+      <ul class="features-list">
+        <li>Instant Conversion</li>
+        <li>Privacy First (No data stored)</li>
+        <li>Works offline</li>
+        <li>Dark Mode Ready</li>
+      </ul>
+
+      <h3>Available Functions</h3>
+      <ul class="functions-list">
+        <li>Uppercase & Lowercase</li>
+        <li>Title Case & Sentence Case</li>
+        <li>Toggle Case & Random Case</li>
+      </ul>
+    </div>
+
+    <!-- Ads Placeholder -->
+    <div class="ads-placeholder">
+      Advertisement Space (Safe Placement)
+    </div>
+
+    <!-- Tool UI Container (Hidden by default) -->
+    <div id="tool-ui-container"></div>
+
+    <footer>
+      <p>© UT.ac — All tools are free</p>
+    </footer>
+  </div>
+
+  <script type="module" src="main.js"></script>
+</body>
+</html>

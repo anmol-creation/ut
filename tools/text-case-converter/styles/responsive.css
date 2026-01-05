@@ -1,0 +1,22 @@
+@media (max-width: 600px) {
+  .container {
+    padding: 15px;
+  }
+
+  .tool-header {
+    padding: 2rem 0;
+  }
+
+  .action-buttons-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .utility-buttons {
+    flex-wrap: wrap;
+  }
+
+  .btn {
+    width: 100%;
+    text-align: center;
+  }
+}
