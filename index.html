@@ -3,34 +3,176 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>UT.ac</title>
+    <title>UT.ac - Powerful Tools</title>
     <link rel="stylesheet" href="home/home.css">
 </head>
 <body>
     <header>
-        <div class="logo">UT.ac</div>
-        <button id="theme-toggle" aria-label="Toggle Dark/Light Mode">Toggle Theme</button>
+        <div class="header-container">
+            <div class="logo">UT.ac</div>
+            <nav>
+                <ul>
+                    <li><a href="#">Home</a></li>
+                    <li><a href="tools/index.html">Category</a></li>
+                    <li><a href="#most-popular">Most Popular</a></li>
+                    <li><a href="#new-comer">New Comer</a></li>
+                </ul>
+            </nav>
+            <div class="header-actions">
+                <button id="theme-toggle" aria-label="Toggle Dark/Light Mode">Theme</button>
+            </div>
+        </div>
     </header>
 
     <main>
         <section class="hero">
-            <h1>UT.ac</h1>
-            <p>Tools for real problems</p>
-            <a href="tools/index.html" class="cta-button">Explore Tools</a>
+            <div class="hero-content">
+                <h1>FIND ALL POWERFUL TOOLS TO HELP YOU.</h1>
+                <p>Discover tools you need as a Designer and Developer.</p>
+                <div class="hero-stats">
+                    <div class="stat">
+                        <span class="stat-icon">👥</span>
+                        <span class="stat-text"><strong>3.000+</strong> Users</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-icon">🔧</span>
+                        <span class="stat-text"><strong>12.000</strong> Tools</span>
+                    </div>
+                </div>
+                <!-- Search bar or CTA could go here, but screenshot doesn't show one explicitly in hero, mostly stats -->
+            </div>
+            <div class="hero-image">
+                <div class="circle-bg"></div>
+                <!-- Placeholder for the person image -->
+                <div class="person-placeholder"></div>
+            </div>
         </section>
 
-        <section class="about">
-            <h2>About UT.ac</h2>
-            <p>UT.ac provides a collection of completely free, research-driven tools designed to solve everyday problems efficiently. No sign-ups, no fees.</p>
+        <section id="most-popular" class="section-light">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Most Popular Tools</h2>
+                    <p>Some tools that are often used by a Designer and Developer</p>
+                </div>
+                <div class="tools-grid">
+                    <div class="tool-card">
+                        <div class="tool-icon figma-icon">F</div>
+                        <h3>Figma</h3>
+                        <p>Web-based application for interface design.</p>
+                        <a href="#" class="tool-link">Visit</a>
+                    </div>
+                    <div class="tool-card">
+                        <div class="tool-icon vscode-icon">VS</div>
+                        <h3>Visual Studio Code</h3>
+                        <p>Source-code editor made by Microsoft.</p>
+                        <a href="#" class="tool-link">Visit</a>
+                    </div>
+                    <div class="tool-card">
+                        <div class="tool-icon xd-icon">Xd</div>
+                        <h3>Adobe XD</h3>
+                        <p>Vector-based user experience design tool.</p>
+                        <a href="#" class="tool-link">Visit</a>
+                    </div>
+                </div>
+                <div class="view-more">
+                    <a href="tools/index.html">See more ></a>
+                </div>
+            </div>
         </section>
 
-        <section class="cta-section">
-            <a href="tools/index.html" class="cta-button">Browse All Tools</a>
+        <section class="brands section-light">
+            <div class="container">
+                <h3>Trusted Brands</h3>
+                <div class="brand-logos">
+                    <span>Google</span>
+                    <span>Adobe</span>
+                    <span>Microsoft</span>
+                    <span>php</span>
+                    <span>AUTODESK</span>
+                    <span>ORACLE</span>
+                </div>
+            </div>
+        </section>
+
+        <section id="new-comer" class="section-light">
+            <div class="container">
+                <div class="section-header">
+                    <h2>New Comer Tools</h2>
+                    <p>Up to date tools so you don't miss out.</p>
+                </div>
+                <div class="tools-grid">
+                    <div class="tool-card">
+                        <div class="tool-icon webflow-icon">W</div>
+                        <h3>Webflow</h3>
+                        <p>Build responsive websites without coding.</p>
+                        <a href="#" class="tool-link">Visit</a>
+                    </div>
+                    <div class="tool-card">
+                        <div class="tool-icon ps-icon">Ps</div>
+                        <h3>Adobe Photoshop</h3>
+                        <p>Raster graphics editor.</p>
+                        <a href="#" class="tool-link">Visit</a>
+                    </div>
+                    <div class="tool-card">
+                        <div class="tool-icon ai-icon">Ai</div>
+                        <h3>Adobe Illustrator</h3>
+                        <p>Vector graphics editor.</p>
+                        <a href="#" class="tool-link">Visit</a>
+                    </div>
+                </div>
+                <div class="view-more">
+                    <a href="tools/index.html">See more ></a>
+                </div>
+            </div>
+        </section>
+
+        <section class="testimonials section-dark">
+            <div class="container">
+                <h2>Testimonials</h2>
+                <div class="testimonials-grid">
+                    <div class="testimonial-card">
+                        <div class="avatar"></div>
+                        <h4>Wade Warren</h4>
+                        <p class="role">UI Designer</p>
+                        <p class="quote">"Great tools available here."</p>
+                    </div>
+                    <div class="testimonial-card">
+                        <div class="avatar"></div>
+                        <h4>Jane Cooper</h4>
+                        <p class="role">Web Developer</p>
+                        <p class="quote">"Helped me finish my project quickly."</p>
+                    </div>
+                    <div class="testimonial-card">
+                        <div class="avatar"></div>
+                        <h4>Cameron Williamson</h4>
+                        <p class="role">Web Designer</p>
+                        <p class="quote">"Best place for free tools."</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="subscribe section-dark">
+            <div class="container subscribe-container">
+                <div class="subscribe-text">
+                    <h2>Don't Forget to Subscribe</h2>
+                    <p>Register to get the latest updates from us.</p>
+                </div>
+                <div class="subscribe-form">
+                    <input type="email" placeholder="Enter your email">
+                    <button>SUBMIT</button>
+                </div>
+            </div>
         </section>
     </main>
 
     <footer>
-        <p>&copy; UT.ac — All tools are free</p>
+        <div class="footer-container">
+            <div class="footer-logo">UT.ac</div>
+            <div class="footer-links">
+                <p>&copy; UT.ac — All tools are free</p>
+            </div>
+        </div>
     </footer>
 
     <script src="home/home.js"></script>

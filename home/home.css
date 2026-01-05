@@ -1,39 +1,77 @@
 :root {
-    --bg-color: #121212;
-    --text-color: #e0e0e0;
-    --primary-color: #bb86fc;
-    --secondary-color: #03dac6;
-    --header-bg: #1f1f1f;
-    --footer-bg: #1f1f1f;
-    --button-bg: #3700b3;
-    --button-text: #ffffff;
+    /* Default is Dark Mode per memory instructions */
+    --bg-primary: #0f172a; /* Deep Navy - Hero, Footer */
+    --bg-secondary: #1e293b; /* Lighter Navy - Sections that would be white in light mode */
+    --card-bg: #334155;
+    --text-primary: #f8fafc;
+    --text-secondary: #94a3b8;
+    --accent-color: #f59e0b; /* Yellow/Orange */
+    --accent-hover: #d97706;
+    --btn-primary-bg: #f59e0b; /* Yellow button */
+    --btn-primary-text: #0f172a;
+    --link-color: #38bdf8;
+    --header-bg: transparent; /* Or match hero */
+
+    /* Brand Colors for Icons (Placeholders) */
+    --brand-figma: #F24E1E;
+    --brand-vscode: #007ACC;
+    --brand-xd: #FF61F6;
 }
 
 [data-theme="light"] {
-    --bg-color: #ffffff;
-    --text-color: #121212;
-    --primary-color: #6200ee;
-    --secondary-color: #03dac6;
-    --header-bg: #f5f5f5;
-    --footer-bg: #f5f5f5;
-    --button-bg: #6200ee;
-    --button-text: #ffffff;
+    /* Styles matching the screenshot strictly for the "Light" parts */
+    --bg-primary: #1e293b; /* Hero still dark in screenshot? Yes. */
+    --bg-secondary: #ffffff; /* Content sections white */
+    --card-bg: #ffffff;
+    --text-primary: #1e293b; /* Text on white bg */
+    --text-secondary: #64748b;
+    /* Special case: Text on dark hero must remain light */
+    --text-on-dark: #f8fafc;
+}
+
+/* Reset & Base */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
 }
 
 body {
-    background-color: var(--bg-color);
-    color: var(--text-color);
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh;
+    font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    background-color: var(--bg-primary);
+    color: var(--text-primary);
+    line-height: 1.6;
+    overflow-x: hidden;
+    transition: background-color 0.3s, color 0.3s;
 }
 
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+ul {
+    list-style: none;
+}
+
+/* Typography */
+h1, h2, h3, h4 {
+    font-weight: 700;
+    line-height: 1.2;
+}
+
+/* Header */
 header {
-    background-color: var(--header-bg);
-    padding: 1rem 2rem;
+    background-color: var(--bg-primary);
+    padding: 1.5rem 2rem;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.header-container {
+    max-width: 1200px;
+    margin: 0 auto;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -41,73 +79,399 @@ header {
 
 .logo {
     font-size: 1.5rem;
-    font-weight: bold;
+    font-weight: 800;
+    color: #fff; /* Always white on dark header */
+}
+
+/* Light mode overrides for specific text if header bg changes */
+[data-theme="light"] .logo {
+   /* Header is dark in screenshot, let's keep it dark or adapt? */
+   /* If hero is dark, header should be dark. */
+}
+
+nav ul {
+    display: flex;
+    gap: 1rem;
+    font-size: 0.8rem;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+@media (min-width: 768px) {
+    nav ul {
+        display: flex;
+        gap: 2rem;
+        font-size: 1rem;
+    }
+
+    nav a {
+        color: #94a3b8;
+        font-weight: 500;
+        font-size: 0.9rem;
+        transition: color 0.2s;
+    }
+
+    nav a:hover {
+        color: #fff;
+    }
 }
 
 #theme-toggle {
     background: transparent;
-    border: 1px solid var(--text-color);
-    color: var(--text-color);
-    padding: 0.5rem 1rem;
-    cursor: pointer;
+    border: 1px solid #94a3b8;
+    color: #94a3b8;
+    padding: 0.4rem 0.8rem;
     border-radius: 4px;
+    cursor: pointer;
+    font-size: 0.8rem;
 }
 
-main {
-    flex: 1;
-    padding: 2rem;
-    max-width: 800px;
-    margin: 0 auto;
-    text-align: center;
+#theme-toggle:hover {
+    color: #fff;
+    border-color: #fff;
 }
 
+/* Hero Section */
 .hero {
-    margin-bottom: 4rem;
+    background-color: var(--bg-primary);
+    padding: 4rem 2rem 6rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff; /* Always light text on hero */
+}
+
+.hero-content {
+    max-width: 500px;
+    flex: 1;
 }
 
 .hero h1 {
-    font-size: 3rem;
-    margin-bottom: 0.5rem;
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    color: #fff;
 }
 
 .hero p {
-    font-size: 1.25rem;
+    font-size: 1.1rem;
+    color: #94a3b8;
     margin-bottom: 2rem;
-    color: var(--text-color);
-    opacity: 0.8;
 }
 
-.cta-button {
-    display: inline-block;
-    background-color: var(--button-bg);
-    color: var(--button-text);
-    padding: 0.75rem 1.5rem;
-    text-decoration: none;
-    border-radius: 4px;
-    font-weight: bold;
-    transition: opacity 0.2s;
+.hero-stats {
+    display: flex;
+    gap: 2rem;
 }
 
-.cta-button:hover {
-    opacity: 0.9;
+.stat {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
 }
 
-.about {
-    margin-bottom: 4rem;
+.stat-icon {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 0.5rem;
+    border-radius: 50%;
 }
 
-.about h2 {
+.hero-image {
+    flex: 1;
+    display: none; /* Hidden on mobile */
+    position: relative;
+    justify-content: center;
+}
+
+@media (min-width: 768px) {
+    .hero {
+        padding: 4rem 2rem;
+    }
+    .hero-image {
+        display: flex;
+    }
+    .hero-content {
+        margin-right: 2rem;
+    }
+    .hero h1 {
+        font-size: 3rem; /* Larger on desktop */
+    }
+}
+
+.circle-bg {
+    width: 300px;
+    height: 300px;
+    background-color: var(--accent-color);
+    border-radius: 50%;
+    position: absolute;
+    z-index: 0;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.person-placeholder {
+    width: 280px;
+    height: 350px;
+    background-color: #475569;
+    position: relative;
+    z-index: 1;
+    border-radius: 20px;
+    /* Placeholder for image */
+}
+
+/* Sections Common */
+.section-light {
+    background-color: var(--bg-secondary);
+    color: var(--text-primary);
+    padding: 4rem 2rem;
+}
+
+.section-dark {
+    background-color: var(--bg-primary);
+    color: #fff; /* Force white text */
+    padding: 4rem 2rem;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.section-header {
+    text-align: center; /* Screenshot shows center? Left? */
+    /* Screenshot: "Most Popular Tools" is centered. */
+    margin-bottom: 3rem;
+    text-align: center;
+}
+
+.section-header h2 {
     font-size: 2rem;
+    margin-bottom: 0.5rem;
+}
+
+.section-header p {
+    color: var(--text-secondary);
+}
+
+/* Tools Grid */
+.tools-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    margin-bottom: 2rem;
+}
+
+.tool-card {
+    background-color: var(--card-bg);
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.tool-card:hover {
+    transform: translateY(-5px);
+}
+
+.tool-icon {
+    width: 50px;
+    height: 50px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    color: white;
+    font-size: 1.2rem;
     margin-bottom: 1rem;
 }
 
-.cta-section {
-    margin-bottom: 2rem;
+.figma-icon { background: linear-gradient(to bottom right, #F24E1E, #A259FF, #1ABCFE); }
+.vscode-icon { background-color: #007ACC; }
+.xd-icon { background-color: #470137; border: 1px solid #FF61F6; color: #FF61F6; }
+.webflow-icon { background-color: #4353FF; }
+.ps-icon { background-color: #001E36; color: #31A8FF; border: 1px solid #31A8FF; }
+.ai-icon { background-color: #330000; color: #FF9A00; border: 1px solid #FF9A00; }
+
+
+.tool-card h3 {
+    margin-bottom: 0.5rem;
+    font-size: 1.2rem;
 }
 
-footer {
-    background-color: var(--footer-bg);
-    padding: 1rem;
-    text-align: center;
+.tool-card p {
     font-size: 0.9rem;
+    color: var(--text-secondary);
+    margin-bottom: 1.5rem;
+    flex: 1;
+}
+
+.tool-link {
+    color: var(--accent-color);
+    font-weight: 600;
+    font-size: 0.9rem;
+}
+
+.view-more {
+    text-align: center;
+    margin-top: 2rem;
+}
+
+.view-more a {
+    color: var(--link-color);
+    font-weight: 600;
+}
+
+/* Brands */
+.brands {
+    text-align: center;
+    padding: 2rem 0;
+}
+
+.brands h3 {
+    margin-bottom: 2rem;
+    font-size: 1.2rem;
+}
+
+.brand-logos {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 3rem;
+    font-weight: bold;
+    color: var(--text-secondary);
+    font-size: 1.5rem;
+    opacity: 0.7;
+}
+
+/* Testimonials */
+.testimonials-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.testimonial-card {
+    background-color: #1e293b; /* Slightly lighter than dark bg */
+    padding: 2rem;
+    border-radius: 12px;
+    text-align: center;
+}
+
+[data-theme="light"] .testimonial-card {
+    background-color: #fff; /* White cards on dark bg? Or dark cards on dark bg? */
+    /* Screenshot has white cards for testimonials on dark bg? No, screenshot shows color cards or white cards. */
+    /* Let's look at screenshot again. */
+    /* Testimonials section is DARK blue background. Cards are White. */
+    background-color: #ffffff;
+    color: #1e293b;
+}
+/* Dark mode testimonial cards */
+.testimonial-card {
+    background-color: #334155;
+    color: #fff;
+}
+
+.testimonial-card .avatar {
+    width: 60px;
+    height: 60px;
+    background-color: #ccc;
+    border-radius: 50%;
+    margin: 0 auto 1rem;
+}
+
+.testimonial-card h4 {
+    margin-bottom: 0.2rem;
+}
+
+.testimonial-card .role {
+    font-size: 0.85rem;
+    color: #94a3b8;
+    margin-bottom: 1rem;
+}
+
+.testimonial-card .quote {
+    font-style: italic;
+}
+
+
+/* Subscribe */
+.subscribe-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #1e293b;
+    padding: 3rem;
+    border-radius: 20px;
+}
+
+[data-theme="light"] .subscribe-container {
+   /* Screenshot: Footer area is dark. Subscribe box is dark. */
+   background-color: #1e293b; /* Keep it dark */
+   color: #fff;
+}
+
+.subscribe-text {
+    flex: 1;
+    min-width: 300px;
+    margin-bottom: 1rem;
+}
+
+.subscribe-text h2 {
+    margin-bottom: 0.5rem;
+    color: #fff;
+}
+
+.subscribe-text p {
+    color: #94a3b8;
+}
+
+.subscribe-form {
+    display: flex;
+    gap: 1rem;
+}
+
+.subscribe-form input {
+    padding: 0.8rem;
+    border-radius: 4px;
+    border: none;
+    min-width: 250px;
+}
+
+.subscribe-form button {
+    background-color: var(--accent-color); /* Purple in screenshot? Looks purple/blue. Let's use accent. */
+    /* Screenshot button is PURPLE/BLUE. */
+    background-color: #6366f1;
+    color: white;
+    border: none;
+    padding: 0.8rem 2rem;
+    border-radius: 4px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+/* Footer */
+footer {
+    background-color: var(--bg-primary);
+    padding: 2rem;
+    border-top: 1px solid #334155;
+    color: #94a3b8;
+}
+
+.footer-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.footer-logo {
+    color: #fff;
+    font-weight: bold;
 }
