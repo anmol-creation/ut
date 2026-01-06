@@ -19,53 +19,28 @@ const logicMap = {
 };
 
 document.addEventListener('DOMContentLoaded', () => {
+  const landingView = document.getElementById('landing-view');
+  const toolView = document.getElementById('tool-view');
   const useToolBtn = document.getElementById('use-tool-btn');
-  const toolContainer = document.getElementById('tool-ui-container');
+  const backBtn = document.getElementById('back-btn');
 
-  // Load UI Components
-  async function loadComponents() {
-    if (toolContainer.innerHTML.trim() !== '') return; // Already loaded
-
-    try {
-      // Fetch components
-      const [inputHtml, actionBtnsHtml, outputHtml, utilityBtnsHtml] = await Promise.all([
-        fetch('components/input-area.html').then(res => res.text()),
-        fetch('components/action-buttons.html').then(res => res.text()),
-        fetch('components/output-area.html').then(res => res.text()),
-        fetch('components/utility-buttons.html').then(res => res.text())
-      ]);
-
-      // Construct the UI
-      const uiWrapper = document.createElement('div');
-      uiWrapper.id = 'tool-ui';
-      uiWrapper.innerHTML = `
-        ${inputHtml}
-        ${actionBtnsHtml}
-        ${outputHtml}
-        ${utilityBtnsHtml}
-      `;
-
-      toolContainer.appendChild(uiWrapper);
-
-      // Initialize Logic wiring after DOM is ready
-      initializeLogic();
-
-      // Reveal UI
-      // Small timeout to allow DOM reflow for transition
-      setTimeout(() => {
-        uiWrapper.classList.add('visible');
-        uiWrapper.scrollIntoView({ behavior: 'smooth', block: 'start' });
-      }, 50);
-
-    } catch (error) {
-      console.error('Failed to load tool components:', error);
-      toolContainer.innerHTML = '<p style="color:red; text-align:center;">Error loading tool. Please try refreshing.</p>';
-    }
-  }
-
+  // Navigation
   useToolBtn.addEventListener('click', () => {
-    loadComponents();
+    landingView.classList.add('hidden');
+    toolView.classList.remove('hidden');
+    // Focus input
+    setTimeout(() => document.getElementById('input-text').focus(), 100);
+    // Smooth scroll to top
+    window.scrollTo({ top: 0, behavior: 'smooth' });
   });
+
+  backBtn.addEventListener('click', () => {
+    toolView.classList.add('hidden');
+    landingView.classList.remove('hidden');
+  });
+
+  // Initialize Logic
+  initializeLogic();
 });
 
 function initializeLogic() {
@@ -78,7 +53,7 @@ function initializeLogic() {
   });
 
   // Action Buttons
-  document.querySelectorAll('.action-btn').forEach(btn => {
+  document.querySelectorAll('.btn-action').forEach(btn => {
     btn.addEventListener('click', () => {
       const action = btn.getAttribute('data-action');
       const text = inputEl.value;
@@ -93,7 +68,6 @@ function initializeLogic() {
           setOutputText(result);
         } catch (err) {
           console.error(`Error executing ${action}:`, err);
-          // Don't break the tool, maybe show a toast (not implemented yet)
         }
       }
     });
@@ -101,12 +75,20 @@ function initializeLogic() {
 
   // Utility Buttons
   document.getElementById('btn-copy').addEventListener('click', () => {
+    if (!outputEl.value) return;
+
     copyToClipboard(outputEl.value).then(success => {
       if (success) {
-        const originalText = document.getElementById('btn-copy').textContent;
-        document.getElementById('btn-copy').textContent = 'Copied!';
+        const btn = document.getElementById('btn-copy');
+        const originalText = btn.textContent;
+        btn.textContent = 'Copied!';
+        btn.classList.add('btn-primary'); // Feedback style
+        btn.classList.remove('btn-secondary');
+
         setTimeout(() => {
-          document.getElementById('btn-copy').textContent = originalText;
+          btn.textContent = originalText;
+          btn.classList.remove('btn-primary');
+          btn.classList.add('btn-secondary');
         }, 2000);
       }
     });

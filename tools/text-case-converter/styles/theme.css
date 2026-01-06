@@ -1,0 +1,67 @@
+:root {
+  /* Dark Navy Theme Palette */
+  --bg-primary: #0f172a;      /* Deep Navy Background */
+  --bg-secondary: #1e293b;    /* Card Background */
+  --bg-tertiary: #334155;     /* Input/Hover Background */
+
+  --text-primary: #f8fafc;    /* White text */
+  --text-secondary: #94a3b8;  /* Muted text */
+  --text-tertiary: #64748b;   /* Subtle text */
+
+  --primary-color: #6366f1;   /* Indigo */
+  --primary-hover: #4f46e5;
+
+  --accent-color: #f59e0b;    /* Amber/Orange */
+
+  --border-color: #334155;
+  --border-light: #475569;
+
+  --danger-color: #ef4444;
+
+  /* Dimensions */
+  --container-width: 1000px;
+  --card-radius: 12px;
+  --btn-radius: 6px;
+
+  /* Shadows */
+  --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+  --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+  --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Utilities */
+.hidden {
+  display: none !important;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+.text-danger {
+  color: var(--danger-color) !important;
+}
