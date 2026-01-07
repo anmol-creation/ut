@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Text Case Converter - UT.ac</title>
+  <title>Text Case Converter - Free Online Text Tool - UT.ac</title>
   <meta name="description" content="Free online text case converter tool. Convert text to Uppercase, Lowercase, Title Case, Sentence Case, and more. Clean, fast, and privacy-focused.">
 
   <!-- CSS Loading Order -->
@@ -11,6 +11,15 @@
   <link rel="stylesheet" href="styles/layout.css">
   <link rel="stylesheet" href="styles/components.css">
   <link rel="stylesheet" href="styles/tool.css">
+  <!-- Google tracking code -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-3565X5KNFD"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-3565X5KNFD');
+  </script>
 </head>
 <body>
 
@@ -24,6 +33,7 @@
 
     <!-- Info Cards Grid -->
     <section class="info-grid">
+      <h2 class="sr-only">Features</h2>
       <div class="info-card">
         <h3>⚡ Instant</h3>
         <p>Real-time conversion as you type. No waiting.</p>
@@ -41,7 +51,7 @@
     <!-- Explanation Section -->
     <section class="explanation-content">
       <div class="text-block">
-        <h3>How it works</h3>
+        <h2>How it works</h2>
         <p>
           Simply launch the tool, paste your text, and click any button to convert it.
           Perfect for social media, coding, or fixing accidental CAPS LOCK.
@@ -108,7 +118,7 @@
   </main>
 
   <footer class="site-footer">
-    <p>© UT.ac — All tools are free</p>
+    <p>© UT.ac — All tools are free <span class="visitor-counter" style="margin-left: 15px; opacity: 0.8;">| Total Users: 3,000+</span></p>
   </footer>
 
   <script type="module" src="main.js"></script>
