@@ -3,10 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Word & Character Counter - UT.ac</title>
+    <title>Word & Character Counter - Free Online Count Tool - UT.ac</title>
     <meta name="description" content="A free, fast, and privacy-friendly word and character counter tool. Get real-time stats, reading time, and text analysis.">
     <link rel="stylesheet" href="styles/style.css">
     <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>📝</text></svg>">
+    <!-- Google tracking code -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-3565X5KNFD"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-3565X5KNFD');
+    </script>
 </head>
 <body>
 
@@ -21,6 +30,7 @@
             <button id="launch-tool-btn" class="btn-primary">Launch Tool</button>
 
             <section class="features-preview">
+                <h2 class="sr-only">Features</h2>
                 <div class="feature-card">
                     <h3>⚡ Real-time</h3>
                     <p>Instant updates as you type or paste text.</p>
@@ -156,7 +166,7 @@
     </main>
 
     <footer class="site-footer">
-        <p>© UT.ac — All tools are free</p>
+        <p>© UT.ac — All tools are free <span class="visitor-counter" style="margin-left: 15px; opacity: 0.8;">| Total Users: 3,000+</span></p>
     </footer>
 
     <!-- Script Loading Order -->
