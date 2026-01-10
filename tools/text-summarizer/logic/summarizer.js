@@ -14,10 +14,18 @@ export class Summarizer {
      * Summarizes the text.
      * @param {string} text - The input text.
      * @param {string} lengthMode - 'short', 'medium', 'long'.
+     * @param {object} options - { excludeQuotes, excludeCitations }
      * @returns {Array<string>} - Array of selected sentences.
      */
-    summarize(text, lengthMode = 'medium') {
+    summarize(text, lengthMode = 'medium', options = {}) {
         if (!text || !text.trim()) return [];
+
+        if (options.excludeQuotes) {
+            text = text.replace(/"[^"]*"/g, '').replace(/“[^”]*”/g, '');
+        }
+        if (options.excludeCitations) {
+            text = text.replace(/\[\d+\]/g, '').replace(/\(\d{4}\)/g, '');
+        }
 
         const sentences = this.getSentences(text);
         if (sentences.length === 0) return [];
