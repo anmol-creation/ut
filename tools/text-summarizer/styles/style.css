@@ -1,0 +1,68 @@
+/* Tool-specific styles */
+
+.animate-fade-in {
+    animation: fadeIn 0.5s ease-out forwards;
+}
+
+.animate-fade-in-up {
+    animation: fadeInUp 0.5s ease-out forwards;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Custom Scrollbar for Textareas and Output */
+textarea::-webkit-scrollbar,
+#output-container::-webkit-scrollbar {
+    width: 8px;
+}
+
+textarea::-webkit-scrollbar-track,
+#output-container::-webkit-scrollbar-track {
+    background: #0f172a;
+}
+
+textarea::-webkit-scrollbar-thumb,
+#output-container::-webkit-scrollbar-thumb {
+    background-color: #334155;
+    border-radius: 4px;
+}
+
+textarea::-webkit-scrollbar-thumb:hover,
+#output-container::-webkit-scrollbar-thumb:hover {
+    background-color: #475569;
+}
+
+/* Format Indicator Transition */
+.format-indicator {
+    transition: all 0.2s ease;
+}
+
+/* Keyword Tag Styles */
+.keyword-tag {
+    background-color: rgba(99, 102, 241, 0.1);
+    color: #a5b4fc;
+    padding: 0.25rem 0.75rem;
+    border-radius: 9999px;
+    font-size: 0.75rem;
+    border: 1px solid rgba(99, 102, 241, 0.2);
+    transition: all 0.2s;
+}
+
+.keyword-tag:hover {
+    background-color: rgba(99, 102, 241, 0.2);
+    border-color: rgba(99, 102, 241, 0.4);
+}
