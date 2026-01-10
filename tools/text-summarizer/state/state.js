@@ -2,6 +2,8 @@ export const state = {
     currentText: '',
     summaryLength: 'medium', // short, medium, long
     summaryFormat: 'paragraph', // paragraph, bullets
+    excludeQuotes: false,
+    excludeCitations: false,
     history: [],
 
     // Load history from local storage
@@ -57,5 +59,13 @@ export const state = {
 
     setFormat(fmt) {
         this.summaryFormat = fmt;
+    },
+
+    setExcludeQuotes(val) {
+        this.excludeQuotes = val;
+    },
+
+    setExcludeCitations(val) {
+        this.excludeCitations = val;
     }
 };

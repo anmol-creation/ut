@@ -6,21 +6,29 @@ def verify_home_page():
         browser = p.chromium.launch(headless=True)
         page = browser.new_page()
 
-        # Navigate to the home page served by python http server
-        page.goto("http://localhost:8080/")
+        # Navigate to the home page
+        page.goto("http://localhost:8080/index.html")
 
-        # Scroll to the "Most Popular Tools" section
-        popular_section = page.locator("#most-popular")
-        popular_section.scroll_into_view_if_needed()
+        # Check "New Added Tools" section
+        new_added_section = page.locator("#new-comer")
+        new_added_section.scroll_into_view_if_needed()
 
-        # Wait for the section to be visible
-        popular_section.wait_for(state="visible")
+        # Screenshot
+        page.screenshot(path="verification/home_new_added.png")
+        print("Home page screenshot taken.")
 
-        # Take a screenshot of the entire section
-        page.locator("body").screenshot(path="verification/home_page_verification.png")
+        # Verify specific elements
+        header = new_added_section.locator("h2")
+        print(f"Header text: {header.inner_text()}")
 
-        # Also take a specific screenshot of the cards
-        popular_section.screenshot(path="verification/most_popular_cards.png")
+        tools = new_added_section.locator(".tool-card")
+        count = tools.count()
+        print(f"Number of tools: {count}")
+
+        # Verify Summarizer
+        summarizer = tools.nth(0)
+        print(f"First tool: {summarizer.locator('h3').inner_text()}")
+        print(f"Button text: {summarizer.locator('.tool-link').inner_text()}")
 
         browser.close()
 

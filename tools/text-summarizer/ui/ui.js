@@ -13,6 +13,11 @@ export function initUI() {
     const inputStats = document.getElementById('input-stats');
     const pasteBtn = document.getElementById('paste-btn');
     const clearBtn = document.getElementById('clear-btn');
+
+    // URL Input
+    const inputUrl = document.getElementById('input-url');
+    const fetchUrlBtn = document.getElementById('fetch-url-btn');
+
     const fileUpload = document.getElementById('file-upload');
     const summarizeBtn = document.getElementById('summarize-btn');
     const outputContainer = document.getElementById('output-container');
@@ -24,6 +29,10 @@ export function initUI() {
 
     // Format Radios
     const formatRadios = document.querySelectorAll('input[name="format"]');
+
+    // Exclusions
+    const excludeQuotes = document.getElementById('exclude-quotes');
+    const excludeCitations = document.getElementById('exclude-citations');
 
     // Stats Elements
     const analysisPanel = document.getElementById('analysis-panel');
@@ -70,6 +79,7 @@ export function initUI() {
     // Clear
     clearBtn.addEventListener('click', () => {
         inputText.value = '';
+        inputUrl.value = '';
         state.currentText = '';
         updateInputStats('');
         outputContainer.innerHTML = `
@@ -82,6 +92,42 @@ export function initUI() {
         `;
         analysisPanel.classList.add('hidden');
         keywordsPanel.classList.add('hidden');
+    });
+
+    // Fetch URL
+    fetchUrlBtn.addEventListener('click', async () => {
+        const url = inputUrl.value.trim();
+        if (!url) return;
+
+        fetchUrlBtn.textContent = 'Fetching...';
+        fetchUrlBtn.disabled = true;
+
+        try {
+            // Note: Direct fetching usually fails due to CORS.
+            // This is a basic implementation. In a real scenario, a proxy would be needed.
+            const response = await fetch(url);
+            if (!response.ok) throw new Error('Network response was not ok');
+            const text = await response.text();
+
+            // Very basic HTML text extraction
+            const parser = new DOMParser();
+            const doc = parser.parseFromString(text, 'text/html');
+            const extractedText = doc.body.textContent || '';
+
+            inputText.value = extractedText.trim();
+            state.currentText = extractedText.trim();
+            updateInputStats(extractedText);
+            fetchUrlBtn.textContent = 'Success';
+        } catch (error) {
+            console.error('Fetch error:', error);
+            alert('Could not fetch URL directly (likely due to CORS security). Please copy and paste the text manually.');
+            fetchUrlBtn.textContent = 'Failed';
+        }
+
+        setTimeout(() => {
+            fetchUrlBtn.textContent = 'Fetch';
+            fetchUrlBtn.disabled = false;
+        }, 2000);
     });
 
     // File Upload
@@ -127,6 +173,15 @@ export function initUI() {
         });
     });
 
+    // Exclusion Toggles
+    excludeQuotes.addEventListener('change', (e) => {
+        state.setExcludeQuotes(e.target.checked);
+    });
+
+    excludeCitations.addEventListener('change', (e) => {
+        state.setExcludeCitations(e.target.checked);
+    });
+
     // Summarize Action
     summarizeBtn.addEventListener('click', () => {
         const text = state.currentText;
@@ -136,7 +191,10 @@ export function initUI() {
         }
 
         // Logic
-        const sentences = summarizer.summarize(text, state.summaryLength);
+        const sentences = summarizer.summarize(text, state.summaryLength, {
+            excludeQuotes: state.excludeQuotes,
+            excludeCitations: state.excludeCitations
+        });
         const keywords = extractKeywords(text);
         const readability = calculateReadability(text);
 
@@ -232,13 +290,28 @@ export function initUI() {
         state.history.forEach((item) => {
             const el = document.createElement('div');
             el.className = 'bg-slate-800 p-4 rounded-xl border border-slate-700 hover:border-indigo-500/50 transition-colors cursor-pointer group';
-            el.innerHTML = `
-                <div class="flex justify-between items-start mb-2">
-                    <span class="text-xs text-slate-500">${item.date}</span>
-                    <button class="text-xs text-indigo-400 opacity-0 group-hover:opacity-100 transition-opacity">Load</button>
-                </div>
-                <p class="text-sm text-slate-300 line-clamp-2">${item.preview}</p>
-            `;
+
+            const headerDiv = document.createElement('div');
+            headerDiv.className = 'flex justify-between items-start mb-2';
+
+            const dateSpan = document.createElement('span');
+            dateSpan.className = 'text-xs text-slate-500';
+            dateSpan.textContent = item.date;
+
+            const loadBtn = document.createElement('button');
+            loadBtn.className = 'text-xs text-indigo-400 opacity-0 group-hover:opacity-100 transition-opacity';
+            loadBtn.textContent = 'Load';
+
+            headerDiv.appendChild(dateSpan);
+            headerDiv.appendChild(loadBtn);
+
+            const previewP = document.createElement('p');
+            previewP.className = 'text-sm text-slate-300 line-clamp-2';
+            previewP.textContent = item.preview;
+
+            el.appendChild(headerDiv);
+            el.appendChild(previewP);
+
             el.addEventListener('click', () => {
                 inputText.value = item.original;
                 state.currentText = item.original;
