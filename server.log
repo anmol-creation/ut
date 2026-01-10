@@ -1,3 +1,21 @@
-127.0.0.1 - - [09/Jan/2026 18:47:08] "GET / HTTP/1.1" 200 -
-127.0.0.1 - - [09/Jan/2026 18:47:08] "GET /home/home.js HTTP/1.1" 200 -
-127.0.0.1 - - [09/Jan/2026 18:47:08] "GET /home/home.css HTTP/1.1" 200 -
+127.0.0.1 - - [10/Jan/2026 08:57:26] "GET /tools/text-summarizer/index.html HTTP/1.1" 200 -
+127.0.0.1 - - [10/Jan/2026 08:57:26] code 404, message File not found
+127.0.0.1 - - [10/Jan/2026 08:57:26] "GET /tools.css HTTP/1.1" 404 -
+127.0.0.1 - - [10/Jan/2026 08:57:26] "GET /tools/text-summarizer/styles/style.css HTTP/1.1" 200 -
+127.0.0.1 - - [10/Jan/2026 08:57:26] "GET /tools/text-summarizer/main.js HTTP/1.1" 200 -
+127.0.0.1 - - [10/Jan/2026 08:57:26] "GET /tools/text-summarizer/ui/ui.js HTTP/1.1" 200 -
+127.0.0.1 - - [10/Jan/2026 08:57:26] "GET /tools/text-summarizer/logic/readability.js HTTP/1.1" 200 -
+127.0.0.1 - - [10/Jan/2026 08:57:26] "GET /tools/text-summarizer/state/state.js HTTP/1.1" 200 -
+127.0.0.1 - - [10/Jan/2026 08:57:26] "GET /tools/text-summarizer/logic/summarizer.js HTTP/1.1" 200 -
+127.0.0.1 - - [10/Jan/2026 08:57:26] "GET /tools/text-summarizer/logic/keywords.js HTTP/1.1" 200 -
+127.0.0.1 - - [10/Jan/2026 08:57:26] "GET /tools/text-summarizer/utils/text-utils.js HTTP/1.1" 200 -
+127.0.0.1 - - [10/Jan/2026 08:59:29] "GET /tools/text-summarizer/index.html HTTP/1.1" 200 -
+127.0.0.1 - - [10/Jan/2026 08:59:29] "GET /tools/tools.css HTTP/1.1" 200 -
+127.0.0.1 - - [10/Jan/2026 08:59:29] "GET /tools/text-summarizer/main.js HTTP/1.1" 200 -
+127.0.0.1 - - [10/Jan/2026 08:59:29] "GET /tools/text-summarizer/styles/style.css HTTP/1.1" 200 -
+127.0.0.1 - - [10/Jan/2026 08:59:30] "GET /tools/text-summarizer/ui/ui.js HTTP/1.1" 200 -
+127.0.0.1 - - [10/Jan/2026 08:59:30] "GET /tools/text-summarizer/state/state.js HTTP/1.1" 200 -
+127.0.0.1 - - [10/Jan/2026 08:59:30] "GET /tools/text-summarizer/logic/readability.js HTTP/1.1" 200 -
+127.0.0.1 - - [10/Jan/2026 08:59:30] "GET /tools/text-summarizer/logic/keywords.js HTTP/1.1" 200 -
+127.0.0.1 - - [10/Jan/2026 08:59:30] "GET /tools/text-summarizer/logic/summarizer.js HTTP/1.1" 200 -
+127.0.0.1 - - [10/Jan/2026 08:59:30] "GET /tools/text-summarizer/utils/text-utils.js HTTP/1.1" 200 -
