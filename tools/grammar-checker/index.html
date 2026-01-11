@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grammar Checker | Free Online Spell & Grammar Check</title>
+    <meta name="description" content="Free online grammar checker tool. Check spelling, punctuation, and grammar errors instantly. Improve your writing with style and tone suggestions.">
+    <link rel="canonical" href="https://ut.ac/tools/grammar-checker/index.html">
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Google Analytics 4 -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-3565X5KNFD"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-3565X5KNFD');
+    </script>
+
+    <link rel="stylesheet" href="../../tools/tools.css">
+    <link rel="stylesheet" href="./styles/style.css">
+</head>
+<body class="bg-slate-900 text-slate-200 font-sans selection:bg-indigo-500 selection:text-white">
+
+    <!-- Navigation -->
+    <nav class="w-full border-b border-slate-800 bg-slate-900/50 backdrop-blur-md sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16">
+                <a href="../../index.html" class="flex items-center gap-2 group">
+                    <div class="w-8 h-8 bg-indigo-600 rounded-lg flex items-center justify-center transform group-hover:rotate-12 transition-transform">
+                        <svg class="w-5 h-5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
+                        </svg>
+                    </div>
+                    <span class="text-xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-indigo-400 to-cyan-400">UT.ac</span>
+                </a>
+                <a href="../../tools/text-tools.html" class="text-sm text-slate-400 hover:text-white transition-colors">
+                    ← Back to Text Tools
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+
+        <!-- Header -->
+        <div class="text-center mb-12">
+            <h1 class="text-4xl md:text-5xl font-bold text-white mb-4 tracking-tight">
+                Grammar <span class="text-indigo-500">Checker</span>
+            </h1>
+            <p class="text-lg text-slate-400 max-w-2xl mx-auto">
+                Identify and correct grammar, punctuation, and spelling errors.
+                Analyze readability and improve your writing style.
+            </p>
+        </div>
+
+        <!-- Landing View (Explanation & CTA) -->
+        <div id="landing-view" class="max-w-3xl mx-auto text-center space-y-8 animate-fade-in">
+            <div class="grid md:grid-cols-3 gap-6 mb-8">
+                <div class="p-6 bg-slate-800/50 rounded-2xl border border-slate-700/50 hover:border-indigo-500/30 transition-colors">
+                    <div class="w-12 h-12 bg-indigo-500/10 rounded-xl flex items-center justify-center mx-auto mb-4 text-indigo-400">
+                        <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                        </svg>
+                    </div>
+                    <h3 class="text-lg font-semibold text-white mb-2">Grammar & Spell</h3>
+                    <p class="text-sm text-slate-400">Detect common grammar mistakes and spelling errors instantly.</p>
+                </div>
+                <div class="p-6 bg-slate-800/50 rounded-2xl border border-slate-700/50 hover:border-indigo-500/30 transition-colors">
+                    <div class="w-12 h-12 bg-amber-500/10 rounded-xl flex items-center justify-center mx-auto mb-4 text-amber-400">
+                        <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
+                        </svg>
+                    </div>
+                    <h3 class="text-lg font-semibold text-white mb-2">Style Analysis</h3>
+                    <p class="text-sm text-slate-400">Get suggestions for sentence structure, passive voice, and readability.</p>
+                </div>
+                <div class="p-6 bg-slate-800/50 rounded-2xl border border-slate-700/50 hover:border-indigo-500/30 transition-colors">
+                    <div class="w-12 h-12 bg-emerald-500/10 rounded-xl flex items-center justify-center mx-auto mb-4 text-emerald-400">
+                        <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
+                        </svg>
+                    </div>
+                    <h3 class="text-lg font-semibold text-white mb-2">100% Private</h3>
+                    <p class="text-sm text-slate-400">Analysis happens in your browser. Your text never leaves your device.</p>
+                </div>
+            </div>
+
+            <button id="start-tool-btn" class="inline-flex items-center px-8 py-4 bg-indigo-600 hover:bg-indigo-500 text-white font-semibold rounded-full shadow-lg shadow-indigo-500/20 transition-all hover:scale-105">
+                Start Checking
+                <svg class="w-5 h-5 ml-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6" />
+                </svg>
+            </button>
+        </div>
+
+        <!-- Tool UI (Hidden by default) -->
+        <div id="tool-ui" class="hidden max-w-full mx-auto animate-fade-in-up">
+
+            <div class="grid lg:grid-cols-2 gap-8">
+                <!-- Input Section -->
+                <div class="space-y-4">
+                    <div class="bg-slate-800 rounded-2xl border border-slate-700 p-4 shadow-xl">
+                        <div class="flex items-center justify-between mb-4">
+                            <h2 class="text-lg font-semibold text-white flex items-center gap-2">
+                                <svg class="w-5 h-5 text-indigo-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z" />
+                                </svg>
+                                Input Text
+                            </h2>
+                            <div class="flex gap-2">
+                                <button id="paste-btn" class="text-xs px-3 py-1.5 bg-slate-700 hover:bg-slate-600 rounded-lg transition-colors text-slate-300">
+                                    Paste
+                                </button>
+                                <label class="text-xs px-3 py-1.5 bg-slate-700 hover:bg-slate-600 rounded-lg transition-colors text-slate-300 cursor-pointer">
+                                    Upload
+                                    <input type="file" id="file-upload" accept=".txt" class="hidden">
+                                </label>
+                                <button id="clear-btn" class="text-xs px-3 py-1.5 bg-slate-700 hover:bg-red-500/20 hover:text-red-400 rounded-lg transition-colors text-slate-300">
+                                    Clear
+                                </button>
+                            </div>
+                        </div>
+
+                        <textarea id="input-text" class="w-full h-[500px] bg-slate-900 border border-slate-700 rounded-xl p-4 text-slate-300 placeholder-slate-600 focus:ring-2 focus:ring-indigo-500 focus:border-transparent resize-none font-mono text-sm leading-relaxed" placeholder="Type or paste your text here to check for grammar, spelling, and style errors..."></textarea>
+
+                        <!-- Input Meta -->
+                        <div class="flex justify-between items-center mt-3 text-xs text-slate-500">
+                            <span id="input-stats">0 words | 0 chars</span>
+                        </div>
+                    </div>
+
+                    <!-- Options & Actions -->
+                    <div class="bg-slate-800 rounded-2xl border border-slate-700 p-6">
+                         <h3 class="text-sm font-semibold text-slate-400 uppercase tracking-wider mb-4">Settings</h3>
+                         <div class="grid grid-cols-2 gap-4 mb-6">
+                            <div>
+                                <label class="block text-xs text-slate-500 mb-1">Language</label>
+                                <select id="lang-select" class="w-full bg-slate-900 border border-slate-700 rounded-lg px-3 py-2 text-sm text-slate-300 focus:ring-1 focus:ring-indigo-500">
+                                    <option value="en-US">English (US)</option>
+                                    <option value="en-UK">English (UK)</option>
+                                </select>
+                            </div>
+                            <div>
+                                <label class="block text-xs text-slate-500 mb-1">Strictness</label>
+                                <select id="strictness-select" class="w-full bg-slate-900 border border-slate-700 rounded-lg px-3 py-2 text-sm text-slate-300 focus:ring-1 focus:ring-indigo-500">
+                                    <option value="standard">Standard</option>
+                                    <option value="strict">Strict</option>
+                                </select>
+                            </div>
+                         </div>
+                         <button id="check-btn" class="w-full py-3 bg-indigo-600 hover:bg-indigo-500 text-white font-bold rounded-xl shadow-lg shadow-indigo-500/20 transition-all active:scale-95">
+                            Check Text
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Output Section -->
+                <div class="space-y-4">
+                    <div class="bg-slate-800 rounded-2xl border border-slate-700 p-4 shadow-xl min-h-[500px] flex flex-col">
+                        <div class="flex items-center justify-between mb-4">
+                            <h2 class="text-lg font-semibold text-white flex items-center gap-2">
+                                <svg class="w-5 h-5 text-emerald-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                                </svg>
+                                Review & Correct
+                            </h2>
+                            <div class="flex gap-2">
+                                <span id="error-count" class="px-2 py-1 rounded bg-red-500/20 text-red-400 text-xs font-bold">0 Errors</span>
+                                <button id="copy-result-btn" class="text-xs px-3 py-1.5 bg-slate-700 hover:bg-slate-600 rounded-lg transition-colors text-slate-300">
+                                    Copy Fixed
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- Results Container (Rich Display) -->
+                        <div id="output-container" class="relative flex-1 bg-slate-900 border border-slate-700 rounded-xl p-6 text-slate-300 leading-relaxed text-sm overflow-y-auto max-h-[600px] font-mono whitespace-pre-wrap">
+                            <div class="h-full flex flex-col items-center justify-center text-slate-600">
+                                <svg class="w-12 h-12 mb-4 opacity-20" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                                </svg>
+                                <p>Analysis results will appear here...</p>
+                            </div>
+                        </div>
+
+                        <!-- Analysis Stats -->
+                        <div id="analysis-stats" class="mt-4 grid grid-cols-3 gap-4 hidden">
+                            <div class="bg-slate-900 rounded-lg p-3 border border-slate-700 text-center">
+                                <span class="block text-xl font-bold text-white" id="stat-readability">-</span>
+                                <span class="text-xs text-slate-500 uppercase">Readability</span>
+                            </div>
+                             <div class="bg-slate-900 rounded-lg p-3 border border-slate-700 text-center">
+                                <span class="block text-xl font-bold text-white" id="stat-sentences">0</span>
+                                <span class="text-xs text-slate-500 uppercase">Sentences</span>
+                            </div>
+                             <div class="bg-slate-900 rounded-lg p-3 border border-slate-700 text-center">
+                                <span class="block text-xl font-bold text-white" id="stat-avg-len">0</span>
+                                <span class="text-xs text-slate-500 uppercase">Avg Word Len</span>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tool Description / SEO Content -->
+            <div class="mt-16 max-w-4xl mx-auto prose prose-invert prose-slate">
+                <h2>About the Grammar Checker</h2>
+                <p>
+                    This tool helps you improve your writing by identifying common grammar mistakes, spelling errors, and stylistic issues.
+                    Unlike cloud-based services, this tool runs entirely in your browser, ensuring your text remains private and secure.
+                </p>
+                <h3>Features</h3>
+                <ul>
+                    <li><strong>Grammar & Spelling:</strong> Detects common errors and typos.</li>
+                    <li><strong>Style Suggestions:</strong> Highlights passive voice, long sentences, and complex words.</li>
+                    <li><strong>Readability Analysis:</strong> Calculates scores like Flesch-Kincaid to help you gauge the complexity of your text.</li>
+                    <li><strong>Privacy Focused:</strong> No data is sent to servers; everything is processed locally.</li>
+                </ul>
+            </div>
+
+        </div>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-slate-900 border-t border-slate-800 mt-24 py-12">
+        <div class="max-w-7xl mx-auto px-4 text-center">
+            <p class="text-slate-500 mb-4">&copy; UT.ac — All tools are free</p>
+            <div class="inline-flex items-center gap-2 px-4 py-2 bg-slate-800 rounded-full border border-slate-700">
+                <div class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></div>
+                <span class="text-sm text-slate-400">Total Users: 3,000+</span>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script type="module" src="./main.js"></script>
+
+</body>
+</html>
