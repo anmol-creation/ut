@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>URL Encoder Decoder Tool | Encode & Decode URLs Online</title>
+    <meta name="description" content="Free online URL encoder decoder tool to encode and decode URLs. Easy to use, fast, and secure. Optimized for mobile and weak networks.">
+    <link rel="canonical" href="https://ut.ac/tools/url-encoder-decoder/index.html">
+
+    <!-- Tailwind via CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Custom Styles -->
+    <link rel="stylesheet" href="styles/style.css">
+
+    <!-- Google tracking code -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-3565X5KNFD"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-3565X5KNFD');
+    </script>
+</head>
+<body class="bg-slate-900 text-slate-50 min-h-screen flex flex-col font-sans">
+
+    <!-- LANDING VIEW -->
+    <main id="landing-view" class="view-container">
+        <div class="landing-hero">
+            <h1 class="hero-title">URL Encoder / Decoder</h1>
+            <p class="hero-subtitle">Encode or decode URLs instantly. Simple, fast, and secure.</p>
+            <button id="use-tool-btn" class="btn btn-primary text-lg px-8 py-3">[ Use Tool ]</button>
+        </div>
+
+        <!-- Info Cards Grid -->
+        <section class="info-grid">
+            <h2 class="sr-only">Features</h2>
+            <div class="info-card">
+                <h3>⚡ Instant</h3>
+                <p>Real-time encoding and decoding. Auto-detection included.</p>
+            </div>
+            <div class="info-card">
+                <h3>🛡️ Private</h3>
+                <p>100% Client-side. Your URLs never leave your browser.</p>
+            </div>
+            <div class="info-card">
+                <h3>🌍 Universal</h3>
+                <p>Works with all standard URL formats and special characters.</p>
+            </div>
+        </section>
+
+        <!-- Explanation Section -->
+        <section class="max-w-4xl mx-auto mb-16 px-4">
+            <div class="bg-slate-800 p-8 rounded-2xl border border-slate-700">
+                <h2 class="text-2xl font-bold text-slate-100 mb-4">How it works</h2>
+                <p class="text-slate-400 leading-relaxed">
+                    URLs often contain special characters that need to be encoded to be transmitted over the Internet.
+                    This tool allows you to easily encode a URL string to a valid format (e.g., converting spaces to %20)
+                    or decode an encoded URL back to its original readable form. Simply paste your URL and let the tool do the work.
+                </p>
+            </div>
+        </section>
+
+        <!-- Ads (Bottom of Landing) -->
+        <div class="ad-container">
+            <div class="ad-placeholder">Advertisement Space</div>
+        </div>
+    </main>
+
+    <!-- TOOL VIEW (Hidden by default) -->
+    <main id="tool-view" class="view-container hidden">
+        <!-- Tool Header -->
+        <header class="tool-view-header">
+            <div class="flex items-center gap-4">
+                <button id="back-btn" class="btn btn-text">← Back</button>
+                <h2 class="text-xl font-bold">URL Encoder / Decoder</h2>
+            </div>
+        </header>
+
+        <!-- MAIN TOOL CARD -->
+        <div class="tool-card">
+            <!-- Mode Toggle -->
+            <div class="flex justify-center mb-6">
+                <div class="mode-toggle">
+                    <div class="mode-option active" data-mode="encode">Encode</div>
+                    <div class="mode-option" data-mode="decode">Decode</div>
+                    <div class="mode-option" data-mode="auto">Auto-Detect</div>
+                </div>
+            </div>
+
+            <!-- Input -->
+            <section class="mb-6">
+                <label for="input-text" class="block text-sm font-medium text-slate-400 mb-2">Input URL</label>
+                <textarea id="input-text" placeholder="Paste your URL here..." spellcheck="false"></textarea>
+                <div class="flex justify-end mt-2">
+                     <button id="paste-btn" class="text-xs text-indigo-400 hover:text-indigo-300">Paste from Clipboard</button>
+                </div>
+            </section>
+
+            <!-- Action Buttons Group -->
+            <section class="actions-wrapper justify-center">
+                <button id="action-btn" class="btn btn-primary w-full sm:w-auto">ENCODE URL</button>
+            </section>
+
+            <!-- Error Message Area -->
+            <div id="error-msg" class="hidden bg-red-900/50 border border-red-500/50 text-red-200 px-4 py-3 rounded-lg mb-6 text-sm"></div>
+
+            <!-- Output -->
+            <section class="mb-6">
+                <label for="output-text" class="block text-sm font-medium text-slate-400 mb-2">Output</label>
+                <textarea id="output-text" placeholder="Result will appear here..." readonly></textarea>
+            </section>
+
+            <!-- Utility Buttons -->
+            <section class="utility-wrapper">
+                <button id="btn-copy" class="btn btn-secondary flex items-center gap-2">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path></svg>
+                    Copy Result
+                </button>
+                <div class="flex gap-2">
+                    <button id="btn-clear" class="btn btn-ghost text-danger">Clear</button>
+                </div>
+            </section>
+        </div>
+
+        <!-- Ads (Below Tool) -->
+        <div class="ad-container">
+            <div class="ad-placeholder">Advertisement Space</div>
+        </div>
+    </main>
+
+    <footer class="site-footer">
+        <p>© UT.ac — All tools are free <span class="visitor-counter" style="margin-left: 15px; opacity: 0.8;">| Total Users: 3,000+</span></p>
+    </footer>
+
+    <script type="module" src="ui/layout.js"></script>
+</body>
+</html>
