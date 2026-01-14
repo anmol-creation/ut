@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Password Generator Tool | Generate Strong Passwords Online - UT.ac</title>
+  <meta name="description" content="Free online password generator tool to create strong and unique passwords. Easy to use and secure.">
+  <link rel="canonical" href="https://ut.ac/tools/password-generator/index.html">
+
+  <!-- CSS Loading Order -->
+  <link rel="stylesheet" href="styles/theme.css">
+  <link rel="stylesheet" href="styles/layout.css">
+  <link rel="stylesheet" href="styles/components.css">
+  <link rel="stylesheet" href="styles/tool.css">
+  <!-- Google tracking code -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-3565X5KNFD"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-3565X5KNFD');
+  </script>
+</head>
+<body>
+
+  <!-- LANDING VIEW -->
+  <main id="landing-view" class="view-container">
+    <div class="landing-hero">
+      <h1 class="hero-title">Password Generator Tool</h1>
+      <p class="hero-subtitle">Generate strong and unique passwords instantly to keep your accounts secure.</p>
+      <button id="use-tool-btn" class="btn btn-primary btn-lg">[ Use Tool ]</button>
+    </div>
+
+    <!-- Info Cards Grid -->
+    <section class="info-grid">
+      <h2 class="sr-only">Features</h2>
+      <div class="info-card">
+        <h3>🔒 Secure</h3>
+        <p>Client-side generation. Passwords are created on your device.</p>
+      </div>
+      <div class="info-card">
+        <h3>⚡ Customizable</h3>
+        <p>Control length, characters, and symbols to fit your needs.</p>
+      </div>
+      <div class="info-card">
+        <h3>💪 Strong</h3>
+        <p>Create complex passwords that are hard to crack.</p>
+      </div>
+    </section>
+
+    <!-- Explanation Section -->
+    <section class="explanation-content">
+      <div class="text-block">
+        <h2>Why use a Password Generator?</h2>
+        <p>
+          Using weak or reused passwords is a major security risk. A random password generator helps you create unique, unpredictable passwords for every account, significantly reducing the chance of being hacked.
+        </p>
+      </div>
+    </section>
+
+    <!-- Ads (Bottom of Landing) -->
+    <div class="ad-container">
+      <div class="ad-placeholder">Advertisement Space</div>
+    </div>
+  </main>
+
+  <!-- TOOL VIEW (Hidden by default) -->
+  <main id="tool-view" class="view-container hidden">
+
+    <!-- Tool Header -->
+    <header class="tool-view-header">
+      <div class="header-left">
+        <button id="back-btn" class="btn btn-text">← Back</button>
+        <h2>Password Generator</h2>
+      </div>
+    </header>
+
+    <!-- MAIN TOOL CARD -->
+    <div class="tool-card">
+
+      <!-- Password Display Area -->
+      <section class="password-display-wrapper">
+        <div id="password-output" class="password-display">Click Generate</div>
+        <button id="btn-copy" class="btn btn-primary" aria-label="Copy to Clipboard">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+        </button>
+        <button id="btn-regenerate" class="btn btn-secondary" aria-label="Regenerate Password">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 4 23 10 17 10"></polyline><polyline points="1 20 1 14 7 14"></polyline><path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"></path></svg>
+        </button>
+      </section>
+
+      <!-- Strength Meter -->
+      <div id="strength-meter" class="strength-meter strength-weak">
+          <div class="strength-info">
+              <span class="strength-label">Strength:</span>
+              <span id="strength-text" class="strength-text">Weak</span>
+          </div>
+          <div class="strength-bars">
+              <div class="bar"></div>
+              <div class="bar"></div>
+              <div class="bar"></div>
+          </div>
+      </div>
+
+      <!-- Controls -->
+      <div class="controls-grid">
+          <div class="control-section">
+              <h3>Length</h3>
+              <div class="length-control">
+                  <input type="range" id="length-slider" class="length-slider" min="6" max="50" value="12">
+                  <span id="length-value" class="length-value">12</span>
+              </div>
+              <div class="options-list">
+                 <label class="checkbox-label">
+                     <input type="checkbox" id="opt-uppercase" checked>
+                     Uppercase (A-Z)
+                 </label>
+                 <label class="checkbox-label">
+                     <input type="checkbox" id="opt-lowercase" checked>
+                     Lowercase (a-z)
+                 </label>
+              </div>
+          </div>
+
+          <div class="control-section">
+              <h3>Options</h3>
+              <div class="options-list">
+                  <label class="checkbox-label">
+                      <input type="checkbox" id="opt-numbers" checked>
+                      Numbers (0-9)
+                  </label>
+                  <label class="checkbox-label">
+                      <input type="checkbox" id="opt-special" checked>
+                      Special Characters (!@#...)
+                  </label>
+                  <div style="margin-top: 1rem;">
+                      <label for="opt-exclude" style="font-size: 0.9rem; color: var(--text-secondary); display: block; margin-bottom: 0.25rem;">Exclude Characters:</label>
+                      <input type="text" id="opt-exclude" placeholder="e.g. il1Lo0" style="width: 100%;">
+                  </div>
+              </div>
+          </div>
+      </div>
+
+    </div>
+
+    <!-- Ads (Below Tool) -->
+    <div class="ad-container">
+      <div class="ad-placeholder">Advertisement Space</div>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <p>© UT.ac — All tools are free <span class="visitor-counter" style="margin-left: 15px; opacity: 0.8;">| Total Users: 3,000+</span></p>
+  </footer>
+
+  <script type="module" src="main.js"></script>
+</body>
+</html>
