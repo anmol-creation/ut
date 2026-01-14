@@ -48,4 +48,16 @@
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
     </url>
+    <url>
+        <loc>https://ut.ac/tools/password-generator/index.html</loc>
+        <lastmod>2023-10-28</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://ut.ac/tools/security-tools.html</loc>
+        <lastmod>2023-10-28</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
 </urlset>
