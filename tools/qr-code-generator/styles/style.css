@@ -1,0 +1,44 @@
+/* Custom styles for QR Code Generator */
+
+/* Ensure the canvas or image is responsive */
+#qr-output img, #qr-output canvas {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+}
+
+/* Scanner styles */
+#reader {
+    width: 100%;
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+/* Input group styling for better alignment */
+.input-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+}
+
+.input-group input, .input-group select, .input-group textarea {
+    width: 100%;
+    padding: 0.75rem;
+    border-radius: 0.5rem;
+    background-color: #1e293b; /* Slate 800 */
+    border: 1px solid #334155; /* Slate 700 */
+    color: white;
+}
+
+.input-group input:focus, .input-group select:focus, .input-group textarea:focus {
+    outline: none;
+    border-color: #6366f1; /* Indigo 500 */
+    box-shadow: 0 0 0 2px rgba(99, 102, 241, 0.2);
+}
+
+/* Tab buttons */
+.tab-btn.active {
+    border-bottom: 2px solid #6366f1;
+    color: #6366f1;
+}

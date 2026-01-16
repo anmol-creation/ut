@@ -1,0 +1,5 @@
+127.0.0.1 - - [16/Jan/2026 18:19:35] "GET /tools/qr-code-generator/index.html HTTP/1.1" 200 -
+127.0.0.1 - - [16/Jan/2026 18:19:35] "GET /tools/qr-code-generator/ui/ui.js HTTP/1.1" 200 -
+127.0.0.1 - - [16/Jan/2026 18:19:35] "GET /tools/qr-code-generator/styles/style.css HTTP/1.1" 200 -
+127.0.0.1 - - [16/Jan/2026 18:19:36] "GET /tools/qr-code-generator/logic/scanner.js HTTP/1.1" 200 -
+127.0.0.1 - - [16/Jan/2026 18:19:36] "GET /tools/qr-code-generator/logic/generator.js HTTP/1.1" 200 -
