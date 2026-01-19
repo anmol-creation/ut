@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Text Formatter Tool | Format Text Online - UT.ac</title>
+  <meta name="description" content="Free online text formatter tool to format text with various options. Indent, clean, transform case, and more. Easy to use and customizable.">
+  <link rel="canonical" href="https://ut.ac/tools/text-formatter/index.html">
+
+  <!-- CSS Loading Order -->
+  <link rel="stylesheet" href="styles/theme.css">
+  <link rel="stylesheet" href="styles/layout.css">
+  <link rel="stylesheet" href="styles/components.css">
+  <link rel="stylesheet" href="styles/tool.css">
+  <!-- Google tracking code -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-3565X5KNFD"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-3565X5KNFD');
+  </script>
+</head>
+<body>
+
+  <!-- LANDING VIEW -->
+  <main id="landing-view" class="view-container">
+    <div class="landing-hero">
+      <h1 class="hero-title">Text Formatter Tool</h1>
+      <p class="hero-subtitle">Format, clean, and transform your text instantly.</p>
+      <button id="use-tool-btn" class="btn btn-primary btn-lg">[ Use Tool ]</button>
+    </div>
+
+    <!-- Info Cards Grid -->
+    <section class="info-grid">
+      <h2 class="sr-only">Features</h2>
+      <div class="info-card">
+        <h3>📝 Formatting</h3>
+        <p>Indent, remove spaces, and clean up messy text.</p>
+      </div>
+      <div class="info-card">
+        <h3>🔠 Transformation</h3>
+        <p>Convert case to Upper, Lower, Title, or Sentence case.</p>
+      </div>
+      <div class="info-card">
+        <h3>⚡ Fast & Free</h3>
+        <p>Works instantly in your browser. No server uploads.</p>
+      </div>
+    </section>
+
+    <!-- Explanation Section -->
+    <section class="explanation-content">
+      <div class="text-block">
+        <h2>About Text Formatter</h2>
+        <p>
+          This Text Formatter tool helps you clean up and format your text. Whether you need to fix indentation, remove extra spaces, or change the case of your text, this tool does it all instantly.
+        </p>
+        <p>
+            It runs entirely in your browser, so your data remains private and secure. Perfect for developers, writers, and anyone working with text.
+        </p>
+      </div>
+    </section>
+
+    <!-- Ads (Bottom of Landing) -->
+    <div class="ad-container">
+      <div class="ad-placeholder">Advertisement Space</div>
+    </div>
+  </main>
+
+  <!-- TOOL VIEW (Hidden by default) -->
+  <main id="tool-view" class="view-container hidden">
+
+    <!-- Tool Header -->
+    <header class="tool-view-header">
+      <div class="header-left">
+        <button id="back-btn" class="btn btn-text">← Back</button>
+        <h2>Text Formatter</h2>
+      </div>
+    </header>
+
+    <!-- MAIN TOOL CARD -->
+    <div class="tool-card">
+      <!-- Input -->
+      <section class="input-area-wrapper">
+        <label for="input-text" class="sr-only">Input Text</label>
+        <textarea id="input-text" placeholder="Type or paste your text here to format..." spellcheck="false"></textarea>
+      </section>
+
+      <!-- Action Buttons Group -->
+      <section class="actions-wrapper">
+          <!-- Transformation -->
+        <button class="btn btn-action" data-action="uppercase">UPPERCASE</button>
+        <button class="btn btn-action" data-action="lowercase">lowercase</button>
+        <button class="btn btn-action" data-action="titlecase">Title Case</button>
+        <button class="btn btn-action" data-action="sentencecase">Sentence case</button>
+
+        <!-- Cleaning -->
+        <button class="btn btn-action" data-action="remove-spaces">Remove Extra Spaces</button>
+        <button class="btn btn-action" data-action="remove-lines">Remove Empty Lines</button>
+        <button class="btn btn-action" data-action="remove-tabs">Remove Tabs</button>
+        <button class="btn btn-action" data-action="one-line">Make One Line</button>
+
+        <!-- Indentation -->
+        <button class="btn btn-action" data-action="indent">Indent (2 Spaces)</button>
+        <button class="btn btn-action" data-action="unindent">Unindent</button>
+      </section>
+
+      <!-- Output -->
+      <section class="output-area-wrapper">
+        <label for="output-text" class="sr-only">Output Text</label>
+        <textarea id="output-text" placeholder="Formatted result will appear here..." readonly></textarea>
+      </section>
+
+      <!-- Utility Buttons -->
+      <section class="utility-wrapper">
+        <div class="utility-left" style="display:flex; gap:0.5rem;">
+            <button id="btn-copy" class="btn btn-primary">Copy Result</button>
+            <button id="btn-download" class="btn btn-secondary">Download .txt</button>
+        </div>
+        <div class="utility-right">
+          <button id="btn-clear" class="btn btn-ghost text-danger">Clear</button>
+          <button id="btn-reset" class="btn btn-ghost">Reset</button>
+        </div>
+      </section>
+    </div>
+
+    <!-- Ads (Below Tool) -->
+    <div class="ad-container">
+      <div class="ad-placeholder">Advertisement Space</div>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <p>© UT.ac — All tools are free <span class="visitor-counter" style="margin-left: 15px; opacity: 0.8;">| Total Users: 3,000+</span></p>
+  </footer>
+
+  <script type="module" src="main.js"></script>
+</body>
+</html>
