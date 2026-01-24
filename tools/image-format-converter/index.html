@@ -38,9 +38,9 @@
                             <line x1="12" y1="3" x2="12" y2="15"></line>
                         </svg>
                     </div>
-                    <p>Drag & Drop an image here or</p>
-                    <button class="btn btn-primary" id="select-files-btn">Select Image</button>
-                    <input type="file" id="file-input" accept="image/*" hidden>
+                    <p>Drag & Drop images here or</p>
+                    <button class="btn btn-primary" id="select-files-btn">Select Images</button>
+                    <input type="file" id="file-input" multiple accept="image/*" hidden>
                     <p class="small-text">Supports JPG, PNG, GIF, WebP, BMP, TIFF</p>
                 </div>
             </div>
@@ -48,17 +48,11 @@
             <!-- Active View (Hidden by default) -->
             <div id="active-view" class="hidden">
                 <div class="toolbar">
-                    <button class="btn btn-secondary" id="reset-btn">Start Over</button>
+                    <button class="btn btn-secondary" id="add-more-btn">Add More</button>
+                    <button class="btn btn-secondary" id="clear-all-btn">Clear All</button>
                 </div>
 
                 <div class="workspace">
-                    <div class="preview-container">
-                        <img id="image-preview" src="" alt="Preview">
-                        <div class="file-info">
-                            <span id="original-info">Original: -</span>
-                        </div>
-                    </div>
-
                     <div class="settings-panel">
                         <h3>Conversion Settings</h3>
 
@@ -92,20 +86,13 @@
                         </div>
 
                         <div class="actions">
-                            <button class="btn btn-primary" id="convert-btn">Convert Image</button>
+                            <button class="btn btn-primary" id="convert-btn">Convert All</button>
+                            <button class="btn btn-success hidden" id="download-all-btn">Download All (ZIP)</button>
                         </div>
                     </div>
-                </div>
 
-                <div id="result-area" class="hidden">
-                    <h3>Result</h3>
-                    <div class="result-card">
-                         <div class="file-info">
-                            <span id="result-info">Size: -</span>
-                        </div>
-                        <div class="actions">
-                            <a id="download-link" href="#" class="btn btn-success" download>Download Image</a>
-                        </div>
+                    <div id="file-list" class="file-list-container">
+                        <!-- Files will be rendered here -->
                     </div>
                 </div>
             </div>
@@ -118,10 +105,10 @@
 
         <div class="info-section">
             <h2>How to use Image Format Converter?</h2>
-            <p>1. Upload your image by dragging it or clicking "Select Image".</p>
+            <p>1. Upload your images by dragging them or clicking "Select Images".</p>
             <p>2. Select your desired output format (JPEG, PNG, WebP, etc.).</p>
             <p>3. Adjust quality and size if needed.</p>
-            <p>4. Click "Convert Image" and download the result.</p>
+            <p>4. Click "Convert All" and download the result.</p>
         </div>
     </main>
 
