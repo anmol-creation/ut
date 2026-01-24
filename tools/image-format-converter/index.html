@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Format Converter Tool | Convert Image Formats Online</title>
+    <meta name="description" content="Free online image format converter tool to convert JPEG, PNG, GIF, and more. Easy to use and customizable.">
+    <link rel="canonical" href="https://ut.ac/tools/image-format-converter/index.html">
+    <link rel="stylesheet" href="styles/main.css">
+    <!-- Google tracking code -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-3565X5KNFD"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-3565X5KNFD');
+    </script>
+</head>
+<body>
+    <header>
+        <div class="logo"><a href="../../index.html" style="color: inherit; text-decoration: none;">UT.ac</a></div>
+        <button id="theme-toggle" aria-label="Toggle Dark/Light Mode">Toggle Theme</button>
+    </header>
+
+    <main>
+        <h1>Image Format Converter</h1>
+        <p class="subtitle">Convert your images to JPEG, PNG, WebP, GIF, and BMP easily.</p>
+
+        <section id="tool-ui" class="tool-card">
+            <!-- Landing View -->
+            <div id="landing-view">
+                <div class="drop-zone" id="drop-zone">
+                    <div class="icon-placeholder">
+                        <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                            <polyline points="17 8 12 3 7 8"></polyline>
+                            <line x1="12" y1="3" x2="12" y2="15"></line>
+                        </svg>
+                    </div>
+                    <p>Drag & Drop an image here or</p>
+                    <button class="btn btn-primary" id="select-files-btn">Select Image</button>
+                    <input type="file" id="file-input" accept="image/*" hidden>
+                    <p class="small-text">Supports JPG, PNG, GIF, WebP, BMP, TIFF</p>
+                </div>
+            </div>
+
+            <!-- Active View (Hidden by default) -->
+            <div id="active-view" class="hidden">
+                <div class="toolbar">
+                    <button class="btn btn-secondary" id="reset-btn">Start Over</button>
+                </div>
+
+                <div class="workspace">
+                    <div class="preview-container">
+                        <img id="image-preview" src="" alt="Preview">
+                        <div class="file-info">
+                            <span id="original-info">Original: -</span>
+                        </div>
+                    </div>
+
+                    <div class="settings-panel">
+                        <h3>Conversion Settings</h3>
+
+                        <div class="setting-group">
+                            <label for="format-select">Output Format:</label>
+                            <select id="format-select" class="form-control">
+                                <option value="image/jpeg">JPEG (.jpg)</option>
+                                <option value="image/png">PNG (.png)</option>
+                                <option value="image/webp">WebP (.webp)</option>
+                                <option value="image/gif">GIF (.gif)</option>
+                                <option value="image/bmp">BMP (.bmp)</option>
+                            </select>
+                        </div>
+
+                        <div class="setting-group" id="quality-group">
+                            <label for="quality-slider">Quality: <span id="quality-value">0.9</span></label>
+                            <input type="range" id="quality-slider" min="0.1" max="1" step="0.1" value="0.9">
+                        </div>
+
+                        <div class="setting-group">
+                            <label>Resize (Optional):</label>
+                            <div class="resize-inputs">
+                                <input type="number" id="width-input" placeholder="Width" class="form-control">
+                                <span>x</span>
+                                <input type="number" id="height-input" placeholder="Height" class="form-control">
+                            </div>
+                            <div class="checkbox-group">
+                                <input type="checkbox" id="maintain-aspect" checked>
+                                <label for="maintain-aspect">Maintain Aspect Ratio</label>
+                            </div>
+                        </div>
+
+                        <div class="actions">
+                            <button class="btn btn-primary" id="convert-btn">Convert Image</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="result-area" class="hidden">
+                    <h3>Result</h3>
+                    <div class="result-card">
+                         <div class="file-info">
+                            <span id="result-info">Size: -</span>
+                        </div>
+                        <div class="actions">
+                            <a id="download-link" href="#" class="btn btn-success" download>Download Image</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Ad Card -->
+        <div class="ad-card">
+            <p>Ad Placeholder</p>
+        </div>
+
+        <div class="info-section">
+            <h2>How to use Image Format Converter?</h2>
+            <p>1. Upload your image by dragging it or clicking "Select Image".</p>
+            <p>2. Select your desired output format (JPEG, PNG, WebP, etc.).</p>
+            <p>3. Adjust quality and size if needed.</p>
+            <p>4. Click "Convert Image" and download the result.</p>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; UT.ac — All tools are free <span class="visitor-counter" style="margin-left: 15px; opacity: 0.8;">| Total Users: 3,000+</span></p>
+    </footer>
+
+    <script type="module" src="main.js"></script>
+</body>
+</html>
