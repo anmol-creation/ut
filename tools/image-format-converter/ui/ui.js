@@ -237,7 +237,18 @@ export function initUI() {
     }
 
     async function downloadAll() {
-        // Dynamic import JSZip from CDN
+        // Filter successfully converted files
+        const doneFiles = filesState.filter(f => f.status === 'done' && f.blob);
+
+        if (doneFiles.length === 0) return;
+
+        // If 5 or fewer files, download directly
+        if (doneFiles.length <= 5) {
+            doneFiles.forEach(f => downloadSingle(f));
+            return;
+        }
+
+        // If more than 5, download as ZIP
         let JSZip;
         try {
              const module = await import('https://cdn.jsdelivr.net/npm/jszip@3.10.1/+esm');
@@ -245,33 +256,22 @@ export function initUI() {
         } catch (e) {
             console.error("Failed to load JSZip", e);
             alert("Failed to load ZIP library. Downloading files individually.");
-            // Fallback: Individual downloads
-            filesState.forEach(f => {
-                if (f.status === 'done' && f.url) {
-                    downloadSingle(f);
-                }
-            });
+            doneFiles.forEach(f => downloadSingle(f));
             return;
         }
 
         const zip = new JSZip();
-        let count = 0;
 
         const format = formatSelect.value;
         let ext = format.split('/')[1];
         if (ext === 'jpeg') ext = 'jpg';
 
-        filesState.forEach(f => {
-            if (f.status === 'done' && f.blob) {
-                const originalName = f.file.name;
-                const nameWithoutExt = originalName.substring(0, originalName.lastIndexOf('.')) || originalName;
-                const newName = `${nameWithoutExt}.${ext}`;
-                zip.file(newName, f.blob);
-                count++;
-            }
+        doneFiles.forEach(f => {
+            const originalName = f.file.name;
+            const nameWithoutExt = originalName.substring(0, originalName.lastIndexOf('.')) || originalName;
+            const newName = `${nameWithoutExt}.${ext}`;
+            zip.file(newName, f.blob);
         });
-
-        if (count === 0) return;
 
         const content = await zip.generateAsync({ type: "blob" });
         const url = URL.createObjectURL(content);
