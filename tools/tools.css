@@ -357,3 +357,20 @@ footer {
     text-align: center;
     color: var(--text-secondary);
 }
+
+/* Ad Container Styling */
+.ad-container {
+    max-width: 896px; /* Matches max-w-4xl commonly used */
+    margin: 3rem auto;
+    padding: 2rem;
+    background-color: var(--bg-secondary);
+    border: 1px dashed var(--border-color);
+    border-radius: var(--radius-lg);
+    text-align: center;
+    min-height: 120px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--text-secondary);
+    font-size: 0.875rem;
+}
