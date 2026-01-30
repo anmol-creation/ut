@@ -1,34 +1,104 @@
+/* UT.ac - Tools CSS
+   Replaces Tailwind CSS with custom styles
+   Theme: Dark Navy (#0f172a), Slate (#1e293b), Indigo (#6366f1)
+*/
+
 :root {
-    --bg-color: #121212;
-    --text-color: #e0e0e0;
-    --card-bg: #1e1e1e;
-    --card-hover-bg: #2d2d2d;
-    --header-bg: #1f1f1f;
-    --footer-bg: #1f1f1f;
-    --primary-color: #bb86fc;
+    /* Base Variables (Restored from Original) */
+    --bg-color: #0f172a; /* Mapped to new dark theme */
+    --text-color: #f8fafc;
+    --card-bg: #1e293b;
+    --card-hover-bg: #334155;
+    --header-bg: #0f172a;
+    --footer-bg: #0f172a;
+    --primary-color: #6366f1;
+
+    /* New Palette Variables */
+    --bg-primary: #0f172a;
+    --bg-secondary: #1e293b;
+    --bg-tertiary: #334155;
+
+    --text-primary: #f8fafc;
+    --text-secondary: #94a3b8;
+    --text-tertiary: #64748b;
+
+    --accent-primary: #6366f1;
+    --accent-hover: #4f46e5;
+    --accent-light: #818cf8;
+
+    --border-color: #334155;
+
+    --success-color: #10b981;
+    --error-color: #ef4444;
+    --warning-color: #f59e0b;
+
+    /* Spacing */
+    --spacing-xs: 0.25rem;
+    --spacing-sm: 0.5rem;
+    --spacing-md: 1rem;
+    --spacing-lg: 1.5rem;
+    --spacing-xl: 2rem;
+    --spacing-2xl: 3rem;
+
+    /* Border Radius */
+    --radius-sm: 0.375rem;
+    --radius-md: 0.5rem;
+    --radius-lg: 0.75rem;
+    --radius-xl: 1rem;
+    --radius-full: 9999px;
+
+    /* Shadows */
+    --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+    --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+    --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+
+    /* Typography */
+    --font-sans: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
 }
 
 [data-theme="light"] {
     --bg-color: #ffffff;
-    --text-color: #121212;
-    --card-bg: #f0f0f0;
-    --card-hover-bg: #e0e0e0;
-    --header-bg: #f5f5f5;
-    --footer-bg: #f5f5f5;
-    --primary-color: #6200ee;
+    --text-color: #0f172a;
+    --card-bg: #f8fafc;
+    --card-hover-bg: #e2e8f0;
+    --header-bg: #ffffff;
+    --footer-bg: #ffffff;
+    --primary-color: #4f46e5;
+
+    /* Remap new palette for light mode */
+    --bg-primary: #ffffff;
+    --bg-secondary: #f8fafc;
+    --bg-tertiary: #e2e8f0;
+
+    --text-primary: #0f172a;
+    --text-secondary: #475569;
+    --text-tertiary: #64748b;
+
+    --border-color: #e2e8f0;
+}
+
+/* Reset & Base */
+*, ::before, ::after {
+    box-sizing: border-box;
+    border-width: 0;
+    border-style: solid;
+    border-color: var(--border-color);
 }
 
 body {
-    background-color: var(--bg-color);
-    color: var(--text-color);
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    background-color: var(--bg-primary);
+    color: var(--text-primary);
+    font-family: var(--font-sans);
+    line-height: 1.5;
     margin: 0;
     padding: 0;
+    min-height: 100vh;
     display: flex;
     flex-direction: column;
-    min-height: 100vh;
 }
 
+/* Restored Components from Original tools.css */
 header {
     background-color: var(--header-bg);
     padding: 1rem 2rem;
@@ -49,12 +119,14 @@ header {
     padding: 0.5rem 1rem;
     cursor: pointer;
     border-radius: 4px;
+    border-width: 1px; /* Ensure visibility */
 }
 
+/* Main Layout */
 main {
     flex: 1;
     padding: 2rem;
-    max-width: 1000px;
+    max-width: 1280px; /* Increased to match Tailwind max-w-7xl */
     margin: 0 auto;
     width: 100%;
     box-sizing: border-box;
@@ -63,6 +135,8 @@ main {
 h1 {
     text-align: center;
     margin-bottom: 2rem;
+    font-size: 2.25rem;
+    font-weight: 700;
 }
 
 .categories-grid {
@@ -82,6 +156,7 @@ h1 {
     font-weight: bold;
     font-size: 1.1rem;
     box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    display: block;
 }
 
 .category-card:hover {
@@ -89,9 +164,196 @@ h1 {
     transform: translateY(-2px);
 }
 
+/* Tailwind Utilities Replacements */
+
+/* Typography Utilities */
+h2 { font-size: 1.875rem; font-weight: 700; margin-bottom: 1rem; }
+h3 { font-size: 1.5rem; font-weight: 700; margin-bottom: 1rem; }
+h4 { font-size: 1.25rem; font-weight: 700; margin-bottom: 1rem; }
+
+.text-center { text-align: center; }
+.text-left { text-align: left; }
+.text-right { text-align: right; }
+
+.font-bold { font-weight: 700; }
+.font-semibold { font-weight: 600; }
+.font-medium { font-weight: 500; }
+
+.text-sm { font-size: 0.875rem; }
+.text-xs { font-size: 0.75rem; }
+.text-lg { font-size: 1.125rem; }
+.text-xl { font-size: 1.25rem; }
+.text-2xl { font-size: 1.5rem; }
+.text-3xl { font-size: 1.875rem; }
+.text-4xl { font-size: 2.25rem; }
+
+/* Text Colors */
+.text-slate-200 { color: var(--text-primary); } /* Adaptive */
+.text-slate-300 { color: var(--text-primary); opacity: 0.9; }
+.text-slate-400 { color: var(--text-secondary); }
+.text-slate-500 { color: var(--text-tertiary); }
+.text-indigo-400 { color: var(--accent-light); }
+.text-indigo-500 { color: var(--accent-primary); }
+.text-white { color: var(--text-primary); }
+
+/* Layout Utilities */
+.container {
+    width: 100%;
+    margin-right: auto;
+    margin-left: auto;
+    padding-right: var(--spacing-md);
+    padding-left: var(--spacing-md);
+}
+
+.flex { display: flex; }
+.flex-col { flex-direction: column; }
+.flex-row { flex-direction: row; }
+.items-center { align-items: center; }
+.justify-between { justify-content: space-between; }
+.justify-center { justify-content: center; }
+.justify-end { justify-content: flex-end; }
+.flex-1 { flex: 1 1 0%; }
+.gap-2 { gap: 0.5rem; }
+.gap-4 { gap: 1rem; }
+.gap-6 { gap: 1.5rem; }
+.gap-8 { gap: 2rem; }
+
+.grid { display: grid; }
+.grid-cols-1 { grid-template-columns: repeat(1, minmax(0, 1fr)); }
+.grid-cols-2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+@media (min-width: 768px) {
+    .md\:grid-cols-2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .md\:grid-cols-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+}
+@media (min-width: 1024px) {
+    .lg\:grid-cols-2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+
+.hidden { display: none !important; }
+.block { display: block; }
+.inline-flex { display: inline-flex; }
+
+/* Spacing Utilities */
+.m-0 { margin: 0; }
+.mt-4 { margin-top: 1rem; }
+.mt-6 { margin-top: 1.5rem; }
+.mt-8 { margin-top: 2rem; }
+.mt-12 { margin-top: 3rem; }
+.mt-16 { margin-top: 4rem; }
+.mt-24 { margin-top: 6rem; }
+.mb-2 { margin-bottom: 0.5rem; }
+.mb-4 { margin-bottom: 1rem; }
+.mb-6 { margin-bottom: 1.5rem; }
+.mb-8 { margin-bottom: 2rem; }
+.mb-12 { margin-bottom: 3rem; }
+.mx-auto { margin-left: auto; margin-right: auto; }
+
+.p-3 { padding: 0.75rem; }
+.p-4 { padding: 1rem; }
+.p-6 { padding: 1.5rem; }
+.p-8 { padding: 2rem; }
+.px-3 { padding-left: 0.75rem; padding-right: 0.75rem; }
+.px-4 { padding-left: 1rem; padding-right: 1rem; }
+.px-6 { padding-left: 1.5rem; padding-right: 1.5rem; }
+.px-8 { padding-left: 2rem; padding-right: 2rem; }
+.py-1\.5 { padding-top: 0.375rem; padding-bottom: 0.375rem; }
+.py-2 { padding-top: 0.5rem; padding-bottom: 0.5rem; }
+.py-3 { padding-top: 0.75rem; padding-bottom: 0.75rem; }
+.py-4 { padding-top: 1rem; padding-bottom: 1rem; }
+.py-12 { padding-top: 3rem; padding-bottom: 3rem; }
+
+/* Buttons & Inputs */
+.btn, button {
+    cursor: pointer;
+    border: none;
+    outline: none;
+    transition: all 0.2s ease-in-out;
+}
+
+.bg-indigo-600 { background-color: var(--accent-primary); }
+.hover\:bg-indigo-500:hover { background-color: var(--accent-hover); }
+
+.rounded-lg { border-radius: var(--radius-md); }
+.rounded-xl { border-radius: var(--radius-lg); }
+.rounded-2xl { border-radius: var(--radius-xl); }
+.rounded-full { border-radius: var(--radius-full); }
+
+.shadow-lg { box-shadow: var(--shadow-lg); }
+.shadow-xl { box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1); }
+
+/* Navigation specific */
+nav {
+    background-color: var(--header-bg);
+    border-bottom: 1px solid var(--border-color);
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    width: 100%;
+}
+
+.bg-slate-800 { background-color: var(--bg-secondary); }
+.bg-slate-900 { background-color: var(--bg-primary); }
+.border-slate-700 { border-color: var(--border-color); }
+.border-slate-800 { border-color: var(--border-color); }
+
+/* Inputs */
+input, select, textarea {
+    background-color: var(--bg-primary);
+    border: 1px solid var(--border-color);
+    color: var(--text-primary);
+    border-radius: var(--radius-md);
+    padding: 0.5rem 0.75rem;
+    width: 100%;
+    outline: none;
+}
+
+input:focus, select:focus, textarea:focus {
+    border-color: var(--accent-primary);
+    box-shadow: 0 0 0 2px rgba(99, 102, 241, 0.2);
+}
+
+/* Gradients */
+.bg-clip-text {
+    -webkit-background-clip: text;
+    background-clip: text;
+}
+.text-transparent { color: transparent; }
+.bg-gradient-to-r { background-image: linear-gradient(to right, var(--accent-primary), #22d3ee); }
+
+/* Animations */
+.animate-fade-in { animation: fadeIn 0.5s ease-out forwards; }
+.animate-fade-in-up { animation: fadeInUp 0.5s ease-out forwards; }
+@keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+@keyframes fadeInUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+
+/* Size Utilities */
+.w-full { width: 100%; }
+.h-full { height: 100%; }
+.h-16 { height: 4rem; }
+.w-8 { width: 2rem; }
+.h-8 { height: 2rem; }
+.w-12 { width: 3rem; }
+.h-12 { height: 3rem; }
+.w-5 { width: 1.25rem; }
+.h-5 { height: 1.25rem; }
+
+.hover\:scale-105:hover { transform: scale(1.05); }
+.transform { transform: var(--tw-transform); }
+.transition-transform { transition-property: transform; transition-duration: 150ms; }
+.transition-colors { transition-property: color, background-color, border-color; transition-duration: 150ms; }
+.transition-all { transition-property: all; transition-duration: 150ms; }
+
+/* Prose */
+.prose { color: var(--text-secondary); line-height: 1.75; }
+.prose h2, .prose h3 { color: var(--text-primary); margin-top: 2em; margin-bottom: 1em; }
+.prose ul { list-style-type: disc; padding-left: 1.625em; margin: 1.25em 0; }
+
+/* Footer */
 footer {
     background-color: var(--footer-bg);
-    padding: 1rem;
+    border-top: 1px solid var(--border-color);
+    padding: 2rem;
+    margin-top: auto;
     text-align: center;
-    font-size: 0.9rem;
+    color: var(--text-secondary);
 }

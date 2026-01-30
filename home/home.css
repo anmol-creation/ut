@@ -1,31 +1,31 @@
 :root {
-    /* Default is Dark Mode per memory instructions */
-    --bg-primary: #0f172a; /* Deep Navy - Hero, Footer */
-    --bg-secondary: #1e293b; /* Lighter Navy - Sections that would be white in light mode */
-    --card-bg: #334155;
+    /* Mapped to new tools.css Palette */
+    --bg-primary: #0f172a; /* Deep Navy */
+    --bg-secondary: #1e293b; /* Lighter Navy */
+    --card-bg: #1e293b; /* Matching tools.css card bg */
     --text-primary: #f8fafc;
     --text-secondary: #94a3b8;
-    --accent-color: #f59e0b; /* Yellow/Orange */
-    --accent-hover: #d97706;
-    --btn-primary-bg: #f59e0b; /* Yellow button */
-    --btn-primary-text: #0f172a;
-    --link-color: #38bdf8;
-    --header-bg: transparent; /* Or match hero */
+    --accent-color: #6366f1; /* Indigo to match tools */
+    --accent-hover: #4f46e5;
 
-    /* Brand Colors for Icons (Placeholders) */
-    --brand-figma: #F24E1E;
-    --brand-vscode: #007ACC;
-    --brand-xd: #FF61F6;
+    --btn-primary-bg: #6366f1; /* Indigo */
+    --btn-primary-text: #ffffff;
+
+    --link-color: #38bdf8;
+    --header-bg: #0f172a;
+    --border-color: #334155;
 }
 
 [data-theme="light"] {
-    /* Styles matching the screenshot strictly for the "Light" parts */
-    --bg-primary: #1e293b; /* Hero still dark in screenshot? Yes. */
-    --bg-secondary: #ffffff; /* Content sections white */
+    --bg-primary: #ffffff;
+    --bg-secondary: #f8fafc;
     --card-bg: #ffffff;
-    --text-primary: #1e293b; /* Text on white bg */
-    --text-secondary: #64748b;
-    /* Special case: Text on dark hero must remain light */
+    --text-primary: #0f172a;
+    --text-secondary: #475569;
+    --header-bg: #ffffff;
+    --border-color: #e2e8f0;
+
+    /* Hero remains dark usually, but if global toggle: */
     --text-on-dark: #f8fafc;
 }
 
@@ -37,7 +37,7 @@
 }
 
 body {
-    font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
     background-color: var(--bg-primary);
     color: var(--text-primary);
     line-height: 1.6;
@@ -62,11 +62,12 @@ h1, h2, h3, h4 {
 
 /* Header */
 header {
-    background-color: var(--bg-primary);
+    background-color: var(--header-bg);
     padding: 1.5rem 2rem;
     position: sticky;
     top: 0;
     z-index: 100;
+    border-bottom: 1px solid var(--border-color);
 }
 
 .header-container {
@@ -80,13 +81,7 @@ header {
 .logo {
     font-size: 1.5rem;
     font-weight: 800;
-    color: #fff; /* Always white on dark header */
-}
-
-/* Light mode overrides for specific text if header bg changes */
-[data-theme="light"] .logo {
-   /* Header is dark in screenshot, let's keep it dark or adapt? */
-   /* If hero is dark, header should be dark. */
+    color: var(--text-primary);
 }
 
 nav ul {
@@ -105,21 +100,21 @@ nav ul {
     }
 
     nav a {
-        color: #94a3b8;
+        color: var(--text-secondary);
         font-weight: 500;
         font-size: 0.9rem;
         transition: color 0.2s;
     }
 
     nav a:hover {
-        color: #fff;
+        color: var(--text-primary);
     }
 }
 
 #theme-toggle {
     background: transparent;
-    border: 1px solid #94a3b8;
-    color: #94a3b8;
+    border: 1px solid var(--text-secondary);
+    color: var(--text-secondary);
     padding: 0.4rem 0.8rem;
     border-radius: 4px;
     cursor: pointer;
@@ -127,8 +122,8 @@ nav ul {
 }
 
 #theme-toggle:hover {
-    color: #fff;
-    border-color: #fff;
+    color: var(--text-primary);
+    border-color: var(--text-primary);
 }
 
 /* Hero Section */
@@ -138,7 +133,7 @@ nav ul {
     display: flex;
     align-items: center;
     justify-content: center;
-    color: #fff; /* Always light text on hero */
+    color: var(--text-primary);
 }
 
 .hero-content {
@@ -149,12 +144,12 @@ nav ul {
 .hero h1 {
     font-size: 2.5rem;
     margin-bottom: 1rem;
-    color: #fff;
+    color: var(--text-primary);
 }
 
 .hero p {
     font-size: 1.1rem;
-    color: #94a3b8;
+    color: var(--text-secondary);
     margin-bottom: 2rem;
 }
 
@@ -193,7 +188,7 @@ nav ul {
         margin-right: 2rem;
     }
     .hero h1 {
-        font-size: 3rem; /* Larger on desktop */
+        font-size: 3rem;
     }
 }
 
@@ -207,16 +202,17 @@ nav ul {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
+    opacity: 0.2;
 }
 
 .person-placeholder {
     width: 280px;
     height: 350px;
-    background-color: #475569;
+    background-color: #334155;
     position: relative;
     z-index: 1;
     border-radius: 20px;
-    /* Placeholder for image */
+    border: 1px solid var(--border-color);
 }
 
 /* Sections Common */
@@ -228,7 +224,7 @@ nav ul {
 
 .section-dark {
     background-color: var(--bg-primary);
-    color: #fff; /* Force white text */
+    color: var(--text-primary);
     padding: 4rem 2rem;
 }
 
@@ -238,8 +234,6 @@ nav ul {
 }
 
 .section-header {
-    text-align: center; /* Screenshot shows center? Left? */
-    /* Screenshot: "Most Popular Tools" is centered. */
     margin-bottom: 3rem;
     text-align: center;
 }
@@ -265,6 +259,7 @@ nav ul {
     background-color: var(--card-bg);
     padding: 2rem;
     border-radius: 12px;
+    border: 1px solid var(--border-color);
     box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
     transition: transform 0.2s;
     display: flex;
@@ -274,6 +269,7 @@ nav ul {
 
 .tool-card:hover {
     transform: translateY(-5px);
+    border-color: var(--accent-color);
 }
 
 .tool-icon {
@@ -288,14 +284,6 @@ nav ul {
     font-size: 1.2rem;
     margin-bottom: 1rem;
 }
-
-.figma-icon { background: linear-gradient(to bottom right, #F24E1E, #A259FF, #1ABCFE); }
-.vscode-icon { background-color: #007ACC; }
-.xd-icon { background-color: #470137; border: 1px solid #FF61F6; color: #FF61F6; }
-.webflow-icon { background-color: #4353FF; }
-.ps-icon { background-color: #001E36; color: #31A8FF; border: 1px solid #31A8FF; }
-.ai-icon { background-color: #330000; color: #FF9A00; border: 1px solid #FF9A00; }
-
 
 .tool-card h3 {
     margin-bottom: 0.5rem;
@@ -344,7 +332,7 @@ nav ul {
     font-weight: bold;
     color: var(--text-secondary);
     font-size: 1.5rem;
-    opacity: 0.7;
+    opacity: 0.5;
 }
 
 /* Testimonials */
@@ -356,30 +344,17 @@ nav ul {
 }
 
 .testimonial-card {
-    background-color: #1e293b; /* Slightly lighter than dark bg */
+    background-color: var(--bg-secondary);
     padding: 2rem;
     border-radius: 12px;
     text-align: center;
-}
-
-[data-theme="light"] .testimonial-card {
-    background-color: #fff; /* White cards on dark bg? Or dark cards on dark bg? */
-    /* Screenshot has white cards for testimonials on dark bg? No, screenshot shows color cards or white cards. */
-    /* Let's look at screenshot again. */
-    /* Testimonials section is DARK blue background. Cards are White. */
-    background-color: #ffffff;
-    color: #1e293b;
-}
-/* Dark mode testimonial cards */
-.testimonial-card {
-    background-color: #334155;
-    color: #fff;
+    border: 1px solid var(--border-color);
 }
 
 .testimonial-card .avatar {
     width: 60px;
     height: 60px;
-    background-color: #ccc;
+    background-color: #334155;
     border-radius: 50%;
     margin: 0 auto 1rem;
 }
@@ -390,12 +365,13 @@ nav ul {
 
 .testimonial-card .role {
     font-size: 0.85rem;
-    color: #94a3b8;
+    color: var(--text-secondary);
     margin-bottom: 1rem;
 }
 
 .testimonial-card .quote {
     font-style: italic;
+    color: var(--text-primary);
 }
 
 
@@ -405,15 +381,10 @@ nav ul {
     flex-wrap: wrap;
     justify-content: space-between;
     align-items: center;
-    background-color: #1e293b;
+    background-color: var(--bg-secondary);
     padding: 3rem;
     border-radius: 20px;
-}
-
-[data-theme="light"] .subscribe-container {
-   /* Screenshot: Footer area is dark. Subscribe box is dark. */
-   background-color: #1e293b; /* Keep it dark */
-   color: #fff;
+    border: 1px solid var(--border-color);
 }
 
 .subscribe-text {
@@ -424,11 +395,11 @@ nav ul {
 
 .subscribe-text h2 {
     margin-bottom: 0.5rem;
-    color: #fff;
+    color: var(--text-primary);
 }
 
 .subscribe-text p {
-    color: #94a3b8;
+    color: var(--text-secondary);
 }
 
 .subscribe-form {
@@ -439,14 +410,14 @@ nav ul {
 .subscribe-form input {
     padding: 0.8rem;
     border-radius: 4px;
-    border: none;
+    border: 1px solid var(--border-color);
     min-width: 250px;
+    background-color: var(--bg-primary);
+    color: var(--text-primary);
 }
 
 .subscribe-form button {
-    background-color: var(--accent-color); /* Purple in screenshot? Looks purple/blue. Let's use accent. */
-    /* Screenshot button is PURPLE/BLUE. */
-    background-color: #6366f1;
+    background-color: var(--accent-color);
     color: white;
     border: none;
     padding: 0.8rem 2rem;
@@ -455,12 +426,16 @@ nav ul {
     cursor: pointer;
 }
 
+.subscribe-form button:hover {
+    background-color: var(--accent-hover);
+}
+
 /* Footer */
 footer {
     background-color: var(--bg-primary);
     padding: 2rem;
-    border-top: 1px solid #334155;
-    color: #94a3b8;
+    border-top: 1px solid var(--border-color);
+    color: var(--text-secondary);
 }
 
 .footer-container {
@@ -472,6 +447,6 @@ footer {
 }
 
 .footer-logo {
-    color: #fff;
+    color: var(--text-primary);
     font-weight: bold;
 }
