@@ -1,0 +1,145 @@
+.workspace {
+  display: flex;
+  gap: 2rem;
+  flex-direction: column;
+}
+
+@media (min-width: 900px) {
+  .workspace {
+    flex-direction: row;
+    align-items: flex-start;
+  }
+}
+
+.settings-panel {
+  flex: 1;
+  min-width: 300px;
+  background-color: var(--bg-primary);
+  padding: 1.5rem;
+  border-radius: var(--card-radius);
+  border: 1px solid var(--border-color);
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.preview-area {
+  flex: 2;
+  background-color: var(--bg-primary);
+  border-radius: var(--card-radius);
+  border: 1px solid var(--border-color);
+  padding: 1rem;
+  min-height: 400px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.setting-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.setting-group label {
+  font-weight: 600;
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+}
+
+.radio-group {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.radio-btn {
+  flex: 1;
+  text-align: center;
+  padding: 0.5rem;
+  border: 1px solid var(--border-color);
+  border-radius: var(--btn-radius);
+  cursor: pointer;
+  font-size: 0.9rem;
+  transition: all 0.2s;
+  background-color: var(--bg-tertiary);
+}
+
+.radio-btn.active {
+  background-color: var(--primary-color);
+  color: white;
+  border-color: var(--primary-color);
+}
+
+.comparison-container {
+  position: relative;
+  display: inline-block;
+  line-height: 0;
+  max-width: 100%;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+  user-select: none;
+}
+
+.comparison-image {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+.comparison-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 50%;
+  overflow: hidden;
+  border-right: 2px solid rgba(255, 255, 255, 0.8);
+}
+
+.comparison-overlay img {
+  height: 100%;
+  width: auto;
+  max-width: none;
+  object-fit: cover; /* Optional, but height 100% does the work mostly */
+}
+
+.loading-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(15, 23, 42, 0.8);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  z-index: 10;
+  backdrop-filter: blur(4px);
+  border-radius: var(--card-radius);
+}
+
+.spinner {
+  width: 40px;
+  height: 40px;
+  border: 4px solid var(--bg-tertiary);
+  border-top-color: var(--primary-color);
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  margin-bottom: 1rem;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+.result-meta {
+  margin-top: 1rem;
+  font-size: 0.85rem;
+  color: var(--text-tertiary);
+  text-align: center;
+}
