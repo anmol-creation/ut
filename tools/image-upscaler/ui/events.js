@@ -60,6 +60,9 @@ export function setupEvents() {
   elements.scaleRadios.forEach(radio => {
     radio.addEventListener('change', (e) => {
       store.settings.scaleFactor = parseFloat(e.target.value);
+      // Update UI
+      elements.scaleRadios.forEach(r => r.parentElement.classList.remove('active'));
+      e.target.parentElement.classList.add('active');
     });
   });
 
