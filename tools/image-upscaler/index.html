@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Upscale Tool Online | Enlarge Images Without Losing Quality</title>
+    <meta name="description" content="Free online Image Upscale Tool to enlarge and enhance low-resolution photos. Convert to JPEG, PNG, WebP after upscaling. Easy to use, high quality.">
+    <link rel="canonical" href="https://ut.ac/tools/image-upscaler/index.html">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="styles/theme.css">
+    <link rel="stylesheet" href="styles/layout.css">
+    <link rel="stylesheet" href="styles/components.css">
+    <link rel="stylesheet" href="styles/tool.css">
+
+    <!-- Google tracking code -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-3565X5KNFD"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-3565X5KNFD');
+    </script>
+</head>
+<body>
+    <header class="tool-view-header" style="padding: 1rem 2rem; background-color: var(--bg-secondary); border-bottom: 1px solid var(--border-color);">
+        <div class="header-left">
+            <a href="../../index.html" style="color: inherit; text-decoration: none; font-weight: bold; font-size: 1.5rem;">UT.ac</a>
+        </div>
+        <button id="theme-toggle" class="btn btn-ghost" aria-label="Toggle Dark/Light Mode">Toggle Theme</button>
+    </header>
+
+    <main>
+        <!-- Landing View -->
+        <div id="landing-view" class="view-container">
+            <div class="landing-hero">
+                <h1 class="hero-title">Image Upscale Tool</h1>
+                <p class="hero-subtitle">Enlarge your images up to 8x without losing quality. Enhance details and sharpen blurry photos instantly.</p>
+
+                <div class="drop-zone" id="drop-zone">
+                    <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                        <polyline points="17 8 12 3 7 8"></polyline>
+                        <line x1="12" y1="3" x2="12" y2="15"></line>
+                    </svg>
+                    <p style="margin-bottom: 1rem;">Drag & Drop images here or</p>
+                    <button class="btn btn-primary" id="select-files-btn">Select Image</button>
+                    <input type="file" id="file-input" accept="image/*" hidden>
+                    <p style="font-size: 0.85rem; margin-top: 1rem; color: var(--text-tertiary);">Supports JPG, PNG, WebP, BMP, TIFF</p>
+                </div>
+            </div>
+
+            <!-- Features Grid -->
+            <section class="info-grid">
+                <div class="info-card">
+                    <h3>🚀 High Quality Upscaling</h3>
+                    <p>Advanced algorithms to enlarge images while preserving details and sharpness.</p>
+                </div>
+                <div class="info-card">
+                    <h3>🔒 Private & Secure</h3>
+                    <p>All processing happens in your browser. Your images are never uploaded to any server.</p>
+                </div>
+                <div class="info-card">
+                    <h3>⚡ Fast & Free</h3>
+                    <p>Get results in seconds. No login, no subscriptions, completely free to use.</p>
+                </div>
+            </section>
+
+            <div class="ad-container"><!-- Ad will be placed here --></div>
+        </div>
+
+        <!-- Tool View (Hidden) -->
+        <div id="tool-view" class="view-container hidden">
+            <div class="tool-view-header">
+                <button id="reset-btn" class="btn btn-ghost">← Upload New Image</button>
+                <h2>Image Editor</h2>
+            </div>
+
+            <div class="workspace">
+                <!-- Settings Panel -->
+                <div class="settings-panel">
+                    <h3>Settings</h3>
+
+                    <div class="setting-group">
+                        <label>Upscale Factor</label>
+                        <div class="radio-group">
+                            <label class="radio-btn"><input type="radio" name="scale-factor" value="2" checked hidden>2x</label>
+                            <label class="radio-btn"><input type="radio" name="scale-factor" value="4" hidden>4x</label>
+                            <label class="radio-btn"><input type="radio" name="scale-factor" value="8" hidden>8x</label>
+                        </div>
+                        <div style="margin-top: 0.5rem;">
+                            <label for="custom-scale" style="font-size: 0.85rem;">Custom % (e.g. 150):</label>
+                            <input type="number" id="custom-scale" class="input-control" placeholder="Custom" min="10" max="800">
+                        </div>
+                    </div>
+
+                    <div class="setting-group">
+                        <label>Enhancements</label>
+                        <div style="display: flex; gap: 1rem;">
+                            <label style="display: flex; align-items: center; gap: 0.5rem; cursor: pointer;">
+                                <input type="checkbox" id="sharpen-check"> Sharpen
+                            </label>
+                            <label style="display: flex; align-items: center; gap: 0.5rem; cursor: pointer;">
+                                <input type="checkbox" id="noise-check"> Denoise
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="setting-group">
+                        <label for="format-select">Output Format</label>
+                        <select id="format-select" class="select-control">
+                            <option value="image/jpeg">JPEG (.jpg)</option>
+                            <option value="image/png">PNG (.png)</option>
+                            <option value="image/webp">WebP (.webp)</option>
+                        </select>
+                    </div>
+
+                    <div class="setting-group">
+                        <label for="quality-slider" style="display: flex; justify-content: space-between;">
+                            Quality <span id="quality-value">90%</span>
+                        </label>
+                        <input type="range" id="quality-slider" class="slider-control" min="0.1" max="1" step="0.1" value="0.9">
+                    </div>
+
+                    <button id="upscale-btn" class="btn btn-primary btn-lg" style="margin-top: 1rem;">Upscale Image</button>
+                    <button id="download-btn" class="btn btn-secondary btn-lg">Download Result</button>
+
+                    <div id="error-message" class="hidden" style="color: var(--danger-color); font-size: 0.9rem; margin-top: 0.5rem;"></div>
+                </div>
+
+                <!-- Preview Area -->
+                <div class="preview-area" id="preview-area">
+                    <div id="loading-overlay" class="loading-overlay hidden">
+                        <div class="spinner"></div>
+                        <p>Processing...</p>
+                    </div>
+
+                    <div class="comparison-container hidden" id="comparison-container">
+                        <!-- Upscaled (Bottom Layer) -->
+                        <img id="upscaled-preview" class="comparison-image" alt="Upscaled Preview">
+
+                        <!-- Original (Top Layer - Overlay) -->
+                        <div class="comparison-overlay" id="comparison-overlay">
+                             <img id="original-preview" alt="Original Preview">
+                        </div>
+
+                        <!-- Slider Handle -->
+                        <div class="slider-handle" id="slider-handle" style="position: absolute; top: 0; bottom: 0; left: 50%; width: 4px; background: white; cursor: ew-resize; transform: translateX(-50%); z-index: 5;">
+                            <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 32px; height: 32px; background: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: 0 2px 4px rgba(0,0,0,0.2);">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <polyline points="15 18 9 12 15 6"></polyline>
+                                    <polyline points="9 18 3 12 9 6"></polyline>
+                                    <polyline points="19 18 13 12 19 6"></polyline>
+                                </svg>
+                            </div>
+                        </div>
+                    </div>
+
+                    <p id="result-meta" class="result-meta"></p>
+                </div>
+            </div>
+
+            <div class="ad-container"><!-- Ad will be placed here --></div>
+        </div>
+
+        <!-- Info / SEO Content -->
+        <section class="view-container" style="margin-top: 4rem;">
+            <div class="info-card" style="background: transparent; border: none; box-shadow: none; padding: 0;">
+                <h2 style="font-size: 1.75rem; margin-bottom: 1.5rem;">How to use Image Upscale Tool?</h2>
+                <div style="display: flex; flex-direction: column; gap: 1rem; color: var(--text-secondary);">
+                    <p>1. <strong>Upload Image:</strong> Drag and drop your image or click "Select Image".</p>
+                    <p>2. <strong>Select Scale:</strong> Choose how much you want to enlarge the image (2x, 4x, 8x).</p>
+                    <p>3. <strong>Enhance:</strong> Check "Sharpen" to add clarity or "Denoise" to smooth out grain.</p>
+                    <p>4. <strong>Upscale:</strong> Click the "Upscale Image" button and wait for processing.</p>
+                    <p>5. <strong>Download:</strong> Once satisfied, download the high-resolution image in your preferred format.</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <p>&copy; UT.ac — All tools are free <span class="visitor-counter" style="margin-left: 15px; opacity: 0.8;">| Total Users: 3,000+</span></p>
+        <p><a href="../../privacy.html" style="color: inherit; text-decoration: none; font-size: 0.9em; opacity: 0.8;">Privacy Policy</a></p>
+    </footer>
+
+    <script type="module" src="main.js"></script>
+</body>
+</html>
