@@ -22,4 +22,23 @@ document.addEventListener('DOMContentLoaded', () => {
             localStorage.setItem('theme', 'light');
         }
     });
+
+    // Fetch and update dynamic visitor count
+    const visitorCountElement = document.getElementById('dynamic-visitor-count');
+    if (visitorCountElement) {
+        fetch('https://api.counterapi.dev/v1/projectut_com/visits/up')
+            .then(response => response.json())
+            .then(data => {
+                if (data && data.count) {
+                    // Format the number with commas (e.g., 1,000)
+                    visitorCountElement.textContent = data.count.toLocaleString();
+                } else {
+                    visitorCountElement.textContent = 'Unavailable';
+                }
+            })
+            .catch(error => {
+                console.error('Error fetching visitor count:', error);
+                visitorCountElement.textContent = 'Unavailable';
+            });
+    }
 });
