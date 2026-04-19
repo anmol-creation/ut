@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Compress Image to KB | Reduce Signature & Photo Size for Forms | Project UT</title>
+    <meta name="description" content="Free tool to compress image size to a specific KB (10KB, 20KB, 50KB, etc.). Ideal for resizing signatures and photos for government exams, college forms, and more.">
+    <meta name="keywords" content="compress image to kb, reduce image size to 10kb, 20kb image compressor, photo resizer for forms, signature resizer, 50kb image converter">
+    <link rel="canonical" href="https://ut.ac/tools/compress-image-to-kb/index.html">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="../../tools/tools.css">
+    <link rel="stylesheet" href="styles/theme.css">
+    <link rel="stylesheet" href="styles/layout.css">
+    <link rel="stylesheet" href="styles/components.css">
+    <link rel="stylesheet" href="styles/tool.css">
+
+    <!-- Google Analytics (Temporary pending site-specific ID) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-3565X5KNFD"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-3565X5KNFD');
+    </script>
+</head>
+<body class="theme-dark">
+    <!-- Navbar -->
+    <header style="padding: 1rem 2rem; background-color: #1e293b; border-bottom: 1px solid #334155;">
+        <div style="max-width: 800px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center;">
+            <a href="../../index.html" style="color: #f8fafc; text-decoration: none; font-weight: bold; font-size: 1.5rem;">UT.ac</a>
+            <div style="display: flex; gap: 1rem;">
+                <a href="../../tools/index.html" style="color: #94a3b8; text-decoration: none; font-weight: 500;">All Tools</a>
+                <a href="../../tools/image-tools.html" style="color: #6366f1; text-decoration: none; font-weight: 500;">Image Tools</a>
+            </div>
+        </div>
+    </header>
+
+    <main class="tool-container">
+        <!-- Landing View -->
+        <section id="landing-view" class="landing-view">
+            <h1 class="tool-title">Compress Image to Exact KB</h1>
+            <p class="tool-subtitle">Resize photos and signatures for forms. Compress exactly to 10KB, 20KB, 50KB, or any custom size you need.</p>
+
+            <div class="features-list">
+                <div class="feature-item">
+                    <span class="feature-icon">✓</span>
+                    <span>Perfect for Govt & Exam Forms</span>
+                </div>
+                <div class="feature-item">
+                    <span class="feature-icon">✓</span>
+                    <span>No Uploads (100% Secure & Private)</span>
+                </div>
+                <div class="feature-item">
+                    <span class="feature-icon">✓</span>
+                    <span>Works Offline</span>
+                </div>
+            </div>
+
+            <button id="start-tool-btn" class="btn btn-primary btn-large mt-6">Start Compressing Now</button>
+        </section>
+
+        <!-- Active Tool View (Hidden initially) -->
+        <section id="active-view" class="active-view hidden">
+            <div class="tool-card">
+                <h2 class="card-title">Image Compressor</h2>
+
+                <!-- Step 1: Upload -->
+                <div class="upload-zone" id="upload-zone">
+                    <div class="upload-content">
+                        <svg class="upload-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12" />
+                        </svg>
+                        <p>Click to browse or drag image here</p>
+                        <span class="upload-hint">Supports JPG, PNG, WEBP</span>
+                    </div>
+                    <input type="file" id="image-input" accept="image/jpeg, image/png, image/webp" class="hidden">
+                </div>
+
+                <div id="image-preview-container" class="hidden">
+                     <div class="preview-header">
+                        <h3>Original Image</h3>
+                        <button id="change-image-btn" class="btn btn-secondary btn-small">Change Image</button>
+                    </div>
+                    <div class="image-preview-wrapper">
+                        <img id="image-preview" src="" alt="Preview">
+                        <div class="image-info">
+                            <span id="original-size">Size: 0 KB</span>
+                            <span id="original-dimensions">Dimensions: 0 x 0</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Step 2: Settings (Hidden until image selected) -->
+                <div id="settings-panel" class="settings-panel hidden mt-6">
+                    <h3>Target Size</h3>
+
+                    <!-- Presets -->
+                    <div class="size-presets">
+                        <label class="radio-label preset-label">
+                            <input type="radio" name="target_size" value="10">
+                            <span class="preset-btn">10 KB</span>
+                        </label>
+                        <label class="radio-label preset-label">
+                            <input type="radio" name="target_size" value="20">
+                            <span class="preset-btn">20 KB</span>
+                        </label>
+                        <label class="radio-label preset-label">
+                            <input type="radio" name="target_size" value="50">
+                            <span class="preset-btn">50 KB</span>
+                        </label>
+                         <label class="radio-label preset-label active">
+                            <input type="radio" name="target_size" value="custom" checked>
+                            <span class="preset-btn">Custom</span>
+                        </label>
+                    </div>
+
+                    <!-- Custom Input -->
+                    <div id="custom-size-input-group" class="input-group mt-4">
+                        <label for="custom-kb">Custom Size (KB)</label>
+                        <div class="input-with-suffix">
+                            <input type="number" id="custom-kb" min="1" max="5000" value="100" placeholder="e.g. 15">
+                            <span class="suffix">KB</span>
+                        </div>
+                        <p class="input-hint">Target maximum file size.</p>
+                    </div>
+
+                    <!-- Action -->
+                    <button id="compress-btn" class="btn btn-primary btn-full mt-6">Compress Image</button>
+                </div>
+
+                <!-- Step 3: Result (Hidden initially) -->
+                <div id="result-panel" class="result-panel hidden mt-6">
+                    <div class="result-header">
+                        <h3>Compressed Result</h3>
+                        <span id="compression-status" class="status-badge success">Success!</span>
+                    </div>
+
+                    <div class="result-stats">
+                        <div class="stat-box">
+                            <span class="stat-label">New Size</span>
+                            <span id="result-size" class="stat-value">0 KB</span>
+                        </div>
+                        <div class="stat-box">
+                            <span class="stat-label">Saved</span>
+                            <span id="result-saved" class="stat-value text-success">0%</span>
+                        </div>
+                        <div class="stat-box">
+                            <span class="stat-label">Dimensions</span>
+                            <span id="result-dimensions" class="stat-value">0 x 0</span>
+                        </div>
+                    </div>
+
+                    <div class="result-actions mt-6">
+                        <button id="download-btn" class="btn btn-primary btn-large w-full">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mr-2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+                            Download Image
+                        </button>
+                        <button id="compress-again-btn" class="btn btn-secondary w-full mt-3">Compress Another Image</button>
+                    </div>
+                </div>
+
+                <!-- Error Container -->
+                <div id="error-container" class="error-container hidden mt-4"></div>
+
+            </div>
+        </section>
+
+        <!-- Ad Container -->
+        <div class="ad-container mt-8">
+            <!-- Ad will be placed here -->
+            <div style="text-align: center; color: var(--text-muted); padding: 20px; border: 1px dashed var(--border-color); border-radius: var(--radius-md);">Advertisement</div>
+        </div>
+    </main>
+
+    <!-- Global Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <p>&copy; UT.ac — All tools are free</p>
+            <p class="visitor-stats">Total Visitors: <span id="dynamic-visitor-count">...</span></p>
+            <div class="footer-links">
+                <a href="../../privacy.html">Privacy Policy</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="../tools.js" defer></script>
+    <script src="utils/formatters.js" defer></script>
+    <script src="logic/compressor.js" defer></script>
+    <script src="ui/events.js" defer></script>
+    <script src="ui/app.js" defer></script>
+</body>
+</html>
