@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image to Text Converter (OCR) - Extract Text from Images - UT.ac</title>
+    <meta name="description" content="A free, fast, and private online tool to extract text from images using OCR. Supports English and Hindi. High accuracy, 100% client-side processing.">
+    <link rel="canonical" href="https://projectut.com/tools/image-to-text-converter/">
+
+    <!-- Modular CSS -->
+    <link rel="stylesheet" href="css/theme.css">
+    <link rel="stylesheet" href="css/layout.css">
+    <link rel="stylesheet" href="css/components.css">
+    <link rel="stylesheet" href="css/tool.css">
+
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🖼️</text></svg>">
+
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-3565X5KNFD"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-3565X5KNFD');
+    </script>
+</head>
+<body>
+
+    <!-- Landing Page View -->
+    <main id="landing-page" class="view-container">
+        <div class="landing-content">
+            <h1 class="tool-title">Image to Text Converter (OCR)</h1>
+            <p class="tool-description">
+                Extract text from images accurately using advanced Optical Character Recognition (OCR).
+                Supports English and Hindi. 100% secure, processed completely inside your browser.
+            </p>
+            <button id="launch-tool-btn" class="btn-primary">Launch Tool</button>
+
+            <section class="features-preview">
+                <h2 class="sr-only">Features</h2>
+                <div class="feature-card">
+                    <h3>🇮🇳 Hindi & English</h3>
+                    <p>High accuracy for both languages, handling complex characters smoothly.</p>
+                </div>
+                <div class="feature-card">
+                    <h3>🛡️ 100% Private</h3>
+                    <p>No images are uploaded. All processing happens right on your device.</p>
+                </div>
+                <div class="feature-card">
+                    <h3>⚡ Fast & Editable</h3>
+                    <p>Get results quickly and edit the extracted text directly before copying.</p>
+                </div>
+            </section>
+        </div>
+
+        <div class="ad-container"><!-- Ad will be placed here --></div>
+    </main>
+
+    <!-- Tool View (Hidden by default) -->
+    <main id="tool-ui" class="view-container hidden">
+        <header class="tool-header">
+            <div class="header-left">
+                <button id="back-to-landing" class="btn-text">← Back</button>
+                <h2>Image OCR</h2>
+            </div>
+            <div class="language-selector">
+                <label for="language-select">Language: </label>
+                <select id="language-select" class="dropdown-select">
+                    <option value="eng">English</option>
+                    <option value="hin">Hindi</option>
+                    <option value="eng+hin">English + Hindi</option>
+                </select>
+            </div>
+        </header>
+
+        <div class="tool-layout split-view">
+            <!-- Left Side: Input Area -->
+            <section class="input-section card">
+                <div class="card-header">
+                    <h3>Upload Image</h3>
+                </div>
+
+                <div id="drop-zone" class="drop-zone">
+                    <div class="drop-zone-content">
+                        <span class="icon-upload">📁</span>
+                        <p>Drag & Drop your image here</p>
+                        <p class="sub-text">or</p>
+                        <label for="file-input" class="btn-secondary">Browse File</label>
+                        <input type="file" id="file-input" accept="image/png, image/jpeg, image/webp" class="hidden">
+                    </div>
+                    <img id="image-preview" class="hidden" alt="Image preview">
+                </div>
+
+                <div id="progress-container" class="hidden">
+                    <p id="status-text">Ready</p>
+                    <div class="progress-bar-bg">
+                        <div id="progress-bar" class="progress-bar-fill"></div>
+                    </div>
+                </div>
+
+                <div class="action-buttons">
+                    <button id="extract-btn" class="btn-primary full-width" disabled>Extract Text</button>
+                    <button id="clear-img-btn" class="btn-danger full-width hidden">Clear Image</button>
+                </div>
+            </section>
+
+            <!-- Right Side: Output Area -->
+            <section class="output-section card">
+                <div class="card-header">
+                    <h3>Extracted Text</h3>
+                    <div class="toolbar-actions">
+                        <button id="copy-btn" class="btn-sm" disabled>Copy</button>
+                        <button id="download-btn" class="btn-sm" disabled>Download .txt</button>
+                        <button id="clear-text-btn" class="btn-sm btn-danger" disabled>Clear</button>
+                    </div>
+                </div>
+                <textarea id="text-output" placeholder="Extracted text will appear here. You can edit it before copying..." spellcheck="false"></textarea>
+            </section>
+        </div>
+
+        <section class="tool-info">
+            <h3>About This Tool</h3>
+            <p>
+                Our Image to Text extractor uses Tesseract.js to perform OCR directly in your browser. This ensures that your images and text remain completely private and are never sent to external servers. Note that initial loading might take a few moments as language data is downloaded to your browser cache.
+            </p>
+        </section>
+
+        <div class="ad-container"><!-- Ad will be placed here --></div>
+    </main>
+
+    <footer class="site-footer">
+        <p>© UT.ac — All tools are free <span id="dynamic-visitor-count" class="visitor-counter" style="margin-left: 15px; opacity: 0.8;">| Total Users: ...</span></p>
+        <p><a href="../../privacy.html" style="color: inherit; text-decoration: none; font-size: 0.9em; opacity: 0.8;">Privacy Policy</a></p>
+    </footer>
+
+    <!-- Tesseract.js CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/tesseract.js@5/dist/tesseract.min.js"></script>
+
+    <!-- Modular JavaScript -->
+    <script src="js/analytics.js"></script>
+    <script src="js/ui.js"></script>
+    <script src="js/ocr.js"></script>
+    <script src="js/actions.js"></script>
+    <script src="js/main.js"></script>
+
+</body>
+</html>
