@@ -18,6 +18,15 @@
 
     <link rel="stylesheet" href="../../tools/tools.css">
     <link rel="stylesheet" href="./styles/style.css">
+
+    <link rel="manifest" href="manifest.json">
+    <script>
+      if ('serviceWorker' in navigator) {
+        window.addEventListener('load', () => {
+          navigator.serviceWorker.register('/sw.js', { scope: '/tools/text-summarizer/' }).catch(err => console.error("Service Worker registration failed: ", err));
+        });
+      }
+    </script>
 </head>
 <body class="bg-slate-900 text-slate-200 font-sans selection:bg-indigo-500 selection:text-white">
 

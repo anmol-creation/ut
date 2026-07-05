@@ -22,6 +22,15 @@
 
       gtag('config', 'G-3565X5KNFD');
     </script>
+
+    <link rel="manifest" href="manifest.json">
+    <script>
+      if ('serviceWorker' in navigator) {
+        window.addEventListener('load', () => {
+          navigator.serviceWorker.register('/sw.js', { scope: '/tools/image-upscaler/' }).catch(err => console.error("Service Worker registration failed: ", err));
+        });
+      }
+    </script>
 </head>
 <body>
     <header class="tool-view-header" style="padding: 1rem 2rem; background-color: var(--bg-secondary); border-bottom: 1px solid var(--border-color);">
