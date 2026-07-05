@@ -28,6 +28,15 @@
       gtag('js', new Date());
       gtag('config', 'G-3565X5KNFD');
     </script>
+
+    <link rel="manifest" href="manifest.json">
+    <script>
+      if ('serviceWorker' in navigator) {
+        window.addEventListener('load', () => {
+          navigator.serviceWorker.register('/sw.js', { scope: '/tools/compress-image-to-kb/' }).catch(err => console.error("Service Worker registration failed: ", err));
+        });
+      }
+    </script>
 </head>
 <body class="theme-dark">
     <!-- Navbar -->

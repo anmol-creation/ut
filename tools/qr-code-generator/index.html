@@ -24,6 +24,15 @@
 
       gtag('config', 'G-3565X5KNFD');
     </script>
+
+    <link rel="manifest" href="manifest.json">
+    <script>
+      if ('serviceWorker' in navigator) {
+        window.addEventListener('load', () => {
+          navigator.serviceWorker.register('/sw.js', { scope: '/tools/qr-code-generator/' }).catch(err => console.error("Service Worker registration failed: ", err));
+        });
+      }
+    </script>
 </head>
 <body class="bg-[#0f172a] text-white font-sans min-h-screen flex flex-col">
 
