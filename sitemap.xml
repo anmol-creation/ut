@@ -1,97 +1,97 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
-        <loc>https://ut.ac/</loc>
+        <loc>https://actools.com/</loc>
         <lastmod>2023-10-27</lastmod>
         <changefreq>weekly</changefreq>
         <priority>1.0</priority>
     </url>
     <url>
-        <loc>https://ut.ac/tools/index.html</loc>
+        <loc>https://actools.com/tools/index.html</loc>
         <lastmod>2023-10-27</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
-        <loc>https://ut.ac/tools/text-tools.html</loc>
+        <loc>https://actools.com/tools/text-tools.html</loc>
         <lastmod>2023-10-27</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
-        <loc>https://ut.ac/tools/text-case-converter/index.html</loc>
+        <loc>https://actools.com/tools/text-case-converter/index.html</loc>
         <lastmod>2023-10-27</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
-        <loc>https://ut.ac/tools/word-character-counter/index.html</loc>
+        <loc>https://actools.com/tools/word-character-counter/index.html</loc>
         <lastmod>2023-10-27</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
-        <loc>https://ut.ac/tools/text-summarizer/index.html</loc>
+        <loc>https://actools.com/tools/text-summarizer/index.html</loc>
         <lastmod>2023-10-27</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
-        <loc>https://ut.ac/tools/grammar-checker/index.html</loc>
+        <loc>https://actools.com/tools/grammar-checker/index.html</loc>
         <lastmod>2023-10-27</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
-        <loc>https://ut.ac/tools/url-encoder-decoder/index.html</loc>
+        <loc>https://actools.com/tools/url-encoder-decoder/index.html</loc>
         <lastmod>2023-10-27</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
-        <loc>https://ut.ac/tools/password-generator/index.html</loc>
+        <loc>https://actools.com/tools/password-generator/index.html</loc>
         <lastmod>2023-10-28</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
-        <loc>https://ut.ac/tools/security-tools.html</loc>
+        <loc>https://actools.com/tools/security-tools.html</loc>
         <lastmod>2023-10-28</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
-        <loc>https://ut.ac/tools/qr-code-generator/index.html</loc>
+        <loc>https://actools.com/tools/qr-code-generator/index.html</loc>
         <lastmod>2023-10-28</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
-        <loc>https://ut.ac/tools/text-formatter/index.html</loc>
+        <loc>https://actools.com/tools/text-formatter/index.html</loc>
         <lastmod>2023-10-28</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
-        <loc>https://ut.ac/tools/image-format-converter/index.html</loc>
+        <loc>https://actools.com/tools/image-format-converter/index.html</loc>
         <lastmod>2023-10-29</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
-        <loc>https://ut.ac/tools/image-upscaler/index.html</loc>
+        <loc>https://actools.com/tools/image-upscaler/index.html</loc>
         <lastmod>2023-10-31</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
-        <loc>https://ut.ac/tools/compress-image-to-kb/index.html</loc>
+        <loc>https://actools.com/tools/compress-image-to-kb/index.html</loc>
         <lastmod>2023-10-31</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
-        <loc>https://ut.ac/tools/image-to-text-converter/index.html</loc>
+        <loc>https://actools.com/tools/image-to-text-converter/index.html</loc>
         <lastmod>2024-05-02</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>

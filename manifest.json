@@ -1,6 +1,6 @@
 {
-  "name": "Project UT",
-  "short_name": "UT",
+  "name": "acTools",
+  "short_name": "acTools",
   "description": "A collection of fast, client-side tools for text and images.",
   "start_url": "/",
   "display": "standalone",

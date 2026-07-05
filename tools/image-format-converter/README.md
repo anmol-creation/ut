@@ -1,6 +1,6 @@
 # Image Format Converter
 
-A purely client-side image format converter tool for Project UT.
+A purely client-side image format converter tool for acTools.
 
 ## Features
 - **Formats:** JPEG, PNG, WebP, GIF (static), BMP, TIFF (uncompressed).

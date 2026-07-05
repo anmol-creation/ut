@@ -1,7 +1,7 @@
 # Text Case Converter
 
 ## Purpose
-Text Case Converter is a clean, fast, and UX-first tool designed for the UT.ac platform. It allows users to convert text between various cases (Uppercase, Lowercase, Title Case, etc.) without any distractions. The tool is built to be ads-friendly but user-centric, ensuring ads never interfere with the workflow.
+Text Case Converter is a clean, fast, and UX-first tool designed for the acTools platform. It allows users to convert text between various cases (Uppercase, Lowercase, Title Case, etc.) without any distractions. The tool is built to be ads-friendly but user-centric, ensuring ads never interfere with the workflow.
 
 ## Folder Philosophy
 The folder structure is strictly modular to ensure isolation and scalability.
@@ -27,4 +27,4 @@ The folder structure is strictly modular to ensure isolation and scalability.
 - **Performance**: Large text support, no lag, no data storage.
 
 ## Credits
-© UT.ac — All tools are free
+© acTools — All tools are free

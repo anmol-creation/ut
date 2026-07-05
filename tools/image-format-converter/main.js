@@ -24,3 +24,20 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 });
+
+// Update icons based on theme
+function updateThemeIcons() {
+    const isLight = (document.body.getAttribute('data-theme') === 'light' || document.documentElement.getAttribute('data-theme') === 'light');
+    const moonIcons = document.querySelectorAll('.icon-moon');
+    const sunIcons = document.querySelectorAll('.icon-sun');
+
+    moonIcons.forEach(icon => icon.style.display = isLight ? 'none' : 'inline');
+    sunIcons.forEach(icon => icon.style.display = isLight ? 'inline' : 'none');
+}
+
+// Initial call
+updateThemeIcons();
+
+// Observe theme changes
+const observer = new MutationObserver(updateThemeIcons);
+observer.observe(document.body, { attributes: true, attributeFilter: ['data-theme'] }); observer.observe(document.documentElement, { attributes: true, attributeFilter: ['data-theme'] });

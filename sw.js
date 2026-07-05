@@ -1,4 +1,4 @@
-const CACHE_NAME = 'project-ut-v1';
+const CACHE_NAME = 'actools-v1';
 const ASSETS_TO_CACHE = [
   '/',
   '/index.html',
