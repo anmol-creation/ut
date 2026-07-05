@@ -3,10 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Compress Image to KB | Reduce Signature & Photo Size for Forms | Project UT</title>
+    <title>Compress Image to KB | Reduce Signature & Photo Size for Forms | acTools</title>
     <meta name="description" content="Free tool to compress image size to a specific KB (10KB, 20KB, 50KB, etc.). Ideal for resizing signatures and photos for government exams, college forms, and more.">
     <meta name="keywords" content="compress image to kb, reduce image size to 10kb, 20kb image compressor, photo resizer for forms, signature resizer, 50kb image converter">
-    <link rel="canonical" href="https://ut.ac/tools/compress-image-to-kb/index.html">
+    <link rel="canonical" href="https://actools.com/tools/compress-image-to-kb/index.html">
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -42,10 +42,15 @@
     <!-- Navbar -->
     <header style="padding: 1rem 2rem; background-color: #1e293b; border-bottom: 1px solid #334155;">
         <div style="max-width: 800px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center;">
-            <a href="../../index.html" style="color: #f8fafc; text-decoration: none; font-weight: bold; font-size: 1.5rem;">UT.ac</a>
-            <div style="display: flex; gap: 1rem;">
+            <a href="../../index.html" style="color: #f8fafc; text-decoration: none; font-weight: bold; font-size: 1.5rem;">acTools</a>
+            <div style="display: flex; gap: 1rem; align-items: center;">
                 <a href="../../tools/index.html" style="color: #94a3b8; text-decoration: none; font-weight: 500;">All Tools</a>
                 <a href="../../tools/image-tools.html" style="color: #6366f1; text-decoration: none; font-weight: 500;">Image Tools</a>
+
+                <button id="theme-toggle" class="btn-icon ml-4" aria-label="Toggle Dark Mode" style="background:none; border:none; cursor:pointer; font-size:1.2rem; color: inherit;">
+                    <span class="icon-moon">🌙</span>
+                    <span class="icon-sun" style="display:none;">☀️</span>
+                </button>
             </div>
         </div>
     </header>
@@ -190,7 +195,7 @@
     <!-- Global Footer -->
     <footer class="footer">
         <div class="footer-content">
-            <p>&copy; UT.ac — All tools are free</p>
+            <p>&copy; acTools — All tools are free</p>
             <p class="visitor-stats">Total Visitors: <span id="dynamic-visitor-count">...</span></p>
             <div class="footer-links">
                 <a href="../../privacy.html">Privacy Policy</a>
@@ -204,5 +209,56 @@
     <script src="logic/compressor.js" defer></script>
     <script src="ui/events.js" defer></script>
     <script src="ui/app.js" defer></script>
+
+    <script>
+        // Inline Theme Toggle Logic for independent tools
+        document.addEventListener('DOMContentLoaded', () => {
+            const themeToggle = document.getElementById('theme-toggle');
+            if(!themeToggle) return;
+
+            const body = document.body;
+            const html = document.documentElement;
+
+            // Check for saved theme preference, default to dark
+            const savedTheme = localStorage.getItem('theme');
+            if (savedTheme === 'light') {
+                body.setAttribute('data-theme', 'light');
+                html.setAttribute('data-theme', 'light');
+            } else if (savedTheme === 'dark') {
+                body.setAttribute('data-theme', 'dark');
+                html.setAttribute('data-theme', 'dark');
+            }
+
+            themeToggle.addEventListener('click', () => {
+                const isLight = body.getAttribute('data-theme') === 'light' || html.getAttribute('data-theme') === 'light';
+                if (isLight) {
+                    body.setAttribute('data-theme', 'dark');
+                    html.setAttribute('data-theme', 'dark');
+                    body.removeAttribute('data-theme'); // for css that relies on absence
+                    html.removeAttribute('data-theme');
+                    localStorage.setItem('theme', 'dark');
+                } else {
+                    body.setAttribute('data-theme', 'light');
+                    html.setAttribute('data-theme', 'light');
+                    localStorage.setItem('theme', 'light');
+                }
+            });
+
+            function updateThemeIcons() {
+                const isLight = (document.body.getAttribute('data-theme') === 'light' || document.documentElement.getAttribute('data-theme') === 'light');
+                const moonIcons = document.querySelectorAll('.icon-moon');
+                const sunIcons = document.querySelectorAll('.icon-sun');
+
+                moonIcons.forEach(icon => icon.style.display = isLight ? 'none' : 'inline');
+                sunIcons.forEach(icon => icon.style.display = isLight ? 'inline' : 'none');
+            }
+
+            updateThemeIcons();
+            const observer = new MutationObserver(updateThemeIcons);
+            observer.observe(document.body, { attributes: true, attributeFilter: ['data-theme'] });
+            observer.observe(document.documentElement, { attributes: true, attributeFilter: ['data-theme'] });
+        });
+    </script>
 </body>
+
 </html>

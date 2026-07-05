@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Grammar Checker | Free Online Spell & Grammar Check</title>
     <meta name="description" content="Free online grammar checker tool. Check spelling, punctuation, and grammar errors instantly. Improve your writing with style and tone suggestions.">
-    <link rel="canonical" href="https://ut.ac/tools/grammar-checker/index.html">
+    <link rel="canonical" href="https://actools.com/tools/grammar-checker/index.html">
 
     <!-- Google Analytics 4 -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-3565X5KNFD"></script>
@@ -40,11 +40,15 @@
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
                         </svg>
                     </div>
-                    <span class="text-xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-indigo-400 to-cyan-400">UT.ac</span>
+                    <span class="text-xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-indigo-400 to-cyan-400">acTools</span>
                 </a>
                 <a href="../../tools/text-tools.html" class="text-sm text-slate-400 hover:text-white transition-colors">
                     ← Back to Text Tools
                 </a>
+                <button id="theme-toggle" class="btn-icon ml-4" aria-label="Toggle Dark Mode" style="background:none; border:none; cursor:pointer; font-size:1.2rem; color: inherit;">
+                    <span class="icon-moon">🌙</span>
+                    <span class="icon-sun" style="display:none;">☀️</span>
+                </button>
             </div>
         </div>
     </nav>
@@ -237,7 +241,7 @@
     <!-- Footer -->
     <footer class="bg-slate-900 border-t border-slate-800 mt-24 py-12">
         <div class="max-w-7xl mx-auto px-4 text-center">
-            <p class="text-slate-500 mb-4">&copy; UT.ac — All tools are free</p>
+            <p class="text-slate-500 mb-4">&copy; acTools — All tools are free</p>
             <div class="inline-flex items-center gap-2 px-4 py-2 bg-slate-800 rounded-full border border-slate-700">
                 <div class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></div>
                 <span class="text-sm text-slate-400">Total Users: 3,000+</span>
@@ -249,5 +253,56 @@
     <!-- Scripts -->
     <script type="module" src="./main.js"></script>
 
+
+    <script>
+        // Inline Theme Toggle Logic for independent tools
+        document.addEventListener('DOMContentLoaded', () => {
+            const themeToggle = document.getElementById('theme-toggle');
+            if(!themeToggle) return;
+
+            const body = document.body;
+            const html = document.documentElement;
+
+            // Check for saved theme preference, default to dark
+            const savedTheme = localStorage.getItem('theme');
+            if (savedTheme === 'light') {
+                body.setAttribute('data-theme', 'light');
+                html.setAttribute('data-theme', 'light');
+            } else if (savedTheme === 'dark') {
+                body.setAttribute('data-theme', 'dark');
+                html.setAttribute('data-theme', 'dark');
+            }
+
+            themeToggle.addEventListener('click', () => {
+                const isLight = body.getAttribute('data-theme') === 'light' || html.getAttribute('data-theme') === 'light';
+                if (isLight) {
+                    body.setAttribute('data-theme', 'dark');
+                    html.setAttribute('data-theme', 'dark');
+                    body.removeAttribute('data-theme'); // for css that relies on absence
+                    html.removeAttribute('data-theme');
+                    localStorage.setItem('theme', 'dark');
+                } else {
+                    body.setAttribute('data-theme', 'light');
+                    html.setAttribute('data-theme', 'light');
+                    localStorage.setItem('theme', 'light');
+                }
+            });
+
+            function updateThemeIcons() {
+                const isLight = (document.body.getAttribute('data-theme') === 'light' || document.documentElement.getAttribute('data-theme') === 'light');
+                const moonIcons = document.querySelectorAll('.icon-moon');
+                const sunIcons = document.querySelectorAll('.icon-sun');
+
+                moonIcons.forEach(icon => icon.style.display = isLight ? 'none' : 'inline');
+                sunIcons.forEach(icon => icon.style.display = isLight ? 'inline' : 'none');
+            }
+
+            updateThemeIcons();
+            const observer = new MutationObserver(updateThemeIcons);
+            observer.observe(document.body, { attributes: true, attributeFilter: ['data-theme'] });
+            observer.observe(document.documentElement, { attributes: true, attributeFilter: ['data-theme'] });
+        });
+    </script>
 </body>
+
 </html>
