@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SEO Slug / URL Generator - Project UT</title>
+    <meta name="description" content="Free online SEO Slug Generator. Convert any text or title into a clean, SEO-friendly URL slug instantly.">
+    <meta name="keywords" content="slug generator, url generator, seo url, create clean url, string to slug">
+    <link rel="canonical" href="https://projectut.com/tools/slug-generator/">
+
+    <link rel="stylesheet" href="styles/theme.css">
+    <link rel="stylesheet" href="styles/layout.css">
+    <link rel="stylesheet" href="styles/components.css">
+    <link rel="stylesheet" href="styles/tool.css">
+
+    <link rel="manifest" href="manifest.json">
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-3565X5KNFD"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-3565X5KNFD');
+    </script>
+</head>
+<body class="dark-theme">
+    <header class="site-header">
+        <div class="logo"><a href="../../index.html">Project UT</a></div>
+        <nav class="main-nav">
+            <a href="../../tools/index.html">All Tools</a>
+            <a href="../../tools/seo-tools.html">SEO Tools</a>
+        </nav>
+    </header>
+
+    <main class="container">
+        <div class="tool-header">
+            <h1>SEO Slug Generator</h1>
+            <p>Convert your article titles into clean, search-engine-friendly URLs.</p>
+        </div>
+
+        <div class="tool-card-single">
+            <div class="card">
+                <h2>Enter Title</h2>
+                <div class="form-group">
+                    <input type="text" id="title-input" placeholder="e.g. How to Make Money Online in 2026? [Top 10 Ways]" class="w-full text-lg">
+                </div>
+
+                <div class="options-group">
+                    <label class="checkbox-label">
+                        <input type="checkbox" id="remove-stop-words"> Remove Stop Words (a, an, the, etc.)
+                    </label>
+                    <label class="checkbox-label">
+                        <input type="checkbox" id="remove-numbers"> Remove Numbers
+                    </label>
+                    <div class="separator-select">
+                        <label for="separator">Separator:</label>
+                        <select id="separator" class="select-input">
+                            <option value="-">Hyphen (-)</option>
+                            <option value="_">Underscore (_)</option>
+                        </select>
+                    </div>
+                </div>
+
+                <h2>Generated Slug</h2>
+                <div class="output-group">
+                    <div class="output-display" id="slug-output">your-seo-friendly-slug-will-appear-here</div>
+                    <button id="copy-btn" class="btn btn-primary btn-copy">Copy Slug</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Ad Placeholder -->
+        <div class="ad-container">
+            <!-- Ad will be placed here -->
+        </div>
+    </main>
+
+    <footer class="site-footer">
+        <div class="footer-content">
+            <p>&copy; UT.ac &mdash; All tools are free</p>
+            <p>Total Visitors: <span id="dynamic-visitor-count">...</span></p>
+            <p><a href="../../privacy.html">Privacy Policy</a></p>
+        </div>
+    </footer>
+
+    <script src="js/logic.js" type="module"></script>
+    <script>
+        fetch('https://api.counterapi.dev/v1/projectut_com/visits/up')
+            .then(response => response.json())
+            .then(data => {
+                const counter = document.getElementById('dynamic-visitor-count');
+                if(counter) counter.textContent = data.count;
+            })
+            .catch(error => console.error('Error fetching visitor count:', error));
+    </script>
+</body>
+</html>

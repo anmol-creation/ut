@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Keyword Density Checker - Project UT</title>
+    <meta name="description" content="Free online Keyword Density Checker. Analyze your text content to find the most frequently used words and optimize your SEO keyword density.">
+    <meta name="keywords" content="keyword density checker, seo tool, word frequency counter, keyword stuffing checker, content analysis">
+    <link rel="canonical" href="https://projectut.com/tools/keyword-density-checker/">
+
+    <link rel="stylesheet" href="styles/theme.css">
+    <link rel="stylesheet" href="styles/layout.css">
+    <link rel="stylesheet" href="styles/components.css">
+    <link rel="stylesheet" href="styles/tool.css">
+
+    <link rel="manifest" href="manifest.json">
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-3565X5KNFD"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-3565X5KNFD');
+    </script>
+</head>
+<body class="dark-theme">
+    <header class="site-header">
+        <div class="logo"><a href="../../index.html">Project UT</a></div>
+        <nav class="main-nav">
+            <a href="../../tools/index.html">All Tools</a>
+            <a href="../../tools/seo-tools.html">SEO Tools</a>
+        </nav>
+    </header>
+
+    <main class="container">
+        <div class="tool-header">
+            <h1>Keyword Density Checker</h1>
+            <p>Paste your content below to analyze keyword frequency and avoid keyword stuffing.</p>
+        </div>
+
+        <div class="split-layout">
+            <!-- Left Panel: Input -->
+            <div class="panel input-panel">
+                <div class="card">
+                    <div class="flex-between">
+                        <h2>Content Input</h2>
+                        <div class="controls">
+                            <label class="checkbox-label">
+                                <input type="checkbox" id="ignore-stop-words" checked> Ignore Stop Words (a, the, is, etc.)
+                            </label>
+                        </div>
+                    </div>
+
+                    <textarea id="text-input" placeholder="Paste your article or text here..." rows="12" class="w-full"></textarea>
+
+                    <div class="stats-row">
+                        <div class="stat-box">
+                            <span class="stat-value" id="word-count">0</span>
+                            <span class="stat-label">Total Words</span>
+                        </div>
+                        <div class="stat-box">
+                            <span class="stat-value" id="char-count">0</span>
+                            <span class="stat-label">Characters</span>
+                        </div>
+                        <div class="stat-box">
+                            <span class="stat-value" id="reading-time">0m</span>
+                            <span class="stat-label">Read Time</span>
+                        </div>
+                    </div>
+
+                    <div class="button-group">
+                        <button id="analyze-btn" class="btn btn-primary">Analyze Density</button>
+                        <button id="clear-btn" class="btn btn-secondary">Clear Text</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right Panel: Output/Analysis -->
+            <div class="panel output-panel">
+                <div class="card h-full flex-col">
+                    <h2>Density Analysis</h2>
+
+                    <div class="tabs-container">
+                        <div class="preview-tabs">
+                            <button class="tab-btn active" data-view="1-word">1 Word</button>
+                            <button class="tab-btn" data-view="2-word">2 Words</button>
+                            <button class="tab-btn" data-view="3-word">3 Words</button>
+                        </div>
+                    </div>
+
+                    <div class="table-container flex-grow">
+                        <table class="density-table">
+                            <thead>
+                                <tr>
+                                    <th>Keyword</th>
+                                    <th>Count</th>
+                                    <th>Density</th>
+                                </tr>
+                            </thead>
+                            <tbody id="results-body">
+                                <tr>
+                                    <td colspan="3" class="text-center empty-state">Enter text and click Analyze to see results.</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="density-warning" id="density-warning" style="display: none;">
+                        <span class="warning-icon">⚠️</span>
+                        <span>Some keywords have a density over 3%, which might be considered keyword stuffing.</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Ad Placeholder -->
+        <div class="ad-container">
+            <!-- Ad will be placed here -->
+        </div>
+    </main>
+
+    <footer class="site-footer">
+        <div class="footer-content">
+            <p>&copy; UT.ac &mdash; All tools are free</p>
+            <p>Total Visitors: <span id="dynamic-visitor-count">...</span></p>
+            <p><a href="../../privacy.html">Privacy Policy</a></p>
+        </div>
+    </footer>
+
+    <script src="js/logic.js" type="module"></script>
+    <script>
+        fetch('https://api.counterapi.dev/v1/projectut_com/visits/up')
+            .then(response => response.json())
+            .then(data => {
+                const counter = document.getElementById('dynamic-visitor-count');
+                if(counter) counter.textContent = data.count;
+            })
+            .catch(error => console.error('Error fetching visitor count:', error));
+    </script>
+</body>
+</html>
