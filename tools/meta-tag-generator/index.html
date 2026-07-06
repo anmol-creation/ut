@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meta Tag Generator & SERP Simulator - Project UT</title>
+    <meta name="description" content="Free online Meta Tag Generator and SERP Simulator. Preview how your webpage will look on Google search results and generate SEO-friendly meta tags.">
+    <meta name="keywords" content="meta tag generator, serp simulator, seo tool, google snippet preview, title tag checker, meta description tool">
+    <link rel="canonical" href="https://projectut.com/tools/meta-tag-generator/">
+
+    <link rel="stylesheet" href="styles/theme.css">
+    <link rel="stylesheet" href="styles/layout.css">
+    <link rel="stylesheet" href="styles/components.css">
+    <link rel="stylesheet" href="styles/tool.css">
+
+    <link rel="manifest" href="manifest.json">
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-3565X5KNFD"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-3565X5KNFD');
+    </script>
+</head>
+<body class="dark-theme">
+    <header class="site-header">
+        <div class="logo"><a href="../../index.html">Project UT</a></div>
+        <nav class="main-nav">
+            <a href="../../tools/index.html">All Tools</a>
+        </nav>
+    </header>
+
+    <main class="container">
+        <div class="tool-header">
+            <h1>Meta Tag Generator & SERP Simulator</h1>
+            <p>Generate SEO meta tags and preview your Google search snippet instantly.</p>
+        </div>
+
+        <div class="split-layout">
+            <!-- Left Panel: Inputs -->
+            <div class="panel input-panel">
+                <div class="card">
+                    <h2>Page Details</h2>
+
+                    <div class="form-group">
+                        <label for="page-url">URL <span class="char-count" id="url-count">0</span></label>
+                        <input type="url" id="page-url" placeholder="https://www.example.com/page" class="w-full">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="page-title">Title Tag <span class="char-count" id="title-count">0/60</span></label>
+                        <input type="text" id="page-title" placeholder="Enter SEO Title" class="w-full">
+                        <div class="progress-bar"><div id="title-progress" class="progress-fill"></div></div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="page-description">Meta Description <span class="char-count" id="desc-count">0/160</span></label>
+                        <textarea id="page-description" placeholder="Enter a compelling meta description..." rows="4" class="w-full"></textarea>
+                        <div class="progress-bar"><div id="desc-progress" class="progress-fill"></div></div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="page-keywords">Keywords (Optional, Comma separated)</label>
+                        <input type="text" id="page-keywords" placeholder="seo, tools, generator" class="w-full">
+                    </div>
+
+                     <div class="form-group">
+                        <label for="author-name">Author (Optional)</label>
+                        <input type="text" id="author-name" placeholder="John Doe" class="w-full">
+                    </div>
+
+                    <div class="button-group">
+                        <button id="generate-btn" class="btn btn-primary">Generate Meta Tags</button>
+                        <button id="clear-btn" class="btn btn-secondary">Clear All</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right Panel: Preview and Code -->
+            <div class="panel output-panel">
+                <div class="card">
+                    <h2>Live SERP Preview</h2>
+
+                    <div class="preview-tabs">
+                        <button class="tab-btn active" data-view="desktop">Desktop</button>
+                        <button class="tab-btn" data-view="mobile">Mobile</button>
+                    </div>
+
+                    <!-- Desktop Preview -->
+                    <div id="desktop-preview" class="serp-preview-container view-active">
+                        <div class="serp-desktop">
+                            <div class="serp-url" id="preview-url-desktop">https://www.example.com/page</div>
+                            <div class="serp-title">
+                                <a href="#" id="preview-title-desktop">Your Page Title Will Appear Here - Max 60 Characters</a>
+                            </div>
+                            <div class="serp-desc" id="preview-desc-desktop">This is how your meta description will look in Google search results. Make it descriptive and engaging to increase your click-through rate.</div>
+                        </div>
+                    </div>
+
+                    <!-- Mobile Preview -->
+                    <div id="mobile-preview" class="serp-preview-container">
+                        <div class="serp-mobile">
+                            <div class="serp-mobile-header">
+                                <div class="serp-favicon"></div>
+                                <div class="serp-url-mobile-wrap">
+                                    <span class="serp-site-name" id="preview-sitename-mobile">example.com</span>
+                                    <span class="serp-url-mobile" id="preview-url-mobile">https://www.example.com/page</span>
+                                </div>
+                            </div>
+                            <div class="serp-title">
+                                <a href="#" id="preview-title-mobile">Your Page Title Will Appear Here - Max 60 Characters</a>
+                            </div>
+                            <div class="serp-desc" id="preview-desc-mobile">This is how your meta description will look in Google search results. Make it descriptive and engaging to increase your click-through rate.</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card" style="margin-top: 1rem;">
+                    <div class="flex-between">
+                        <h2>Generated HTML</h2>
+                        <button id="copy-btn" class="btn btn-small">Copy Code</button>
+                    </div>
+                    <pre><code id="meta-code-output">&lt;!-- Fill the form to generate meta tags --&gt;</code></pre>
+                </div>
+            </div>
+        </div>
+
+        <!-- Ad Placeholder -->
+        <div class="ad-container">
+            <!-- Ad will be placed here -->
+        </div>
+    </main>
+
+    <footer class="site-footer">
+        <div class="footer-content">
+            <p>&copy; UT.ac &mdash; All tools are free</p>
+            <p>Total Visitors: <span id="dynamic-visitor-count">...</span></p>
+            <p><a href="../../privacy.html">Privacy Policy</a></p>
+        </div>
+    </footer>
+
+    <script src="js/logic.js" type="module"></script>
+    <script>
+        fetch('https://api.counterapi.dev/v1/projectut_com/visits/up')
+            .then(response => response.json())
+            .then(data => {
+                document.getElementById('dynamic-visitor-count').textContent = data.count;
+            })
+            .catch(error => console.error('Error fetching visitor count:', error));
+    </script>
+</body>
+</html>
