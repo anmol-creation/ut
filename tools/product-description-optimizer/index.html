@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>E-commerce Product Description Optimizer - Project UT</title>
+    <meta name="description" content="Free online tool to optimize digital and physical product descriptions for Gumroad, Etsy, and Shopify with buyer-intent keywords.">
+    <meta name="keywords" content="product description generator, gumroad seo, etsy seo, shopify description optimizer, buyer intent keywords">
+    <link rel="canonical" href="https://projectut.com/tools/product-description-optimizer/">
+
+    <link rel="stylesheet" href="styles/theme.css">
+    <link rel="stylesheet" href="styles/layout.css">
+    <link rel="stylesheet" href="styles/components.css">
+    <link rel="stylesheet" href="styles/tool.css">
+
+    <link rel="manifest" href="manifest.json">
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-3565X5KNFD"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-3565X5KNFD');
+    </script>
+</head>
+<body class="dark-theme">
+    <header class="site-header">
+        <div class="logo"><a href="../../index.html">Project UT</a></div>
+        <nav class="main-nav">
+            <a href="../../tools/index.html">All Tools</a>
+            <a href="../../tools/seo-tools.html">SEO Tools</a>
+        </nav>
+    </header>
+
+    <main class="container">
+        <div class="tool-header">
+            <h1>Product Description Optimizer</h1>
+            <p>Format your product details into high-converting, SEO-friendly descriptions for Gumroad, Etsy, or Shopify.</p>
+        </div>
+
+        <div class="split-layout">
+            <!-- Left Panel: Input Form -->
+            <div class="panel input-panel">
+                <div class="card h-full" style="overflow-y: auto; max-height: 700px;">
+                    <h2>Product Details</h2>
+
+                    <div class="form-group required">
+                        <label for="product-name">Product Name</label>
+                        <input type="text" id="product-name" placeholder="e.g. Notion Life Planner 2026" class="w-full">
+                    </div>
+
+                    <div class="form-group required">
+                        <label for="product-type">Product Type</label>
+                        <select id="product-type" class="select-input w-full">
+                            <option value="digital">Digital Product (Template, eBook, Software)</option>
+                            <option value="course">Online Course / Video</option>
+                            <option value="physical">Physical Product (Art, Clothing, etc.)</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group required">
+                        <label for="target-audience">Who is this for? (Target Audience)</label>
+                        <input type="text" id="target-audience" placeholder="e.g. Students, Freelancers, Designers" class="w-full">
+                    </div>
+
+                    <div class="form-group required">
+                        <label for="core-problem">What problem does it solve?</label>
+                        <textarea id="core-problem" placeholder="e.g. Organizes daily tasks and reduces stress." rows="2" class="w-full"></textarea>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="features">Key Features (Comma separated)</label>
+                        <textarea id="features" placeholder="e.g. Habit Tracker, Finance Dashboard, Goal Setting" rows="3" class="w-full"></textarea>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="whats-included">What's Included? (Comma separated)</label>
+                        <input type="text" id="whats-included" placeholder="e.g. 1 PDF guide, 3 Video Tutorials" class="w-full">
+                    </div>
+
+                    <div class="button-group" style="padding-bottom: 2rem;">
+                        <button id="generate-btn" class="btn btn-primary">Optimize Description</button>
+                        <button id="clear-btn" class="btn btn-secondary">Clear</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right Panel: Output Code -->
+            <div class="panel output-panel">
+                <div class="card h-full flex-col">
+                    <div class="flex-between">
+                        <h2>Optimized Listing</h2>
+                        <div class="action-buttons">
+                            <button id="copy-btn" class="btn btn-small">Copy Text</button>
+                        </div>
+                    </div>
+
+                    <div class="tabs-container">
+                        <div class="preview-tabs">
+                            <button class="tab-btn active" data-format="gumroad">Gumroad / Shopify</button>
+                            <button class="tab-btn" data-format="etsy">Etsy (Keyword Rich)</button>
+                        </div>
+                    </div>
+
+                    <div class="code-container flex-grow" style="margin-top: 1rem;">
+                        <textarea id="description-output" readonly class="w-full output-textarea" placeholder="Fill in your product details to generate an SEO-optimized description..."></textarea>
+                    </div>
+
+                    <div class="density-warning" style="margin-top: 1rem; font-size: 0.85rem;">
+                        <span style="color: #10b981;">💡 Pro Tip:</span> We automatically inject buyer-intent keywords (like "download", "template", "best") based on your product type.
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Ad Placeholder -->
+        <div class="ad-container">
+            <!-- Ad will be placed here -->
+        </div>
+    </main>
+
+    <footer class="site-footer">
+        <div class="footer-content">
+            <p>&copy; UT.ac &mdash; All tools are free</p>
+            <p>Total Visitors: <span id="dynamic-visitor-count">...</span></p>
+            <p><a href="../../privacy.html">Privacy Policy</a></p>
+        </div>
+    </footer>
+
+    <script src="js/logic.js" type="module"></script>
+    <script>
+        fetch('https://api.counterapi.dev/v1/projectut_com/visits/up')
+            .then(response => response.json())
+            .then(data => {
+                const counter = document.getElementById('dynamic-visitor-count');
+                if(counter) counter.textContent = data.count;
+            })
+            .catch(error => console.error('Error fetching visitor count:', error));
+    </script>
+</body>
+</html>
