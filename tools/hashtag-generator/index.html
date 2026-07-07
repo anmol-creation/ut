@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hashtag Generator for Social Media - Project UT</title>
+    <meta name="description" content="Free online Hashtag Generator. Create trending and SEO-optimized hashtags for Instagram, TikTok, YouTube, and Twitter.">
+    <meta name="keywords" content="hashtag generator, instagram hashtags, tiktok tags, social media seo, generate hashtags">
+    <link rel="canonical" href="https://projectut.com/tools/hashtag-generator/">
+
+    <link rel="stylesheet" href="styles/theme.css">
+    <link rel="stylesheet" href="styles/layout.css">
+    <link rel="stylesheet" href="styles/components.css">
+    <link rel="stylesheet" href="styles/tool.css">
+
+    <link rel="manifest" href="manifest.json">
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-3565X5KNFD"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-3565X5KNFD');
+    </script>
+</head>
+<body class="dark-theme">
+    <header class="site-header">
+        <div class="logo"><a href="../../index.html">Project UT</a></div>
+        <nav class="main-nav">
+            <a href="../../tools/index.html">All Tools</a>
+            <a href="../../tools/seo-tools.html">SEO Tools</a>
+        </nav>
+    </header>
+
+    <main class="container">
+        <div class="tool-header">
+            <h1>Hashtag Generator</h1>
+            <p>Generate trending, related, and niche hashtags to boost your social media reach.</p>
+        </div>
+
+        <div class="tool-card-single">
+            <div class="card">
+                <div class="input-section">
+                    <h2>Enter a Base Keyword</h2>
+                    <div class="search-bar">
+                        <input type="text" id="keyword-input" placeholder="e.g. fitness, coding, travel, food" class="w-full text-lg">
+                        <button id="generate-btn" class="btn btn-primary">Generate</button>
+                    </div>
+                    <p class="help-text" style="margin-top: 0.5rem; color: var(--text-secondary); font-size: 0.9rem;">
+                        Note: This tool uses a built-in client-side database to suggest related tags without needing an internet connection.
+                    </p>
+                </div>
+
+                <div id="results-section" style="display: none; margin-top: 2rem;">
+                    <div class="flex-between">
+                        <h2>Generated Hashtags</h2>
+                        <span id="tag-count" style="color: var(--primary-color); font-weight: bold;">0 tags</span>
+                    </div>
+
+                    <div class="tags-container" id="tags-container">
+                        <!-- Tags will be injected here -->
+                    </div>
+
+                    <div class="output-area" style="margin-top: 1.5rem;">
+                        <textarea id="final-output" class="w-full" rows="4" readonly></textarea>
+                        <div class="button-group" style="margin-top: 1rem;">
+                            <button id="copy-btn" class="btn btn-primary">Copy All Selected</button>
+                            <button id="clear-btn" class="btn btn-secondary">Clear All</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Ad Placeholder -->
+        <div class="ad-container">
+            <!-- Ad will be placed here -->
+        </div>
+    </main>
+
+    <footer class="site-footer">
+        <div class="footer-content">
+            <p>&copy; UT.ac &mdash; All tools are free</p>
+            <p>Total Visitors: <span id="dynamic-visitor-count">...</span></p>
+            <p><a href="../../privacy.html">Privacy Policy</a></p>
+        </div>
+    </footer>
+
+    <script src="js/database.js"></script>
+    <script src="js/logic.js" type="module"></script>
+    <script>
+        fetch('https://api.counterapi.dev/v1/projectut_com/visits/up')
+            .then(response => response.json())
+            .then(data => {
+                const counter = document.getElementById('dynamic-visitor-count');
+                if(counter) counter.textContent = data.count;
+            })
+            .catch(error => console.error('Error fetching visitor count:', error));
+    </script>
+</body>
+</html>
