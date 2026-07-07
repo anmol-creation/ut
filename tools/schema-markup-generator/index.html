@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Schema Markup Generator - Project UT</title>
+    <meta name="description" content="Free online Schema Markup (JSON-LD) Generator. Create structured data for Articles, FAQs, and Local Businesses to boost your SEO rich snippets.">
+    <meta name="keywords" content="schema markup generator, json-ld generator, structured data generator, seo rich snippets, faq schema, article schema">
+    <link rel="canonical" href="https://projectut.com/tools/schema-markup-generator/">
+
+    <link rel="stylesheet" href="styles/theme.css">
+    <link rel="stylesheet" href="styles/layout.css">
+    <link rel="stylesheet" href="styles/components.css">
+    <link rel="stylesheet" href="styles/tool.css">
+
+    <link rel="manifest" href="manifest.json">
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-3565X5KNFD"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-3565X5KNFD');
+    </script>
+</head>
+<body class="dark-theme">
+    <header class="site-header">
+        <div class="logo"><a href="../../index.html">Project UT</a></div>
+        <nav class="main-nav">
+            <a href="../../tools/index.html">All Tools</a>
+            <a href="../../tools/seo-tools.html">SEO Tools</a>
+        </nav>
+    </header>
+
+    <main class="container">
+        <div class="tool-header">
+            <h1>Schema Markup (JSON-LD) Generator</h1>
+            <p>Generate structured data to help search engines understand your content and display rich snippets.</p>
+        </div>
+
+        <div class="split-layout">
+            <!-- Left Panel: Input Form -->
+            <div class="panel input-panel">
+                <div class="card h-full" style="overflow-y: auto; max-height: 700px;">
+                    <div class="form-group">
+                        <label for="schema-type">Select Schema Type</label>
+                        <select id="schema-type" class="select-input w-full">
+                            <option value="article">Article / Blog Post</option>
+                            <option value="faq">FAQ Page</option>
+                            <option value="local">Local Business</option>
+                        </select>
+                    </div>
+
+                    <hr class="separator">
+
+                    <!-- Article Fields -->
+                    <div id="form-article" class="schema-form active">
+                        <div class="form-group required">
+                            <label for="art-url">Article URL</label>
+                            <input type="url" id="art-url" placeholder="https://example.com/article" class="w-full">
+                        </div>
+                        <div class="form-group required">
+                            <label for="art-headline">Headline</label>
+                            <input type="text" id="art-headline" placeholder="How to generate Schema" class="w-full">
+                        </div>
+                        <div class="form-group">
+                            <label for="art-image">Image URL</label>
+                            <input type="url" id="art-image" placeholder="https://example.com/image.jpg" class="w-full">
+                        </div>
+                        <div class="form-group">
+                            <label for="art-author">Author Name</label>
+                            <input type="text" id="art-author" placeholder="John Doe" class="w-full">
+                        </div>
+                        <div class="form-group">
+                            <label for="art-date">Date Published</label>
+                            <input type="date" id="art-date" class="w-full">
+                        </div>
+                    </div>
+
+                    <!-- FAQ Fields -->
+                    <div id="form-faq" class="schema-form">
+                        <p class="help-text" style="margin-bottom: 1rem;">Add questions and answers below.</p>
+                        <div id="faq-container">
+                            <!-- FAQ items injected here -->
+                        </div>
+                        <button id="add-faq-btn" class="btn btn-secondary btn-small" style="margin-top: 10px;">+ Add Question</button>
+                    </div>
+
+                    <!-- Local Business Fields -->
+                    <div id="form-local" class="schema-form">
+                        <div class="form-group required">
+                            <label for="loc-name">Business Name</label>
+                            <input type="text" id="loc-name" placeholder="Project UT Cafe" class="w-full">
+                        </div>
+                        <div class="form-group">
+                            <label for="loc-image">Image URL</label>
+                            <input type="url" id="loc-image" placeholder="https://example.com/store.jpg" class="w-full">
+                        </div>
+                        <div class="form-group">
+                            <label for="loc-phone">Phone Number</label>
+                            <input type="text" id="loc-phone" placeholder="+1-555-555-5555" class="w-full">
+                        </div>
+                        <div class="form-group">
+                            <label for="loc-street">Street Address</label>
+                            <input type="text" id="loc-street" placeholder="123 Main St" class="w-full">
+                        </div>
+                        <div class="form-group row-align">
+                            <div class="flex-grow">
+                                <label for="loc-city">City</label>
+                                <input type="text" id="loc-city" placeholder="New York" class="w-full">
+                            </div>
+                            <div class="flex-grow">
+                                <label for="loc-zip">Zip Code</label>
+                                <input type="text" id="loc-zip" placeholder="10001" class="w-full">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="loc-country">Country</label>
+                            <input type="text" id="loc-country" placeholder="US" class="w-full">
+                        </div>
+                    </div>
+
+                    <div class="button-group" style="margin-top: 2rem;">
+                        <button id="generate-btn" class="btn btn-primary">Generate JSON-LD</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right Panel: Output -->
+            <div class="panel output-panel">
+                <div class="card h-full flex-col">
+                    <div class="flex-between">
+                        <h2>Generated JSON-LD</h2>
+                        <button id="copy-btn" class="btn btn-small">Copy Code</button>
+                    </div>
+
+                    <p class="help-text" style="margin-bottom: 1rem;">Paste this code in the <code>&lt;head&gt;</code> section of your HTML page.</p>
+
+                    <div class="code-container flex-grow">
+                        <textarea id="schema-output" readonly class="w-full output-textarea" placeholder="Your structured data will appear here..."></textarea>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Ad Placeholder -->
+        <div class="ad-container">
+            <!-- Ad will be placed here -->
+        </div>
+    </main>
+
+    <footer class="site-footer">
+        <div class="footer-content">
+            <p>&copy; UT.ac &mdash; All tools are free</p>
+            <p>Total Visitors: <span id="dynamic-visitor-count">...</span></p>
+            <p><a href="../../privacy.html">Privacy Policy</a></p>
+        </div>
+    </footer>
+
+    <script src="js/logic.js" type="module"></script>
+    <script>
+        fetch('https://api.counterapi.dev/v1/projectut_com/visits/up')
+            .then(response => response.json())
+            .then(data => {
+                const counter = document.getElementById('dynamic-visitor-count');
+                if(counter) counter.textContent = data.count;
+            })
+            .catch(error => console.error('Error fetching visitor count:', error));
+    </script>
+</body>
+</html>

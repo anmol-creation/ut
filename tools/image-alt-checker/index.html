@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Alt Text Checker - Project UT</title>
+    <meta name="description" content="Free online Image Alt Text Checker. Paste your HTML code to find missing alt attributes on your images for better accessibility and SEO.">
+    <meta name="keywords" content="image alt checker, alt text checker, missing alt attributes, seo image optimization, accessibility checker">
+    <link rel="canonical" href="https://projectut.com/tools/image-alt-checker/">
+
+    <link rel="stylesheet" href="styles/theme.css">
+    <link rel="stylesheet" href="styles/layout.css">
+    <link rel="stylesheet" href="styles/components.css">
+    <link rel="stylesheet" href="styles/tool.css">
+
+    <link rel="manifest" href="manifest.json">
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-3565X5KNFD"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-3565X5KNFD');
+    </script>
+</head>
+<body class="dark-theme">
+    <header class="site-header">
+        <div class="logo"><a href="../../index.html">Project UT</a></div>
+        <nav class="main-nav">
+            <a href="../../tools/index.html">All Tools</a>
+            <a href="../../tools/seo-tools.html">SEO Tools</a>
+        </nav>
+    </header>
+
+    <main class="container">
+        <div class="tool-header">
+            <h1>Image Alt Text Checker</h1>
+            <p>Paste your HTML to identify <code>&lt;img&gt;</code> tags missing the crucial <code>alt</code> attribute for SEO.</p>
+        </div>
+
+        <div class="split-layout">
+            <!-- Left Panel: Input -->
+            <div class="panel input-panel">
+                <div class="card h-full flex-col">
+                    <h2>HTML Input</h2>
+
+                    <textarea id="html-input" class="w-full flex-grow" style="font-family: monospace; min-height: 300px; margin-top: 1rem;" placeholder="&lt;html&gt;&#10;  &lt;body&gt;&#10;    &lt;img src='good.jpg' alt='A beautiful sunset'&gt;&#10;    &lt;img src='bad.png'&gt;&#10;  &lt;/body&gt;&#10;&lt;/html&gt;"></textarea>
+
+                    <div class="button-group" style="margin-top: 1rem;">
+                        <button id="analyze-btn" class="btn btn-primary">Check Images</button>
+                        <button id="clear-btn" class="btn btn-secondary">Clear</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right Panel: Output -->
+            <div class="panel output-panel">
+                <div class="card h-full flex-col" style="overflow-y: auto;">
+                    <div class="flex-between">
+                        <h2>Audit Results</h2>
+                        <div id="stats-badge" class="stats-badge" style="display: none;">0 Issues</div>
+                    </div>
+
+                    <div id="results-output" class="results-container flex-grow" style="margin-top: 1rem;">
+                        <div class="empty-state text-center" style="padding: 3rem 1rem; color: var(--text-secondary); font-style: italic;">
+                            Image tags and their alt attributes will be listed here.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Ad Placeholder -->
+        <div class="ad-container">
+            <!-- Ad will be placed here -->
+        </div>
+    </main>
+
+    <footer class="site-footer">
+        <div class="footer-content">
+            <p>&copy; UT.ac &mdash; All tools are free</p>
+            <p>Total Visitors: <span id="dynamic-visitor-count">...</span></p>
+            <p><a href="../../privacy.html">Privacy Policy</a></p>
+        </div>
+    </footer>
+
+    <script src="js/logic.js" type="module"></script>
+    <script>
+        fetch('https://api.counterapi.dev/v1/projectut_com/visits/up')
+            .then(response => response.json())
+            .then(data => {
+                const counter = document.getElementById('dynamic-visitor-count');
+                if(counter) counter.textContent = data.count;
+            })
+            .catch(error => console.error('Error fetching visitor count:', error));
+    </script>
+</body>
+</html>

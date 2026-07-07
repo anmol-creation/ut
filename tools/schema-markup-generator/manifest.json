@@ -1,0 +1,21 @@
+{
+  "name": "Schema Markup Generator - Project UT",
+  "short_name": "Schema Gen",
+  "description": "Generate structured JSON-LD data for Articles, FAQs, and Local Businesses.",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "background_color": "#0f172a",
+  "theme_color": "#0f172a",
+  "icons": [
+    {
+      "src": "../../assets/icons/icon-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "../../assets/icons/icon-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}
