@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LinkedIn Headline Generator - Project UT</title>
+    <meta name="description" content="Free online LinkedIn Headline Generator. Create SEO-optimized, professional headlines to attract recruiters and grow your personal brand.">
+    <meta name="keywords" content="linkedin headline generator, linkedin seo, professional bio, resume headline, personal branding tool">
+    <link rel="canonical" href="https://projectut.com/tools/linkedin-headline-generator/">
+
+    <link rel="stylesheet" href="styles/theme.css">
+    <link rel="stylesheet" href="styles/layout.css">
+    <link rel="stylesheet" href="styles/components.css">
+    <link rel="stylesheet" href="styles/tool.css">
+
+    <link rel="manifest" href="manifest.json">
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-3565X5KNFD"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-3565X5KNFD');
+    </script>
+</head>
+<body class="dark-theme">
+    <header class="site-header">
+        <div class="logo"><a href="../../index.html">Project UT</a></div>
+        <nav class="main-nav">
+            <a href="../../tools/index.html">All Tools</a>
+            <a href="../../tools/seo-tools.html">SEO Tools</a>
+        </nav>
+    </header>
+
+    <main class="container">
+        <div class="tool-header">
+            <h1>LinkedIn Headline Generator</h1>
+            <p>Stand out to recruiters and clients with an SEO-optimized professional headline.</p>
+        </div>
+
+        <div class="split-layout">
+            <!-- Left Panel: Input Form -->
+            <div class="panel input-panel">
+                <div class="card">
+                    <h2>Your Professional Info</h2>
+
+                    <div class="form-group required">
+                        <label for="job-role">Current Job Title / Role</label>
+                        <input type="text" id="job-role" placeholder="e.g. Software Engineer, Marketing Manager" class="w-full">
+                    </div>
+
+                    <div class="form-group required">
+                        <label for="core-skills">Core Skills (Comma separated)</label>
+                        <input type="text" id="core-skills" placeholder="e.g. React, Node.js, AWS" class="w-full">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="industry-niche">Industry / Niche (Optional)</label>
+                        <input type="text" id="industry-niche" placeholder="e.g. FinTech, B2B SaaS, E-commerce" class="w-full">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="value-prop">Who do you help / What do you achieve? (Optional)</label>
+                        <input type="text" id="value-prop" placeholder="e.g. Helping startups scale, Driving 10x ROI" class="w-full">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="tone-select">Headline Tone</label>
+                        <select id="tone-select" class="select-input w-full">
+                            <option value="professional">Professional & Standard</option>
+                            <option value="creator">Creator / Impact-Driven</option>
+                            <option value="keyword">Keyword Heavy (Best for SEO Search)</option>
+                        </select>
+                    </div>
+
+                    <div class="button-group">
+                        <button id="generate-btn" class="btn btn-primary">Generate Headlines</button>
+                        <button id="clear-btn" class="btn btn-secondary">Clear</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right Panel: Output -->
+            <div class="panel output-panel">
+                <div class="card h-full flex-col">
+                    <div class="flex-between">
+                        <h2>Generated Headlines</h2>
+                    </div>
+
+                    <div class="output-container flex-grow" id="headlines-container">
+                        <div class="empty-state">
+                            Fill in your details and click Generate to see your new LinkedIn headlines here.
+                        </div>
+                        <!-- Headlines will be injected here -->
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Ad Placeholder -->
+        <div class="ad-container">
+            <!-- Ad will be placed here -->
+        </div>
+    </main>
+
+    <footer class="site-footer">
+        <div class="footer-content">
+            <p>&copy; UT.ac &mdash; All tools are free</p>
+            <p>Total Visitors: <span id="dynamic-visitor-count">...</span></p>
+            <p><a href="../../privacy.html">Privacy Policy</a></p>
+        </div>
+    </footer>
+
+    <script src="js/logic.js" type="module"></script>
+    <script>
+        fetch('https://api.counterapi.dev/v1/projectut_com/visits/up')
+            .then(response => response.json())
+            .then(data => {
+                const counter = document.getElementById('dynamic-visitor-count');
+                if(counter) counter.textContent = data.count;
+            })
+            .catch(error => console.error('Error fetching visitor count:', error));
+    </script>
+</body>
+</html>

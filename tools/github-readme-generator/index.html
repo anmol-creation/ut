@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GitHub Profile README Generator - Project UT</title>
+    <meta name="description" content="Free online GitHub Profile README Generator. Create a standout developer profile using an intuitive form to boost your personal brand and SEO.">
+    <meta name="keywords" content="github readme generator, github profile, developer portfolio, contributor seo, markdown generator">
+    <link rel="canonical" href="https://projectut.com/tools/github-readme-generator/">
+
+    <link rel="stylesheet" href="styles/theme.css">
+    <link rel="stylesheet" href="styles/layout.css">
+    <link rel="stylesheet" href="styles/components.css">
+    <link rel="stylesheet" href="styles/tool.css">
+
+    <link rel="manifest" href="manifest.json">
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-3565X5KNFD"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-3565X5KNFD');
+    </script>
+</head>
+<body class="dark-theme">
+    <header class="site-header">
+        <div class="logo"><a href="../../index.html">Project UT</a></div>
+        <nav class="main-nav">
+            <a href="../../tools/index.html">All Tools</a>
+            <a href="../../tools/developer-tools.html">Developer Tools</a>
+            <a href="../../tools/seo-tools.html">SEO Tools</a>
+        </nav>
+    </header>
+
+    <main class="container">
+        <div class="tool-header">
+            <h1>GitHub Profile README Generator</h1>
+            <p>Generate a professional, SEO-friendly README for your GitHub profile to attract collaborators and recruiters.</p>
+        </div>
+
+        <div class="split-layout">
+            <!-- Left Panel: Input Form -->
+            <div class="panel input-panel">
+                <div class="card h-full" style="overflow-y: auto; max-height: 700px;">
+                    <h2>Profile Details</h2>
+
+                    <div class="form-section">
+                        <h3>Header</h3>
+                        <div class="form-group">
+                            <label for="name">Name / Greeting</label>
+                            <input type="text" id="name" placeholder="Hi, I'm John Doe 👋" class="w-full">
+                        </div>
+                        <div class="form-group">
+                            <label for="subtitle">Subtitle / Catchphrase</label>
+                            <input type="text" id="subtitle" placeholder="A passionate frontend developer from India" class="w-full">
+                        </div>
+                    </div>
+
+                    <div class="form-section">
+                        <h3>About Me</h3>
+                        <div class="form-group row-align">
+                            <span>🔭 I’m currently working on</span>
+                            <input type="text" id="working-on" placeholder="Project Name" class="w-full">
+                        </div>
+                        <div class="form-group row-align">
+                            <span>🌱 I’m currently learning</span>
+                            <input type="text" id="learning" placeholder="Framework / Language" class="w-full">
+                        </div>
+                        <div class="form-group row-align">
+                            <span>💬 Ask me about</span>
+                            <input type="text" id="ask-me" placeholder="React, Node, UI/UX" class="w-full">
+                        </div>
+                        <div class="form-group row-align">
+                            <span>📫 How to reach me:</span>
+                            <input type="email" id="email" placeholder="example@gmail.com" class="w-full">
+                        </div>
+                    </div>
+
+                    <div class="form-section">
+                        <h3>Skills & Tools</h3>
+                        <div class="form-group">
+                            <label for="skills">Comma separated skills (e.g. HTML, CSS, JavaScript, React, Python)</label>
+                            <input type="text" id="skills" placeholder="HTML, CSS, JavaScript, React" class="w-full">
+                        </div>
+                    </div>
+
+                    <div class="form-section">
+                        <h3>Social Links</h3>
+                        <div class="form-group row-align">
+                            <span>LinkedIn:</span>
+                            <input type="text" id="social-linkedin" placeholder="username" class="w-full">
+                        </div>
+                        <div class="form-group row-align">
+                            <span>Twitter/X:</span>
+                            <input type="text" id="social-twitter" placeholder="username" class="w-full">
+                        </div>
+                        <div class="form-group row-align">
+                            <span>Portfolio:</span>
+                            <input type="url" id="social-portfolio" placeholder="https://mywebsite.com" class="w-full">
+                        </div>
+                    </div>
+
+                    <div class="form-section">
+                        <h3>GitHub Add-ons</h3>
+                        <label class="checkbox-label">
+                            <input type="checkbox" id="github-stats" checked> Show GitHub Stats Card
+                        </label>
+                        <div class="form-group" style="margin-top: 0.5rem;" id="username-group">
+                            <label for="github-username">Your GitHub Username (Required for Stats)</label>
+                            <input type="text" id="github-username" placeholder="e.g. torvalds" class="w-full">
+                        </div>
+                    </div>
+
+                    <div class="button-group" style="padding-bottom: 2rem;">
+                        <button id="generate-btn" class="btn btn-primary">Generate Markdown</button>
+                        <button id="clear-btn" class="btn btn-secondary">Clear All</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right Panel: Output Code -->
+            <div class="panel output-panel">
+                <div class="card h-full flex-col">
+                    <div class="flex-between">
+                        <h2>Markdown Code</h2>
+                        <button id="copy-btn" class="btn btn-primary">Copy Code</button>
+                    </div>
+
+                    <p class="help-text" style="margin-bottom: 1rem;">Create a repository with the same name as your GitHub username and paste this code in its <code>README.md</code>.</p>
+
+                    <div class="code-container flex-grow">
+                        <textarea id="markdown-output" readonly class="w-full output-textarea"></textarea>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Ad Placeholder -->
+        <div class="ad-container">
+            <!-- Ad will be placed here -->
+        </div>
+    </main>
+
+    <footer class="site-footer">
+        <div class="footer-content">
+            <p>&copy; UT.ac &mdash; All tools are free</p>
+            <p>Total Visitors: <span id="dynamic-visitor-count">...</span></p>
+            <p><a href="../../privacy.html">Privacy Policy</a></p>
+        </div>
+    </footer>
+
+    <script src="js/logic.js" type="module"></script>
+    <script>
+        fetch('https://api.counterapi.dev/v1/projectut_com/visits/up')
+            .then(response => response.json())
+            .then(data => {
+                const counter = document.getElementById('dynamic-visitor-count');
+                if(counter) counter.textContent = data.count;
+            })
+            .catch(error => console.error('Error fetching visitor count:', error));
+    </script>
+</body>
+</html>

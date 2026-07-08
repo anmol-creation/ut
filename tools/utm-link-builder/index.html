@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UTM Link Builder - Project UT</title>
+    <meta name="description" content="Free online UTM Link Builder. Create custom tracking URLs for your digital marketing campaigns to easily track traffic sources in Google Analytics.">
+    <meta name="keywords" content="utm link builder, utm generator, campaign url builder, track links, google analytics utm">
+    <link rel="canonical" href="https://projectut.com/tools/utm-link-builder/">
+
+    <link rel="stylesheet" href="styles/theme.css">
+    <link rel="stylesheet" href="styles/layout.css">
+    <link rel="stylesheet" href="styles/components.css">
+    <link rel="stylesheet" href="styles/tool.css">
+
+    <link rel="manifest" href="manifest.json">
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-3565X5KNFD"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-3565X5KNFD');
+    </script>
+</head>
+<body class="dark-theme">
+    <header class="site-header">
+        <div class="logo"><a href="../../index.html">Project UT</a></div>
+        <nav class="main-nav">
+            <a href="../../tools/index.html">All Tools</a>
+            <a href="../../tools/seo-tools.html">SEO Tools</a>
+        </nav>
+    </header>
+
+    <main class="container">
+        <div class="tool-header">
+            <h1>UTM Link Builder</h1>
+            <p>Easily add campaign parameters to URLs so you can track Custom Campaigns in Google Analytics.</p>
+        </div>
+
+        <div class="split-layout">
+            <!-- Left Panel: Input Form -->
+            <div class="panel input-panel">
+                <div class="card">
+                    <form id="utm-form" onsubmit="event.preventDefault();">
+                        <div class="form-group required">
+                            <label for="url-input">Website URL</label>
+                            <input type="url" id="url-input" placeholder="https://www.example.com" class="w-full" required>
+                            <span class="help-text">The full website URL (e.g. https://www.example.com)</span>
+                        </div>
+
+                        <div class="form-group required">
+                            <label for="utm-source">Campaign Source (utm_source)</label>
+                            <input type="text" id="utm-source" placeholder="google, newsletter, facebook" class="w-full" required>
+                            <span class="help-text">The referrer: (e.g. google, newsletter)</span>
+                        </div>
+
+                        <div class="form-group required">
+                            <label for="utm-medium">Campaign Medium (utm_medium)</label>
+                            <input type="text" id="utm-medium" placeholder="cpc, banner, email" class="w-full" required>
+                            <span class="help-text">Marketing medium: (e.g. cpc, banner, email)</span>
+                        </div>
+
+                        <div class="form-group required">
+                            <label for="utm-campaign">Campaign Name (utm_campaign)</label>
+                            <input type="text" id="utm-campaign" placeholder="spring_sale, promo_code" class="w-full" required>
+                            <span class="help-text">Product, promo code, or slogan (e.g. spring_sale)</span>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="utm-term">Campaign Term (utm_term)</label>
+                            <input type="text" id="utm-term" placeholder="running+shoes" class="w-full">
+                            <span class="help-text">Identify the paid keywords</span>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="utm-content">Campaign Content (utm_content)</label>
+                            <input type="text" id="utm-content" placeholder="logolink, textlink" class="w-full">
+                            <span class="help-text">Use to differentiate ads</span>
+                        </div>
+
+                        <div class="button-group">
+                            <button type="submit" id="generate-btn" class="btn btn-primary">Generate URL</button>
+                            <button type="button" id="clear-btn" class="btn btn-secondary">Clear Fields</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+            <!-- Right Panel: Output -->
+            <div class="panel output-panel">
+                <div class="card h-full flex-col">
+                    <h2>Generated URL</h2>
+                    <div class="output-container flex-grow">
+                        <textarea id="generated-url" readonly class="w-full output-textarea" placeholder="Fill the form to generate your trackable link..."></textarea>
+
+                        <div class="button-group" style="justify-content: center; margin-top: 1.5rem;">
+                            <button id="copy-btn" class="btn btn-primary" disabled>Copy URL</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Ad Placeholder -->
+        <div class="ad-container">
+            <!-- Ad will be placed here -->
+        </div>
+    </main>
+
+    <footer class="site-footer">
+        <div class="footer-content">
+            <p>&copy; UT.ac &mdash; All tools are free</p>
+            <p>Total Visitors: <span id="dynamic-visitor-count">...</span></p>
+            <p><a href="../../privacy.html">Privacy Policy</a></p>
+        </div>
+    </footer>
+
+    <script src="js/logic.js" type="module"></script>
+    <script>
+        fetch('https://api.counterapi.dev/v1/projectut_com/visits/up')
+            .then(response => response.json())
+            .then(data => {
+                const counter = document.getElementById('dynamic-visitor-count');
+                if(counter) counter.textContent = data.count;
+            })
+            .catch(error => console.error('Error fetching visitor count:', error));
+    </script>
+</body>
+</html>

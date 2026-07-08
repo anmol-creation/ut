@@ -1,0 +1,148 @@
+/* GitHub README Generator Specific Styles */
+
+.split-layout {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+}
+
+@media (min-width: 900px) {
+    .split-layout {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+.w-full {
+    width: 100%;
+    padding: 0.75rem;
+    background-color: var(--bg-tertiary);
+    border: 1px solid var(--border-color);
+    border-radius: var(--card-radius);
+    color: var(--text-primary);
+    font-family: inherit;
+    font-size: 0.95rem;
+    transition: border-color 0.2s;
+}
+
+.w-full:focus {
+    outline: none;
+    border-color: var(--primary-color);
+}
+
+.form-section {
+    margin-bottom: 2rem;
+    padding-bottom: 1.5rem;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.form-section:last-of-type {
+    border-bottom: none;
+    margin-bottom: 1rem;
+}
+
+.form-section h3 {
+    margin-bottom: 1rem;
+    color: var(--text-primary);
+    font-size: 1.1rem;
+}
+
+.form-group {
+    margin-bottom: 1rem;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 0.4rem;
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: var(--text-secondary);
+}
+
+.row-align {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.row-align span {
+    min-width: 180px;
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+}
+
+@media (max-width: 600px) {
+    .row-align {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.4rem;
+    }
+}
+
+.checkbox-label {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.95rem;
+    color: var(--text-primary);
+    cursor: pointer;
+}
+
+.button-group {
+    display: flex;
+    gap: 1rem;
+    margin-top: 1.5rem;
+}
+
+.h-full {
+    height: 100%;
+}
+
+.flex-col {
+    display: flex;
+    flex-direction: column;
+}
+
+.flex-grow {
+    flex-grow: 1;
+}
+
+.flex-between {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 0.5rem;
+}
+
+/* Custom Scrollbar for left panel */
+.card::-webkit-scrollbar {
+    width: 6px;
+}
+.card::-webkit-scrollbar-track {
+    background: transparent;
+}
+.card::-webkit-scrollbar-thumb {
+    background-color: var(--border-color);
+    border-radius: 10px;
+}
+
+/* Output Area */
+.code-container {
+    height: 100%;
+    display: flex;
+}
+
+.output-textarea {
+    resize: none;
+    font-family: 'Courier New', Courier, monospace;
+    background-color: #0d1117;
+    border: 1px solid var(--border-color);
+    color: #e6edf3;
+    font-size: 0.95rem;
+    line-height: 1.5;
+    padding: 1rem;
+    height: 100%;
+}
+
+.output-textarea:focus {
+    border-color: var(--primary-color);
+}

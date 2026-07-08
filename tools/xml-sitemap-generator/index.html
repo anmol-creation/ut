@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>XML Sitemap Generator - Project UT</title>
+    <meta name="description" content="Free online XML Sitemap Generator. Paste a list of URLs to instantly create a valid sitemap.xml file for Google and Bing.">
+    <meta name="keywords" content="xml sitemap generator, create sitemap, sitemap xml, seo tool, google sitemap builder">
+    <link rel="canonical" href="https://projectut.com/tools/xml-sitemap-generator/">
+
+    <link rel="stylesheet" href="styles/theme.css">
+    <link rel="stylesheet" href="styles/layout.css">
+    <link rel="stylesheet" href="styles/components.css">
+    <link rel="stylesheet" href="styles/tool.css">
+
+    <link rel="manifest" href="manifest.json">
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-3565X5KNFD"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-3565X5KNFD');
+    </script>
+</head>
+<body class="dark-theme">
+    <header class="site-header">
+        <div class="logo"><a href="../../index.html">Project UT</a></div>
+        <nav class="main-nav">
+            <a href="../../tools/index.html">All Tools</a>
+            <a href="../../tools/seo-tools.html">SEO Tools</a>
+        </nav>
+    </header>
+
+    <main class="container">
+        <div class="tool-header">
+            <h1>XML Sitemap Generator</h1>
+            <p>Paste a list of your website's URLs below to generate a valid <code>sitemap.xml</code> file.</p>
+        </div>
+
+        <div class="split-layout">
+            <!-- Left Panel: Input -->
+            <div class="panel input-panel">
+                <div class="card h-full flex-col">
+                    <div class="flex-between">
+                        <h2>URL List</h2>
+                        <span id="url-count" style="font-size: 0.9rem; color: var(--text-secondary);">0 URLs</span>
+                    </div>
+
+                    <p class="help-text" style="margin-bottom: 0.5rem;">Paste one URL per line. Maximum 1,000 URLs recommended for browser performance.</p>
+
+                    <textarea id="url-input" class="w-full flex-grow" style="font-family: monospace; min-height: 250px; white-space: pre;" placeholder="https://example.com/&#10;https://example.com/about&#10;https://example.com/contact"></textarea>
+
+                    <div class="options-group" style="margin-top: 1rem;">
+                        <div class="form-group row-align">
+                            <label for="changefreq" style="min-width: 120px;">Change Freq:</label>
+                            <select id="changefreq" class="select-input flex-grow">
+                                <option value="always">always</option>
+                                <option value="hourly">hourly</option>
+                                <option value="daily">daily</option>
+                                <option value="weekly" selected>weekly</option>
+                                <option value="monthly">monthly</option>
+                                <option value="yearly">yearly</option>
+                                <option value="never">never</option>
+                            </select>
+                        </div>
+                        <div class="form-group row-align">
+                            <label for="priority" style="min-width: 120px;">Default Priority:</label>
+                            <select id="priority" class="select-input flex-grow">
+                                <option value="1.0">1.0</option>
+                                <option value="0.9">0.9</option>
+                                <option value="0.8" selected>0.8</option>
+                                <option value="0.7">0.7</option>
+                                <option value="0.6">0.6</option>
+                                <option value="0.5">0.5</option>
+                            </select>
+                        </div>
+                        <div class="form-group row-align">
+                            <label style="min-width: 120px;">Include Date:</label>
+                            <label class="checkbox-label">
+                                <input type="checkbox" id="include-date" checked> Add current date to &lt;lastmod&gt;
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="button-group" style="margin-top: 1rem;">
+                        <button id="generate-btn" class="btn btn-primary">Generate Sitemap</button>
+                        <button id="clear-btn" class="btn btn-secondary">Clear</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right Panel: Output -->
+            <div class="panel output-panel">
+                <div class="card h-full flex-col">
+                    <div class="flex-between">
+                        <h2>Generated XML</h2>
+                        <div class="action-buttons">
+                            <button id="copy-btn" class="btn btn-small" disabled>Copy Code</button>
+                            <button id="download-btn" class="btn btn-small btn-outline" disabled>Download .xml</button>
+                        </div>
+                    </div>
+
+                    <div class="code-container flex-grow" style="margin-top: 1rem;">
+                        <textarea id="xml-output" readonly class="w-full output-textarea" placeholder="Your sitemap.xml code will appear here..."></textarea>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Ad Placeholder -->
+        <div class="ad-container">
+            <!-- Ad will be placed here -->
+        </div>
+    </main>
+
+    <footer class="site-footer">
+        <div class="footer-content">
+            <p>&copy; UT.ac &mdash; All tools are free</p>
+            <p>Total Visitors: <span id="dynamic-visitor-count">...</span></p>
+            <p><a href="../../privacy.html">Privacy Policy</a></p>
+        </div>
+    </footer>
+
+    <script src="js/logic.js" type="module"></script>
+    <script>
+        fetch('https://api.counterapi.dev/v1/projectut_com/visits/up')
+            .then(response => response.json())
+            .then(data => {
+                const counter = document.getElementById('dynamic-visitor-count');
+                if(counter) counter.textContent = data.count;
+            })
+            .catch(error => console.error('Error fetching visitor count:', error));
+    </script>
+</body>
+</html>
