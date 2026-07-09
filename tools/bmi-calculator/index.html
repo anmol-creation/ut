@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BMI Calculator - Body Mass Index Checker - Project UT</title>
+    <meta name="description" content="Free online BMI Calculator. Check your Body Mass Index and see which health category you fall into based on your height and weight.">
+    <meta name="keywords" content="bmi calculator, body mass index, health calculator, ideal weight, calculate bmi">
+    <link rel="canonical" href="https://projectut.com/tools/bmi-calculator/">
+
+    <link rel="stylesheet" href="styles/theme.css">
+    <link rel="stylesheet" href="styles/layout.css">
+    <link rel="stylesheet" href="styles/components.css">
+    <link rel="stylesheet" href="styles/tool.css">
+
+    <link rel="manifest" href="manifest.json">
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-3565X5KNFD"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-3565X5KNFD');
+    </script>
+</head>
+<body class="dark-theme">
+    <header class="site-header">
+        <div class="logo"><a href="../../index.html">Project UT</a></div>
+        <nav class="main-nav">
+            <a href="../../tools/index.html">All Tools</a>
+            <a href="../../tools/calculators-generators.html">Calculators</a>
+        </nav>
+    </header>
+
+    <main class="container">
+        <div class="tool-header">
+            <h1>BMI Calculator</h1>
+            <p>Calculate your Body Mass Index to see if your weight is in a healthy range.</p>
+        </div>
+
+        <div class="tool-card-single">
+            <div class="card">
+                <div class="calculator-grid">
+                    <!-- Inputs -->
+                    <div class="input-section">
+                        <div class="tabs-container">
+                            <div class="preview-tabs" style="justify-content: center; margin-bottom: 1.5rem;">
+                                <button class="tab-btn active" data-unit="metric">Metric (kg / cm)</button>
+                                <button class="tab-btn" data-unit="imperial">Imperial (lbs / ft)</button>
+                            </div>
+                        </div>
+
+                        <!-- Metric Inputs -->
+                        <div id="metric-inputs" class="unit-group active">
+                            <div class="form-group">
+                                <label for="weight-kg">Weight (kg)</label>
+                                <input type="number" id="weight-kg" placeholder="e.g. 70" class="w-full text-lg" min="1" step="0.1">
+                            </div>
+                            <div class="form-group">
+                                <label for="height-cm">Height (cm)</label>
+                                <input type="number" id="height-cm" placeholder="e.g. 175" class="w-full text-lg" min="1">
+                            </div>
+                        </div>
+
+                        <!-- Imperial Inputs -->
+                        <div id="imperial-inputs" class="unit-group">
+                            <div class="form-group">
+                                <label for="weight-lbs">Weight (lbs)</label>
+                                <input type="number" id="weight-lbs" placeholder="e.g. 150" class="w-full text-lg" min="1" step="0.1">
+                            </div>
+                            <div class="form-group row-group">
+                                <div class="flex-grow">
+                                    <label for="height-ft">Height (ft)</label>
+                                    <input type="number" id="height-ft" placeholder="e.g. 5" class="w-full text-lg" min="1" max="8">
+                                </div>
+                                <div class="flex-grow">
+                                    <label for="height-in">Height (in)</label>
+                                    <input type="number" id="height-in" placeholder="e.g. 9" class="w-full text-lg" min="0" max="11">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="button-group" style="margin-top: 2rem;">
+                            <button id="calculate-btn" class="btn btn-primary w-full">Calculate BMI</button>
+                        </div>
+                    </div>
+
+                    <!-- Outputs -->
+                    <div class="output-section">
+                        <div class="bmi-result-box" id="result-box">
+                            <div class="empty-state text-center" style="color: var(--text-secondary); font-style: italic;">
+                                Enter your height and weight to see your BMI result.
+                            </div>
+                        </div>
+
+                        <!-- BMI Scale Info -->
+                        <div class="bmi-scale-info" style="display: none;" id="scale-info">
+                            <h3>BMI Categories</h3>
+                            <ul class="scale-list">
+                                <li><span class="color-dot" style="background: #3b82f6;"></span> Underweight: &lt; 18.5</li>
+                                <li><span class="color-dot" style="background: #10b981;"></span> Normal weight: 18.5 – 24.9</li>
+                                <li><span class="color-dot" style="background: #f59e0b;"></span> Overweight: 25 – 29.9</li>
+                                <li><span class="color-dot" style="background: #ef4444;"></span> Obesity: 30 or greater</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Ad Placeholder -->
+        <div class="ad-container">
+            <!-- Ad will be placed here -->
+        </div>
+    </main>
+
+    <footer class="site-footer">
+        <div class="footer-content">
+            <p>&copy; UT.ac &mdash; All tools are free</p>
+            <p>Total Visitors: <span id="dynamic-visitor-count">...</span></p>
+            <p><a href="../../privacy.html">Privacy Policy</a></p>
+        </div>
+    </footer>
+
+    <script src="js/logic.js" type="module"></script>
+    <script>
+        fetch('https://api.counterapi.dev/v1/projectut_com/visits/up')
+            .then(response => response.json())
+            .then(data => {
+                const counter = document.getElementById('dynamic-visitor-count');
+                if(counter) counter.textContent = data.count;
+            })
+            .catch(error => console.error('Error fetching visitor count:', error));
+    </script>
+</body>
+</html>
