@@ -27,6 +27,7 @@
         });
       }
     </script>
+    <link rel="stylesheet" href="../../components/global-nav.css">
 </head>
 <body class="bg-slate-900 text-slate-200 font-sans selection:bg-indigo-500 selection:text-white">
 
@@ -286,16 +287,7 @@
     </main>
 
     <!-- Footer -->
-    <footer class="bg-slate-900 border-t border-slate-800 mt-24 py-12">
-        <div class="max-w-7xl mx-auto px-4 text-center">
-            <p class="text-slate-500 mb-4">&copy; acTools — All tools are free</p>
-            <div class="inline-flex items-center gap-2 px-4 py-2 bg-slate-800 rounded-full border border-slate-700">
-                <div class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></div>
-                <span class="text-sm text-slate-400">Total Users: 3,000+</span>
-            </div>
-        </div>
-        <p><a href="../../privacy.html" style="color: inherit; text-decoration: none; font-size: 0.9em; opacity: 0.8;">Privacy Policy</a></p>
-    </footer>
+    <footer class="global-footer-container"></footer>
 
     <!-- Scripts -->
     <script type="module" src="./main.js"></script>
@@ -350,6 +342,7 @@
             observer.observe(document.documentElement, { attributes: true, attributeFilter: ['data-theme'] });
         });
     </script>
+    <script src="../../load-components.js"></script>
 </body>
 
 </html>

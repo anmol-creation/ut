@@ -25,27 +25,10 @@
         });
       }
     </script>
+    <link rel="stylesheet" href="components/global-nav.css">
 </head>
 <body>
-    <header>
-        <div class="header-container">
-            <div class="logo">acTools</div>
-            <nav>
-                <ul>
-                    <li><a href="#">Home</a></li>
-                    <li><a href="tools/index.html">Category</a></li>
-                    <li><a href="#most-popular">Most Popular</a></li>
-                    <li><a href="#new-comer">New Added</a></li>
-                </ul>
-            </nav>
-            <div class="header-actions">
-                <button id="theme-toggle" class="" aria-label="Toggle Dark Mode" style="background:none; border:none; cursor:pointer; font-size:1.2rem;">
-                    <span class="icon-moon">🌙</span>
-                    <span class="icon-sun" style="display:none;">☀️</span>
-                </button>
-            </div>
-        </div>
-    </header>
+    <header class="global-header-container"></header>
 
     <main>
         <div class="notification-banner" style="background-color: #6366f1; color: white; text-align: center; padding: 10px; font-weight: 500;">
@@ -262,16 +245,9 @@
         </section>
     </main>
 
-    <footer>
-        <div class="footer-container">
-            <div class="footer-logo">acTools</div>
-            <div class="footer-links">
-                <p>&copy; acTools — All tools are free <span class="visitor-counter" style="margin-left: 15px; opacity: 0.8;">| Total Visitors: <span id="dynamic-visitor-count">Loading...</span></span></p>
-                <p><a href="privacy.html" style="color: inherit; text-decoration: none; font-size: 0.9em; opacity: 0.8;">Privacy Policy</a></p>
-            </div>
-        </div>
-    </footer>
+    <footer class="global-footer-container"></footer>
 
     <script src="home/home.js"></script>
+    <script src="load-components.js"></script>
 </body>
 </html>

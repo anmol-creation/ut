@@ -21,15 +21,10 @@
       gtag('js', new Date());
       gtag('config', 'G-3565X5KNFD');
     </script>
+    <link rel="stylesheet" href="../../components/global-nav.css">
 </head>
 <body class="dark-theme">
-    <header class="site-header">
-        <div class="logo"><a href="../../index.html">Project UT</a></div>
-        <nav class="main-nav">
-            <a href="../../tools/index.html">All Tools</a>
-            <a href="../../tools/seo-tools.html">SEO Tools</a>
-        </nav>
-    </header>
+    <header class="global-header-container"></header>
 
     <main class="container">
         <div class="tool-header">
@@ -77,13 +72,7 @@
         </div>
     </main>
 
-    <footer class="site-footer">
-        <div class="footer-content">
-            <p>&copy; UT.ac &mdash; All tools are free</p>
-            <p>Total Visitors: <span id="dynamic-visitor-count">...</span></p>
-            <p><a href="../../privacy.html">Privacy Policy</a></p>
-        </div>
-    </footer>
+    <footer class="global-footer-container"></footer>
 
     <script src="js/database.js"></script>
     <script src="js/logic.js" type="module"></script>
@@ -96,5 +85,6 @@
             })
             .catch(error => console.error('Error fetching visitor count:', error));
     </script>
+    <script src="../../load-components.js"></script>
 </body>
 </html>

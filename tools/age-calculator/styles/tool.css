@@ -1,0 +1,137 @@
+/* Age Calculator Specific Styles */
+
+.tool-card-single {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.w-full {
+    width: 100%;
+    padding: 0.75rem;
+    background-color: var(--bg-tertiary);
+    border: 1px solid var(--border-color);
+    border-radius: var(--card-radius);
+    color: var(--text-primary);
+    font-family: inherit;
+    transition: border-color 0.2s;
+}
+
+.w-full:focus {
+    outline: none;
+    border-color: var(--primary-color);
+}
+
+.text-lg {
+    font-size: 1.1rem;
+    padding: 1rem;
+}
+
+/* For consistent date picker styling */
+input[type="date"]::-webkit-calendar-picker-indicator {
+    filter: invert(1);
+    cursor: pointer;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-size: 0.95rem;
+    font-weight: 500;
+    color: var(--text-primary);
+}
+
+.calculator-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+}
+
+@media (min-width: 768px) {
+    .calculator-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+.input-section {
+    padding-right: 1rem;
+}
+
+@media (min-width: 768px) {
+    .input-section {
+        border-right: 1px solid var(--border-color);
+    }
+}
+
+.output-section {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    justify-content: center;
+}
+
+.age-result-box {
+    background-color: rgba(99, 102, 241, 0.1);
+    border: 1px solid var(--primary-color);
+    border-radius: var(--card-radius);
+    padding: 2rem 1rem;
+    text-align: center;
+    min-height: 150px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.main-age {
+    font-size: 2.5rem;
+    font-weight: 800;
+    color: var(--text-primary);
+    line-height: 1.2;
+}
+
+.sub-age {
+    font-size: 1.1rem;
+    color: var(--primary-color);
+    font-weight: 600;
+    margin-top: 0.5rem;
+}
+
+.extra-stats {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+}
+
+.stat-item {
+    background-color: var(--bg-tertiary);
+    border: 1px solid var(--border-color);
+    border-radius: var(--card-radius);
+    padding: 1rem;
+    text-align: center;
+}
+
+.stat-item:first-child {
+    grid-column: 1 / -1;
+    background-color: rgba(16, 185, 129, 0.1);
+    border-color: #10b981;
+}
+
+.stat-label {
+    display: block;
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+    margin-bottom: 0.25rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.stat-item:first-child .stat-label {
+    color: #10b981;
+}
+
+.stat-val {
+    display: block;
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: var(--text-primary);
+}

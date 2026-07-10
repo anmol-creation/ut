@@ -32,6 +32,7 @@
         });
       }
     </script>
+    <link rel="stylesheet" href="../../components/global-nav.css">
 </head>
 <body>
 
@@ -67,7 +68,9 @@
 
     <!-- Tool View (Hidden by default) -->
     <main id="tool-ui" class="view-container hidden">
-        <header class="tool-header">
+        <header class="global-header-container">
+        <div class="tool-specific-header">
+
             <div class="header-left">
                 <button id="back-to-landing" class="btn-text">← Back</button>
                 <h2>Image OCR</h2>
@@ -85,7 +88,9 @@
                     <span class="icon-moon">🌙</span>
                     <span class="icon-sun" style="display:none;">☀️</span>
                 </button>
-</header>
+
+        </div>
+    </header>
 
         <div class="tool-layout split-view">
             <!-- Left Side: Input Area -->
@@ -142,10 +147,7 @@
         <div class="ad-container"><!-- Ad will be placed here --></div>
     </main>
 
-    <footer class="site-footer">
-        <p>© acTools — All tools are free <span id="dynamic-visitor-count" class="visitor-counter" style="margin-left: 15px; opacity: 0.8;">| Total Users: ...</span></p>
-        <p><a href="../../privacy.html" style="color: inherit; text-decoration: none; font-size: 0.9em; opacity: 0.8;">Privacy Policy</a></p>
-    </footer>
+    <footer class="global-footer-container"></footer>
 
     <!-- Tesseract.js CDN -->
     <script src="https://cdn.jsdelivr.net/npm/tesseract.js@5/dist/tesseract.min.js"></script>
@@ -207,6 +209,7 @@
             observer.observe(document.documentElement, { attributes: true, attributeFilter: ['data-theme'] });
         });
     </script>
+    <script src="../../load-components.js"></script>
 </body>
 
 </html>

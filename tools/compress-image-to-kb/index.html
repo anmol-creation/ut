@@ -37,23 +37,11 @@
         });
       }
     </script>
+    <link rel="stylesheet" href="../../components/global-nav.css">
 </head>
 <body class="theme-dark">
     <!-- Navbar -->
-    <header style="padding: 1rem 2rem; background-color: #1e293b; border-bottom: 1px solid #334155;">
-        <div style="max-width: 800px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center;">
-            <a href="../../index.html" style="color: #f8fafc; text-decoration: none; font-weight: bold; font-size: 1.5rem;">acTools</a>
-            <div style="display: flex; gap: 1rem; align-items: center;">
-                <a href="../../tools/index.html" style="color: #94a3b8; text-decoration: none; font-weight: 500;">All Tools</a>
-                <a href="../../tools/image-tools.html" style="color: #6366f1; text-decoration: none; font-weight: 500;">Image Tools</a>
-
-                <button id="theme-toggle" class="btn-icon ml-4" aria-label="Toggle Dark Mode" style="background:none; border:none; cursor:pointer; font-size:1.2rem; color: inherit;">
-                    <span class="icon-moon">🌙</span>
-                    <span class="icon-sun" style="display:none;">☀️</span>
-                </button>
-            </div>
-        </div>
-    </header>
+    <header class="global-header-container"></header>
 
     <main class="tool-container">
         <!-- Landing View -->
@@ -193,15 +181,7 @@
     </main>
 
     <!-- Global Footer -->
-    <footer class="footer">
-        <div class="footer-content">
-            <p>&copy; acTools — All tools are free</p>
-            <p class="visitor-stats">Total Visitors: <span id="dynamic-visitor-count">...</span></p>
-            <div class="footer-links">
-                <a href="../../privacy.html">Privacy Policy</a>
-            </div>
-        </div>
-    </footer>
+    <footer class="global-footer-container"></footer>
 
     <!-- Scripts -->
     <script src="../tools.js" defer></script>
@@ -259,6 +239,7 @@
             observer.observe(document.documentElement, { attributes: true, attributeFilter: ['data-theme'] });
         });
     </script>
+    <script src="../../load-components.js"></script>
 </body>
 
 </html>
