@@ -1,0 +1,21 @@
+{
+  "name": "Image Background Remover - acTools",
+  "short_name": "BG Remover",
+  "description": "Free AI-powered image background remover tool working fully offline in your browser.",
+  "start_url": "/tools/image-background-remover/index.html",
+  "display": "standalone",
+  "background_color": "#0f172a",
+  "theme_color": "#6366f1",
+  "icons": [
+    {
+      "src": "/assets/icons/icon-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/assets/icons/icon-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}
