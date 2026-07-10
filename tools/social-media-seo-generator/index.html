@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Social Media SEO Post Generator - Project UT</title>
+    <meta name="description" content="Free tool to generate optimized SEO posts, captions, and hashtags for Instagram, Facebook, YouTube, Pinterest, Threads, and Twitter based on your topic.">
+    <meta name="keywords" content="social media seo, post generator, instagram caption generator, youtube description generator, hashtags, seo tool">
+    <link rel="canonical" href="https://projectut.com/tools/social-media-seo-generator/">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="../tools.css">
+    <link rel="stylesheet" href="styles/tool.css">
+    <link rel="manifest" href="manifest.json">
+
+    <!-- Google tracking code -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-3565X5KNFD"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-3565X5KNFD');
+    </script>
+</head>
+<body class="dark-theme">
+    <header class="site-header">
+        <div class="logo"><a href="../../index.html" style="color: inherit; text-decoration: none;">Project UT</a></div>
+        <nav class="main-nav">
+            <a href="../seo-tools.html">&larr; Back to SEO Tools</a>
+        </nav>
+    </header>
+
+    <main class="container">
+        <div class="tool-header">
+            <h1>Social Media SEO Post Generator</h1>
+            <p>Enter your topic or base content, select platforms, and generate algorithm-optimized captions, tags, and descriptions.</p>
+        </div>
+
+        <div class="split-view">
+            <!-- Left Side: Input -->
+            <div class="split-left">
+                <div class="card tool-card">
+                    <div class="form-group">
+                        <label for="topicInput">Topic / Base Content / Idea</label>
+                        <textarea id="topicInput" rows="5" placeholder="e.g., A new blog post about 5 healthy breakfast recipes for busy mornings..."></textarea>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="keywordInput">Primary Keywords (Comma separated)</label>
+                        <input type="text" id="keywordInput" placeholder="e.g., healthy breakfast, quick recipes, morning routine">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="toneSelect">Brand Tone</label>
+                        <select id="toneSelect" class="form-control">
+                            <option value="casual">Casual & Friendly</option>
+                            <option value="professional">Professional & Corporate</option>
+                            <option value="enthusiastic">Enthusiastic & Exciting</option>
+                            <option value="informative">Informative & Educational</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Select Platforms to Optimize For</label>
+                        <div class="platform-checkboxes">
+                            <label class="checkbox-label"><input type="checkbox" value="instagram" class="platform-cb" checked> Instagram</label>
+                            <label class="checkbox-label"><input type="checkbox" value="facebook" class="platform-cb"> Facebook</label>
+                            <label class="checkbox-label"><input type="checkbox" value="youtube" class="platform-cb"> YouTube</label>
+                            <label class="checkbox-label"><input type="checkbox" value="twitter" class="platform-cb"> X / Twitter</label>
+                            <label class="checkbox-label"><input type="checkbox" value="pinterest" class="platform-cb"> Pinterest</label>
+                            <label class="checkbox-label"><input type="checkbox" value="threads" class="platform-cb"> Threads</label>
+                            <label class="checkbox-label"><input type="checkbox" value="linkedin" class="platform-cb"> LinkedIn</label>
+                        </div>
+                    </div>
+
+                    <div class="actions" style="margin-top: 1.5rem;">
+                        <button id="generateBtn" class="btn btn-primary">Generate SEO Posts</button>
+                        <button id="clearBtn" class="btn btn-secondary">Clear</button>
+                    </div>
+                </div>
+
+                <div class="ad-container">
+                    <!-- Ad will be placed here -->
+                </div>
+            </div>
+
+            <!-- Right Side: Output -->
+            <div class="split-right">
+                <div class="card result-card">
+                    <h2>Generated Optimized Posts</h2>
+                    <div id="outputContainer" class="output-container">
+                        <div class="empty-state">
+                            <p>Fill out the form and click "Generate" to see platform-specific optimized posts here.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="site-footer">
+        <div class="footer-content">
+            <p>&copy; UT.ac &mdash; All tools are free</p>
+            <p><a href="../../privacy.html">Privacy Policy</a></p>
+            <p>Total Visitors: <span id="dynamic-visitor-count">...</span></p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+        // Visitor Counter logic
+        fetch('https://api.counterapi.dev/v1/projectut_com/visits/up')
+            .then(response => response.json())
+            .then(data => {
+                const countElement = document.getElementById('dynamic-visitor-count');
+                if (countElement && data.count) {
+                    countElement.textContent = data.count;
+                }
+            })
+            .catch(err => console.error('Error fetching visitor count:', err));
+    </script>
+</body>
+</html>

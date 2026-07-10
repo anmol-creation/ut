@@ -25,27 +25,10 @@
         });
       }
     </script>
+    <link rel="stylesheet" href="components/global-nav.css">
 </head>
 <body>
-    <header>
-        <div class="header-container">
-            <div class="logo">acTools</div>
-            <nav>
-                <ul>
-                    <li><a href="#">Home</a></li>
-                    <li><a href="tools/index.html">Category</a></li>
-                    <li><a href="#most-popular">Most Popular</a></li>
-                    <li><a href="#new-comer">New Added</a></li>
-                </ul>
-            </nav>
-            <div class="header-actions">
-                <button id="theme-toggle" class="" aria-label="Toggle Dark Mode" style="background:none; border:none; cursor:pointer; font-size:1.2rem;">
-                    <span class="icon-moon">🌙</span>
-                    <span class="icon-sun" style="display:none;">☀️</span>
-                </button>
-            </div>
-        </div>
-    </header>
+    <header class="global-header-container"></header>
 
     <main>
         <div class="notification-banner" style="background-color: #6366f1; color: white; text-align: center; padding: 10px; font-weight: 500;">
@@ -133,6 +116,13 @@
                 <h3>Background Remover</h3>
                 <p>Remove image backgrounds automatically with private AI.</p>
             </a>
+                    <a href="tools/social-media-seo-generator/index.html" class="tool-card">
+                        <div class="tool-icon" style="background: linear-gradient(135deg, #ec4899 0%, #be185d 100%); color: #fff;">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" style="width: 24px; height: 24px;"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 20h9M3 20h1M5 16h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2z"></path></svg>
+                        </div>
+                        <h3>Social Media SEO Post Generator</h3>
+                        <p>Generate optimized social media posts and hashtags.</p>
+                    </a>
                     <a href="tools/meta-tag-generator/index.html" class="tool-card">
                         <div class="tool-icon" style="background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%); color: #fff;">
                             <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" style="width: 24px; height: 24px;"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg>
@@ -268,16 +258,9 @@
         </section>
     </main>
 
-    <footer>
-        <div class="footer-container">
-            <div class="footer-logo">acTools</div>
-            <div class="footer-links">
-                <p>&copy; acTools — All tools are free <span class="visitor-counter" style="margin-left: 15px; opacity: 0.8;">| Total Visitors: <span id="dynamic-visitor-count">Loading...</span></span></p>
-                <p><a href="privacy.html" style="color: inherit; text-decoration: none; font-size: 0.9em; opacity: 0.8;">Privacy Policy</a></p>
-            </div>
-        </div>
-    </footer>
+    <footer class="global-footer-container"></footer>
 
     <script src="home/home.js"></script>
+    <script src="load-components.js"></script>
 </body>
 </html>
