@@ -30,6 +30,7 @@
         });
       }
     </script>
+    <link rel="stylesheet" href="../../components/global-nav.css">
 </head>
 <body>
 
@@ -80,7 +81,9 @@
   <main id="tool-view" class="view-container hidden">
 
     <!-- Tool Header -->
-    <header class="tool-view-header">
+    <header class="global-header-container">
+        <div class="tool-specific-header">
+
       <div class="header-left">
         <button id="back-btn" class="btn btn-text">← Back</button>
         <h2>Text Formatter</h2>
@@ -90,7 +93,9 @@
                     <span class="icon-moon">🌙</span>
                     <span class="icon-sun" style="display:none;">☀️</span>
                 </button>
-</header>
+
+        </div>
+    </header>
 
     <!-- MAIN TOOL CARD -->
     <div class="tool-card">
@@ -143,10 +148,7 @@
     </div>
   </main>
 
-  <footer class="site-footer">
-    <p>© acTools — All tools are free <span class="visitor-counter" style="margin-left: 15px; opacity: 0.8;">| Total Users: 3,000+</span></p>
-      <p><a href="../../privacy.html" style="color: inherit; text-decoration: none; font-size: 0.9em; opacity: 0.8;">Privacy Policy</a></p>
-    </footer>
+  <footer class="global-footer-container"></footer>
 
   <script type="module" src="main.js"></script>
 
@@ -199,6 +201,7 @@
             observer.observe(document.documentElement, { attributes: true, attributeFilter: ['data-theme'] });
         });
     </script>
+    <script src="../../load-components.js"></script>
 </body>
 
 </html>
