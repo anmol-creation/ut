@@ -97,24 +97,10 @@
     </main>
 
     <footer class="global-footer-container"></footer>
-    <footer class="site-footer">
-        <div class="footer-content">
-            <p>&copy; UT.ac &mdash; All tools are free</p>
-            <p>Total Visitors: <span id="dynamic-visitor-count">...</span></p>
-            <p><a href="../../privacy.html">Privacy Policy</a></p>
-        </div>
-    </footer>
+
 
     <script src="js/logic.js" type="module"></script>
-    <script>
-        fetch('https://api.counterapi.dev/v1/projectut_com/visits/up')
-            .then(response => response.json())
-            .then(data => {
-                const counter = document.getElementById('dynamic-visitor-count');
-                if(counter) counter.textContent = data.count;
-            })
-            .catch(error => console.error('Error fetching visitor count:', error));
-    </script>
+
     <script src="../../load-components.js"></script>
 </body>
 </html>

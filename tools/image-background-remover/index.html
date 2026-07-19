@@ -154,25 +154,13 @@
         </section>
     </main>
 
-    <footer class="site-footer">
-        <p>&copy; acTools — All tools are free <span class="visitor-counter" style="margin-left: 15px; opacity: 0.8;">| Total Users: <span id="dynamic-visitor-count">...</span></span></p>
-        <p><a href="../../privacy.html" style="color: inherit; text-decoration: none; font-size: 0.9em; opacity: 0.8;">Privacy Policy</a></p>
-    </footer>
+
 
     <!-- Use @imgly/background-removal library -->
     <script src="https://unpkg.com/@imgly/background-removal@1.4.5/dist/browser/index.js"></script>
     <script type="module" src="main.js"></script>
-    <script>
-        // Visitor counter functionality
-        fetch('https://api.counterapi.dev/v1/projectut_com/visits/up')
-            .then(response => response.json())
-            .then(data => {
-                document.getElementById('dynamic-visitor-count').textContent = data.count.toLocaleString();
-            })
-            .catch(error => {
-                console.error('Error fetching visitor count:', error);
-                document.getElementById('dynamic-visitor-count').textContent = '3,000+'; // Fallback
-            });
-    </script>
+
+    <footer class="global-footer-container"></footer>
+    <script src="../../load-components.js"></script>
 </body>
 </html>

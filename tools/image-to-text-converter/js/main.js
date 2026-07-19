@@ -18,25 +18,6 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-    // Visitor counter dynamic loading (required by global rules)
-    fetchVisitorCount();
+
 });
 
-// Dynamic Visitor Counter for Footer
-async function fetchVisitorCount() {
-    try {
-        const namespace = 'projectut_com';
-        const name = 'visits';
-        const response = await fetch(`https://api.counterapi.dev/v1/${namespace}/${name}/up`);
-        if (response.ok) {
-            const data = await response.json();
-            const counterElement = document.getElementById('dynamic-visitor-count');
-            if (counterElement) {
-                counterElement.textContent = `| Total Users: ${data.count.toLocaleString()}+`;
-            }
-        }
-    } catch (error) {
-        console.error('Failed to fetch visitor count', error);
-        // Silently fail, let the UI just show standard text
-    }
-}

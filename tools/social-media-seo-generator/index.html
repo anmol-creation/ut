@@ -109,26 +109,11 @@
         </div>
     </main>
 
-    <footer class="site-footer">
-        <div class="footer-content">
-            <p>&copy; UT.ac &mdash; All tools are free</p>
-            <p><a href="../../privacy.html">Privacy Policy</a></p>
-            <p>Total Visitors: <span id="dynamic-visitor-count">...</span></p>
-        </div>
-    </footer>
+
 
     <script src="script.js"></script>
-    <script>
-        // Visitor Counter logic
-        fetch('https://api.counterapi.dev/v1/projectut_com/visits/up')
-            .then(response => response.json())
-            .then(data => {
-                const countElement = document.getElementById('dynamic-visitor-count');
-                if (countElement && data.count) {
-                    countElement.textContent = data.count;
-                }
-            })
-            .catch(err => console.error('Error fetching visitor count:', err));
-    </script>
+
+    <footer class="global-footer-container"></footer>
+    <script src="../../load-components.js"></script>
 </body>
 </html>
