@@ -52,6 +52,18 @@ document.addEventListener('DOMContentLoaded', () => {
                         navLinks.classList.toggle('active');
                     });
                 }
+
+                // Dynamically load Search script if it hasn't been loaded
+                if (typeof initGlobalSearch === 'undefined') {
+                    const searchScript = document.createElement('script');
+                    searchScript.src = rootPrefix + 'components/search.js';
+                    searchScript.onload = () => {
+                        initGlobalSearch(rootPrefix);
+                    };
+                    document.body.appendChild(searchScript);
+                } else {
+                    initGlobalSearch(rootPrefix);
+                }
             })
             .catch(error => console.error('Error loading header:', error));
     }
