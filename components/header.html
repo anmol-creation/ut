@@ -19,7 +19,31 @@
     <li><a href="/tools/developer-tools.html">Developer Tools</a></li>
     <li><a href="/tools/security-tools.html">Security Tools</a></li>
   </ul>
+  <!-- Search Toggle Button -->
+  <button class="search-toggle" id="global-search-btn" aria-label="Search tools">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <circle cx="11" cy="11" r="8"></circle>
+      <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+    </svg>
+  </button>
 </nav>
+
+<!-- Global Search Modal -->
+<div id="global-search-modal" class="search-modal hidden">
+  <div class="search-modal-content">
+    <div class="search-header">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="search-icon">
+        <circle cx="11" cy="11" r="8"></circle>
+        <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+      </svg>
+      <input type="text" id="global-search-input" placeholder="Search for tools... (e.g. format, image, seo)" autocomplete="off">
+      <button class="close-search" id="close-search-btn">&times;</button>
+    </div>
+    <ul id="global-search-results" class="search-results">
+      <!-- Results injected here -->
+    </ul>
+  </div>
+</div>
 
     <!-- Google tracking code -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-3565X5KNFD"></script>
