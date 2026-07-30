@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stock Media SEO Generator - AI Tags for Photos & Videos - acTools</title>
+    <meta name="description" content="Free tool to instantly generate titles, descriptions, and up to 50 tags for stock photos and videos (Shutterstock, Adobe Stock). 100% private, processed in browser.">
+    <meta name="keywords" content="stock photo tags, stock video seo, microstock keywords, shutterstock tag generator, adobe stock keyword tool, ai tagger">
+    <link rel="canonical" href="https://projectut.com/tools/stock-media-seo-generator/">
+
+    <!-- Modular CSS -->
+    <link rel="stylesheet" href="css/theme.css">
+    <link rel="stylesheet" href="css/layout.css">
+    <link rel="stylesheet" href="css/components.css">
+    <link rel="stylesheet" href="css/tool.css">
+
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>📈</text></svg>">
+
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-3565X5KNFD"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-3565X5KNFD');
+    </script>
+
+    <link rel="manifest" href="manifest.json">
+    <script>
+      if ('serviceWorker' in navigator) {
+        window.addEventListener('load', () => {
+          navigator.serviceWorker.register('./sw.js').catch(err => console.error("Service Worker registration failed: ", err));
+        });
+      }
+    </script>
+    <link rel="stylesheet" href="../../components/global-nav.css">
+</head>
+<body>
+
+    <!-- Landing Page View -->
+    <main id="landing-page" class="view-container">
+        <div class="landing-content">
+            <h1 class="tool-title">Stock Media SEO Generator</h1>
+            <p class="tool-description">
+                Instantly generate optimized titles, descriptions, and 50 highly relevant tags for your stock photos and videos.
+                Boost your sales on Shutterstock, Adobe Stock, and Getty Images. 100% secure, processed completely inside your browser.
+            </p>
+            <button id="launch-tool-btn" class="btn-primary">Launch Tool</button>
+
+            <section class="features-preview">
+                <h2 class="sr-only">Features</h2>
+                <div class="feature-card">
+                    <h3>📷 Image & Video Support</h3>
+                    <p>Upload photos or short videos. We automatically extract frames and analyze the content.</p>
+                </div>
+                <div class="feature-card">
+                    <h3>🛡️ 100% Private & Fast</h3>
+                    <p>No media is uploaded to any server. Lightweight AI runs directly in your browser.</p>
+                </div>
+                <div class="feature-card">
+                    <h3>🏷️ Smart Tag Engine</h3>
+                    <p>Generates up to 50 relevant keywords formatted for quick 1-click copying to stock sites.</p>
+                </div>
+            </section>
+        </div>
+
+        <div class="ad-container"><!-- Ad will be placed here --></div>
+    </main>
+
+    <!-- Tool View (Hidden by default) -->
+    <main id="tool-ui" class="view-container hidden">
+        <header class="global-header-container">
+            <div class="tool-specific-header">
+                <div class="header-left">
+                    <button id="back-to-landing" class="btn-text">← Back</button>
+                    <h2>Stock SEO Generator</h2>
+                </div>
+                <button id="theme-toggle" class="btn-icon ml-4" aria-label="Toggle Dark Mode" style="background:none; border:none; cursor:pointer; font-size:1.2rem; color: inherit;">
+                    <span class="icon-moon">🌙</span>
+                    <span class="icon-sun" style="display:none;">☀️</span>
+                </button>
+            </div>
+        </header>
+
+        <div class="tool-layout split-view">
+            <!-- Left Side: Input Area -->
+            <section class="input-section card">
+                <div class="card-header">
+                    <h3>Upload Image or Video</h3>
+                </div>
+
+                <div id="drop-zone" class="drop-zone">
+                    <div class="drop-zone-content">
+                        <span class="icon-upload">📁</span>
+                        <p>Drag & Drop your photo or video here</p>
+                        <p class="sub-text">or</p>
+                        <label for="file-input" class="btn-secondary">Browse File</label>
+                        <input type="file" id="file-input" accept="image/*, video/*" class="hidden">
+                    </div>
+                    <div id="preview-container" class="hidden">
+                        <canvas id="media-canvas" class="hidden"></canvas>
+                        <img id="image-preview" class="hidden" alt="Media preview">
+                        <video id="video-preview" class="hidden" controls muted></video>
+                    </div>
+                </div>
+
+                <div id="progress-container" class="hidden">
+                    <p id="status-text">Loading AI Model...</p>
+                    <div class="progress-bar-bg">
+                        <div id="progress-bar" class="progress-bar-fill"></div>
+                    </div>
+                </div>
+
+                <div class="action-buttons">
+                    <button id="generate-btn" class="btn-primary full-width" disabled>Generate SEO Data</button>
+                    <button id="clear-media-btn" class="btn-danger full-width hidden">Clear Media</button>
+                </div>
+            </section>
+
+            <!-- Right Side: Output Area -->
+            <section class="output-section card">
+                <div class="card-header">
+                    <h3>Generated SEO Metadata</h3>
+                </div>
+
+                <div class="output-group">
+                    <div class="output-header">
+                        <h4>Title</h4>
+                        <button id="copy-title-btn" class="btn-sm" disabled>Copy</button>
+                    </div>
+                    <input type="text" id="output-title" class="output-field" placeholder="Generated title will appear here..." readonly>
+                </div>
+
+                <div class="output-group">
+                    <div class="output-header">
+                        <h4>Description</h4>
+                        <button id="copy-desc-btn" class="btn-sm" disabled>Copy</button>
+                    </div>
+                    <textarea id="output-desc" class="output-field" rows="3" placeholder="Generated description will appear here..." readonly></textarea>
+                </div>
+
+                <div class="output-group">
+                    <div class="output-header">
+                        <h4>Keywords (Up to 50)</h4>
+                        <button id="copy-tags-btn" class="btn-sm" disabled>Copy All Tags</button>
+                    </div>
+                    <textarea id="output-tags" class="output-field" rows="5" placeholder="Comma-separated tags will appear here..." readonly></textarea>
+                    <p class="tag-count" id="tag-count">0 / 50 Tags</p>
+                </div>
+            </section>
+        </div>
+
+        <section class="tool-info">
+            <h3>About This Tool</h3>
+            <p>
+                Our Stock Media SEO Generator uses lightweight in-browser AI (TensorFlow.js & MobileNet) to analyze your images and videos locally.
+                This ensures that your un-watermarked, high-resolution original media is never uploaded anywhere, keeping your intellectual property safe.
+                Initial load may take a moment to cache the ~5MB AI model.
+            </p>
+        </section>
+
+        <div class="ad-container"><!-- Ad will be placed here --></div>
+    </main>
+
+    <footer class="global-footer-container"></footer>
+
+    <!-- TensorFlow.js & MobileNet CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@4.17.0"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow-models/mobilenet@2.1.1"></script>
+
+    <!-- Modular JavaScript -->
+    <script src="js/media-handler.js"></script>
+    <script src="js/ai-model.js"></script>
+    <script src="js/tag-engine.js"></script>
+    <script src="js/app.js"></script>
+
+    <script>
+        // Inline Theme Toggle Logic for independent tools
+        document.addEventListener('DOMContentLoaded', () => {
+            const themeToggle = document.getElementById('theme-toggle');
+            if(!themeToggle) return;
+
+            const body = document.body;
+            const html = document.documentElement;
+
+            // Check for saved theme preference, default to dark
+            const savedTheme = localStorage.getItem('theme');
+            if (savedTheme === 'light') {
+                body.setAttribute('data-theme', 'light');
+                html.setAttribute('data-theme', 'light');
+            } else if (savedTheme === 'dark') {
+                body.setAttribute('data-theme', 'dark');
+                html.setAttribute('data-theme', 'dark');
+            }
+
+            themeToggle.addEventListener('click', () => {
+                const isLight = body.getAttribute('data-theme') === 'light' || html.getAttribute('data-theme') === 'light';
+                if (isLight) {
+                    body.setAttribute('data-theme', 'dark');
+                    html.setAttribute('data-theme', 'dark');
+                    body.removeAttribute('data-theme'); // for css that relies on absence
+                    html.removeAttribute('data-theme');
+                    localStorage.setItem('theme', 'dark');
+                } else {
+                    body.setAttribute('data-theme', 'light');
+                    html.setAttribute('data-theme', 'light');
+                    localStorage.setItem('theme', 'light');
+                }
+            });
+
+            function updateThemeIcons() {
+                const isLight = (document.body.getAttribute('data-theme') === 'light' || document.documentElement.getAttribute('data-theme') === 'light');
+                const moonIcons = document.querySelectorAll('.icon-moon');
+                const sunIcons = document.querySelectorAll('.icon-sun');
+
+                moonIcons.forEach(icon => icon.style.display = isLight ? 'none' : 'inline');
+                sunIcons.forEach(icon => icon.style.display = isLight ? 'inline' : 'none');
+            }
+
+            updateThemeIcons();
+            const observer = new MutationObserver(updateThemeIcons);
+            observer.observe(document.body, { attributes: true, attributeFilter: ['data-theme'] });
+            observer.observe(document.documentElement, { attributes: true, attributeFilter: ['data-theme'] });
+        });
+    </script>
+    <script src="../../load-components.js"></script>
+</body>
+</html>
