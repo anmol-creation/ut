@@ -5,6 +5,7 @@ class TagEngine {
         // These map common MobileNet predictions or general concepts to stock-friendly tags
         this.dictionary = {
             'nature': ['outdoors', 'environment', 'scenic', 'landscape', 'natural', 'beautiful', 'wild', 'background', 'scenery', 'tranquil', 'peaceful'],
+            'floral': ['flower', 'plant', 'blossom', 'petal', 'flora', 'botanical', 'bloom', 'garden', 'spring', 'summer', 'fresh', 'nature', 'floral'],
             'animal': ['wildlife', 'creature', 'fauna', 'mammal', 'pet', 'cute', 'natural', 'portrait', 'species', 'living'],
             'food': ['delicious', 'meal', 'tasty', 'nutrition', 'healthy', 'diet', 'fresh', 'cuisine', 'gourmet', 'snack', 'restaurant', 'dining'],
             'technology': ['digital', 'electronics', 'device', 'modern', 'innovation', 'smart', 'future', 'connection', 'network', 'computing'],
@@ -44,7 +45,10 @@ class TagEngine {
     extractBaseKeywords(predictions) {
         let keywords = new Set();
 
-        predictions.forEach(p => {
+        // Filter out very low probability predictions (e.g. less than 1% confidence)
+        const confidentPredictions = predictions.filter(p => p.probability > 0.01);
+
+        confidentPredictions.forEach(p => {
             // MobileNet classes are often comma-separated (e.g., "coffee mug, cup")
             const parts = p.className.split(',').map(s => s.trim().toLowerCase());
             parts.forEach(part => {
@@ -71,8 +75,11 @@ class TagEngine {
             if (kw.includes('cat') || kw.includes('dog') || kw.includes('bird')) {
                 this.dictionary.animal.forEach(t => tagsSet.add(t));
             }
-            if (kw.includes('tree') || kw.includes('water') || kw.includes('sky')) {
+            if (kw.includes('tree') || kw.includes('water') || kw.includes('sky') || kw.includes('leaf') || kw.includes('forest')) {
                 this.dictionary.nature.forEach(t => tagsSet.add(t));
+            }
+            if (kw.includes('flower') || kw.includes('daisy') || kw.includes('rose') || kw.includes('plant') || kw.includes('pot')) {
+                this.dictionary.floral.forEach(t => tagsSet.add(t));
             }
             if (kw.includes('computer') || kw.includes('phone') || kw.includes('screen')) {
                 this.dictionary.technology.forEach(t => tagsSet.add(t));
@@ -94,22 +101,30 @@ class TagEngine {
     }
 
     generateTitle(baseKeywords) {
-        // Take top 3-4 keywords to form a simple descriptive title
-        const topWords = baseKeywords.filter(w => !w.includes(' ')).slice(0, 4);
-        if (topWords.length === 0) return "High quality stock media";
+        // Filter out short words and multi-word phrases for the title core
+        const coreWords = baseKeywords.filter(w => w.length > 3 && !w.includes(' '));
+
+        if (coreWords.length === 0) return "High Quality Stock Media Background";
 
         // Capitalize first letters
-        const formattedWords = topWords.map(w => w.charAt(0).toUpperCase() + w.slice(1));
+        const formattedWords = coreWords.map(w => w.charAt(0).toUpperCase() + w.slice(1));
 
-        return `${formattedWords.join(' ')} - Concept Background Image`;
+        // Construct a more natural title
+        if (formattedWords.length === 1) {
+            return `Beautiful ${formattedWords[0]} - Concept Background`;
+        } else if (formattedWords.length === 2) {
+            return `${formattedWords[0]} And ${formattedWords[1]} - High Resolution Concept`;
+        } else {
+            return `${formattedWords[0]}, ${formattedWords[1]} And ${formattedWords[2]} - Conceptual Image`;
+        }
     }
 
     generateDescription(baseKeywords, tags) {
-        // Take the main prediction (usually the first base keyword)
-        const mainSubject = baseKeywords.length > 0 ? baseKeywords[0] : 'subject';
-        const secondary = baseKeywords.length > 1 ? baseKeywords[1] : 'elements';
+        const coreWords = baseKeywords.filter(w => w.length > 3 && !w.includes(' '));
+        const mainSubject = coreWords.length > 0 ? coreWords[0] : 'this subject';
+        const secondary = coreWords.length > 1 ? coreWords[1] : 'various elements';
 
-        return `High quality shot of ${mainSubject} featuring ${secondary}. Perfect for design projects, marketing, and editorial use. Concepts include ${tags.slice(0, 5).join(', ')}.`;
+        return `A beautiful, high-resolution shot featuring ${mainSubject} and ${secondary}. This image is perfect for creative design projects, marketing materials, and editorial use. Visual concepts include: ${tags.slice(0, 6).join(', ')}.`;
     }
 
     // Utility: Fisher-Yates shuffle
